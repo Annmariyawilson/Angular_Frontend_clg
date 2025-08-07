@@ -1,0 +1,55 @@
+<div class="container">
+  <h2>Add Testimonial</h2>
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="name" name="name" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Profession:</label>
+      <input type="text" [(ngModel)]="profession" name="profession" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Testimonial:</label>
+      <textarea [(ngModel)]="text" name="text" class="form-control" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label>Image:</label>
+      <input type="file" (change)="onFileSelected($event)" class="form-control" accept="image/*" />
+    </div>
+
+    <div *ngIf="imagePreview" class="mb-3 text-center">
+      <img [src]="imagePreview" alt="Preview" style="max-width: 200px; border-radius: 10px;" />
+    </div>
+
+    <button type="submit" class="btn btn-success">
+     Add Testimonial
+    </button>
+  </form>
+</div>
+
+<div class="container">
+  <h3 class="mb-3">Added Testimonials</h3>
+  <div *ngIf="testimonials.length > 0; else noData">
+<div *ngFor="let item of testimonials" class="card">
+  <img *ngIf="item.image" [src]="item.imageUrl" class="card-img" alt="Testimonial" />
+  <div class="card-content">
+    <h5>{{ item.name }}</h5>
+    <h6 class="text-muted">{{ item.profession }}</h6>
+    <p>{{ item.text }}</p>
+    <i 
+      class="fas fa-trash text-danger" 
+      style="cursor: pointer;" 
+      (click)="deleteTestimonial(item.testimonialId)" 
+      title="Delete Testimonial">
+    </i>
+  </div>
+</div>
+  </div>
+  <ng-template #noData>
+    <p class="text-muted">No testimonials added yet.</p>
+  </ng-template>
+</div>

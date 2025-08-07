@@ -1,0 +1,85 @@
+<!-- Page Title -->
+<div
+    class="page-title-area"
+    [style.backgroundImage]="'url(assets/images/page-title/page-title-6.jpg)'"
+>
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Event Details</h2>
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Event</li>
+                <li>{{ event?.title }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Events Details -->
+<div class="events-details-area ptb-100" *ngIf="event">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div class="events-desc">
+                   <div class="event-image-container">
+  <img
+      [src]="event?.imageUrl || 'assets/images/event-details-img.jpg'"
+      alt="Event Image"
+      class="event-image"
+  />
+</div>
+
+                    <h4>Event Description</h4>
+                    <p>{{ event?.description }}</p>
+
+                    <h4>Who this event is for?</h4>
+                    <p>{{ event?.targetAudience }}</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-12">
+                <div class="events-sidebar">
+                    <h3>
+                        Event Details - {{ event.eventDate | date : "yyyy" }}
+                    </h3>
+                    <ul>
+                        <li>
+                            Start:
+                            <span>{{
+                                event.eventDate | date : "dd MMM yyyy"
+                            }}</span>
+                        </li>
+                        <li>
+                            End:
+                            <span>{{
+                                event.endDate | date : "dd MMM yyyy"
+                            }}</span>
+                        </li>
+                        <li>
+                            Event category: <span>{{ event.category }}</span>
+                        </li>
+                        <li>
+                            Location: <span>{{ event.location }}</span>
+                        </li>
+                        <li>
+                            Total slot: <span>{{ event.totalSlots }}</span>
+                        </li>
+                        <li>
+                            Booked slot: <span>{{ event.bookedSlots }}</span>
+                        </li>
+                        <!-- <li>Website: 
+                            <a [href]="event.website" target="_blank">
+                                {{ event.website }}
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loading state -->
+<div *ngIf="!event" class="text-center">
+    <p>Loading event details...</p>
+</div>

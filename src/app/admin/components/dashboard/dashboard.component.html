@@ -1,0 +1,1088 @@
+<div class="row">
+  <!-- Application Status Card -->
+  <div [routerLink]="['/hccmatadmin/all-applications']" class="col-md-12 col-xl-4">
+    <div class="card flat-card">
+      <h5 class="Status-Title">Application Status</h5>
+      <div class="row-table">
+        <div class="col-sm-6 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-hourglass-half" style="font-weight: 100; opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ applicationCount.pending || 0 }}</h5>
+              <span>Pending </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fas fa-check-circle" style="font-weight: 100; opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ applicationCount.approved || 0 }}</h5>
+              <span>Approved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-table">
+        <div class="col-sm-6 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-clipboard-check" style="opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ applicationCount.completed|| 0 }}</h5>
+              <span>Completed</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fas fa-times-circle" style="font-weight: 100; opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ applicationCount.rejected || 0 }}</h5>
+              <span>Rejected</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Total Applications -->
+    <div class="card flat-card widget-primary-card">
+      <div class="row-table">
+        <div class="col-sm-3 card-body">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="col-sm-9">
+          <h4> {{ applicationCount.total || 0 }}</h4>
+          <h6> Total Applications Received</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enquiry Status Card -->
+  <div [routerLink]="['/hccmatadmin/contact-form']" class="col-md-12 col-xl-4">
+    <div class="card flat-card">
+      <h5 class="Status-Title">Enquiry Status</h5>
+      <div class="row-table">
+        <div class="col-sm-6 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-hourglass-half" style="font-weight: 100; opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ contactCount.pending || 0 }}</h5>
+              <span>Pending</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-comment-dots" style="font-weight: 100; opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ contactCount.replied || 0 }}</h5>
+              <span>Replied</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-table">
+        <div class="col-sm-6 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-lock" style="font-weight: 100; opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ contactCount.closed || 0 }}</h5>
+              <span>Closed</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fas fa-eye" style="font-weight: 100; opacity: 0.7;"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ contactCount.viewed || 0 }}</h5>
+              <span>Viewed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Enquiries -->
+    <div class="card flat-card widget-purple-card">
+      <div class="row-table">
+        <div class="col-sm-3 card-body">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="col-sm-9">
+          <h4>{{ contactCount.total || 0 }}</h4>
+          <h6>Total Enquiries Received</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event Status -->
+  <div [routerLink]="['/hccmatadmin/all-events']" class="col-md-12 col-xl-4">
+    <div class="card support-bar overflow-hidden">
+      <h5 class="Status-Title">Event Status</h5>
+      <div class="card-body pb-0">
+        <h2 class="m-0">{{ eventCount?.total }}</h2>
+        <span class="text-c-blue">Total Events</span>
+        <p class="mb-3 mt-3">Total number of recorded events.</p>
+      </div>
+
+      <div class="card-footer bg-primary text-white">
+        <div class="row text-center">
+          <div class="col">
+            <h4 class="m-0 text-white">{{ eventCount.upcoming }}</h4>
+            <span>Upcoming</span>
+          </div>
+          <div class="col">
+            <h4 class="m-0 text-white">{{ eventCount.completed }}</h4>
+            <span>Completed</span>
+          </div>
+          <div class="col">
+            <h4 class="m-0 text-white">{{ eventCount.canceled }}</h4>
+            <span>Canceled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Widget primary-success card end -->
+
+  <!-- Application Area -->
+  <div [routerLink]="['/hccmatadmin/all-applications']" class="col-xl-6 col-md-12">
+    <div class="card table-card">
+      <div class="card-header">
+        <h5>Application Area</h5>
+        <div class="card-header-right">
+          <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" title="More options">
+              <i class="fa-solid fa-file"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead class="thead-fixed">
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Course</th>
+                <th>Place</th>
+                <th class="text-right">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let enquiry of enquiries">
+                <td>{{ enquiry.formId }}</td>
+                <td>{{ enquiry.name }}</td>
+                <td>{{ enquiry.course }}</td>
+                <td>{{ enquiry.presentAddress }}</td>
+                <td class="text-right">
+                  <label [ngClass]="{
+                  'badge badge-light-danger': enquiry.formStatus === 'rejected',
+                  'badge badge-light-primary': enquiry.formStatus === 'approved',
+                  'badge badge-light-success': enquiry.formStatus === 'pending',
+                  'badge badge-light-info': enquiry.formStatus === 'canceled'
+                }">
+                    {{ enquiry.formStatus }}
+                  </label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enquiry Updates -->
+  <div [routerLink]="['/hccmatadmin/contact-form']" class="col-xl-6 col-md-12">
+    <div class="card latest-update-card">
+      <div class="card-header">
+        <h5>Enquiry Updates</h5>
+        <div class="card-header-right">
+          <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" title="More options">
+              <i class="fa-solid fa-address-book"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-dark">
+            <thead class="thead-fixed">
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Submitted At</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let contact of contacts ">
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.status }}</td>
+                <td>{{ contact.submittedAt | date: 'mediumDate' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- prject ,team member start -->
+  <!-- seo start -->
+  <div class="col-xl-4 col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-6">
+            <h3>16,756</h3>
+            <h6 class="text-muted m-b-0">Wbsite Visits<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+          </div>
+          <div class="col-6">
+            <div id="seo-chart1" class="d-flex align-items-end" style="min-height: 40px;">
+              <div id="apexchartsp41jb6g8" class="apexcharts-canvas apexchartsp41jb6g8 light"
+                style="width: 161px; height: 40px;"><svg id="SvgjsSvg2682" width="161" height="40"
+                  xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS"
+                  transform="translate(0, 0)" style="background: transparent;">
+                  <g id="SvgjsG2684" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)">
+                    <defs id="SvgjsDefs2683">
+                      <clipPath id="gridRectMaskp41jb6g8">
+                        <rect id="SvgjsRect2689" width="164" height="43" x="-1.5" y="-1.5" rx="0" ry="0" fill="#ffffff"
+                          opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      </clipPath>
+                      <clipPath id="gridRectMarkerMaskp41jb6g8">
+                        <rect id="SvgjsRect2690" width="167" height="46" x="-3" y="-3" rx="0" ry="0" fill="#ffffff"
+                          opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      </clipPath>
+                    </defs>
+                    <line id="SvgjsLine2688" x1="0" y1="0" x2="0" y2="40" stroke="#b6b6b6" stroke-dasharray="3"
+                      class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="40" fill="#b1b9c4" filter="none"
+                      fill-opacity="0.9" stroke-width="1"></line>
+                    <g id="SvgjsG2723" class="apexcharts-xaxis" transform="translate(0, 0)">
+                      <g id="SvgjsG2724" class="apexcharts-xaxis-texts-g" transform="translate(0, 1.875)"></g>
+                    </g>
+                    <g id="SvgjsG2727" class="apexcharts-grid">
+                      <line id="SvgjsLine2729" x1="0" y1="40" x2="161" y2="40" stroke="transparent"
+                        stroke-dasharray="0"></line>
+                      <line id="SvgjsLine2728" x1="0" y1="1" x2="0" y2="40" stroke="transparent" stroke-dasharray="0">
+                      </line>
+                    </g>
+                    <g id="SvgjsG2692" class="apexcharts-area-series apexcharts-plot-series">
+                      <g id="SvgjsG2693" class="apexcharts-series" seriesName="series1" data:longestSeries="true"
+                        rel="1" data:realIndex="0">
+                        <path id="apexcharts-area-0"
+                          d="M 0 40L 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4L 161 40M 161 36.4z"
+                          fill="rgba(26,188,156,0.3)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0"
+                          clip-path="url(#gridRectMaskp41jb6g8)"
+                          pathTo="M 0 40L 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4L 161 40M 161 36.4z"
+                          pathFrom="M -1 40L -1 40L 13.416666666666666 40L 26.833333333333332 40L 40.25 40L 53.666666666666664 40L 67.08333333333333 40L 80.5 40L 93.91666666666666 40L 107.33333333333333 40L 120.75 40L 134.16666666666666 40L 147.58333333333334 40L 161 40">
+                        </path>
+                        <path id="apexcharts-area-0"
+                          d="M 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4"
+                          fill="none" fill-opacity="1" stroke="#1abc9c" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="3" stroke-dasharray="0" class="apexcharts-area" index="0"
+                          clip-path="url(#gridRectMaskp41jb6g8)"
+                          pathTo="M 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4"
+                          pathFrom="M -1 40L -1 40L 13.416666666666666 40L 26.833333333333332 40L 40.25 40L 53.666666666666664 40L 67.08333333333333 40L 80.5 40L 93.91666666666666 40L 107.33333333333333 40L 120.75 40L 134.16666666666666 40L 147.58333333333334 40L 161 40">
+                        </path>
+                        <g id="SvgjsG2694" class="apexcharts-series-markers-wrap">
+                          <g id="SvgjsG2696" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2697" r="2" cx="0" cy="36.4"
+                              class="apexcharts-marker no-pointer-events wu6iimnqb" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="0" j="0" index="0"
+                              default-marker-size="2"></circle>
+                            <circle id="SvgjsCircle2698" r="2" cx="13.416666666666666" cy="13.600000000000001"
+                              class="apexcharts-marker no-pointer-events wawdvzzlj" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="1" j="1" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2699" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2700" r="2" cx="26.833333333333332" cy="23.6"
+                              class="apexcharts-marker no-pointer-events wh1l674sdj" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="2" j="2" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2701" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2702" r="2" cx="40.25" cy="4.399999999999999"
+                              class="apexcharts-marker no-pointer-events wxespmfwr" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="3" j="3" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2703" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2704" r="2" cx="53.666666666666664" cy="14.8"
+                              class="apexcharts-marker no-pointer-events wrhkhuwfe" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="4" j="4" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2705" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2706" r="2" cx="67.08333333333333" cy="30"
+                              class="apexcharts-marker no-pointer-events wgdkebhmr" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="5" j="5" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2707" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2708" r="2" cx="80.5" cy="22.4"
+                              class="apexcharts-marker no-pointer-events w4bglz3ar" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="6" j="6" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2709" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2710" r="2" cx="93.91666666666666" cy="35.2"
+                              class="apexcharts-marker no-pointer-events wi58pmjal" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="7" j="7" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2711" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2712" r="2" cx="107.33333333333333" cy="25.6"
+                              class="apexcharts-marker no-pointer-events wzewij63n" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="8" j="8" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2713" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2714" r="2" cx="120.75" cy="32"
+                              class="apexcharts-marker no-pointer-events wzs7rgd1mf" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="9" j="9" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2715" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2716" r="2" cx="134.16666666666666" cy="18.4"
+                              class="apexcharts-marker no-pointer-events wgjl2pi8c" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="10" j="10" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2717" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2718" r="2" cx="147.58333333333334" cy="30"
+                              class="apexcharts-marker no-pointer-events w6x1yxgo2" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="11" j="11" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2719" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskp41jb6g8)">
+                            <circle id="SvgjsCircle2720" r="2" cx="161" cy="36.4"
+                              class="apexcharts-marker no-pointer-events wzew8ycbl" stroke="#1abc9c" fill="#1abc9c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="12" j="12" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                        </g>
+                        <g id="SvgjsG2695" class="apexcharts-datalabels"></g>
+                      </g>
+                    </g>
+                    <line id="SvgjsLine2730" x1="0" y1="0" x2="161" y2="0" stroke="#b6b6b6" stroke-dasharray="0"
+                      stroke-width="1" class="apexcharts-ycrosshairs"></line>
+                    <line id="SvgjsLine2731" x1="0" y1="0" x2="161" y2="0" stroke-dasharray="0" stroke-width="0"
+                      class="apexcharts-ycrosshairs-hidden"></line>
+                    <g id="SvgjsG2732" class="apexcharts-yaxis-annotations"></g>
+                    <g id="SvgjsG2733" class="apexcharts-xaxis-annotations"></g>
+                    <g id="SvgjsG2734" class="apexcharts-point-annotations"></g>
+                  </g>
+                  <rect id="SvgjsRect2687" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe" opacity="1"
+                    stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                  <g id="SvgjsG2725" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)">
+                    <g id="SvgjsG2726" class="apexcharts-yaxis-texts-g"></g>
+                  </g>
+                </svg>
+                <div class="apexcharts-legend"></div>
+                <div class="apexcharts-tooltip light">
+                  <div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker"
+                      style="background-color: rgb(26, 188, 156);"></span>
+                    <div class="apexcharts-tooltip-text"
+                      style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
+                      <div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span
+                          class="apexcharts-tooltip-text-value"></span></div>
+                      <div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span
+                          class="apexcharts-tooltip-text-z-value"></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="resize-triggers">
+              <div class="expand-trigger">
+                <div style="width: 192px; height: 41px;"></div>
+              </div>
+              <div class="contract-trigger"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-6">
+            <h3>200</h3>
+            <h6 class="text-muted m-b-0">Total Enquiry<i class="fa fa-caret-up text-c-green m-l-10"></i></h6>
+          </div>
+          <div class="col-6">
+            <div id="seo-chart2" class="d-flex align-items-end" style="min-height: 40px;">
+              <div id="apexchartso4zb00kv" class="apexcharts-canvas apexchartso4zb00kv light"
+                style="width: 161px; height: 40px;"><svg id="SvgjsSvg2737" width="161" height="40"
+                  xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS"
+                  transform="translate(0, 0)" style="background: transparent;">
+                  <g id="SvgjsG2739" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)">
+                    <defs id="SvgjsDefs2738">
+                      <linearGradient id="SvgjsLinearGradient2741" x1="0" y1="0" x2="0" y2="1">
+                        <stop id="SvgjsStop2742" stop-opacity="0.4" stop-color="rgba(216,227,240,0.4)" offset="0">
+                        </stop>
+                        <stop id="SvgjsStop2743" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1">
+                        </stop>
+                        <stop id="SvgjsStop2744" stop-opacity="0.5" stop-color="rgba(190,209,230,0.5)" offset="1">
+                        </stop>
+                      </linearGradient>
+                      <clipPath id="gridRectMasko4zb00kv">
+                        <rect id="SvgjsRect2747" width="161" height="40" x="0" y="0" rx="0" ry="0" fill="#ffffff"
+                          opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      </clipPath>
+                      <clipPath id="gridRectMarkerMasko4zb00kv">
+                        <rect id="SvgjsRect2748" width="163" height="42" x="-1" y="-1" rx="0" ry="0" fill="#ffffff"
+                          opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      </clipPath>
+                    </defs>
+                    <line id="SvgjsLine2746" x1="0" y1="0" x2="0" y2="40" stroke-dasharray="3"
+                      class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="40"
+                      fill="url(#SvgjsLinearGradient2741)" filter="none" fill-opacity="0.9" stroke-width="0"></line>
+                    <g id="SvgjsG2769" class="apexcharts-xaxis" transform="translate(0, 0)">
+                      <g id="SvgjsG2770" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g>
+                    </g>
+                    <g id="SvgjsG2773" class="apexcharts-grid">
+                      <line id="SvgjsLine2775" x1="0" y1="40" x2="161" y2="40" stroke="transparent"
+                        stroke-dasharray="0"></line>
+                      <line id="SvgjsLine2774" x1="0" y1="1" x2="0" y2="40" stroke="transparent" stroke-dasharray="0">
+                      </line>
+                    </g>
+                    <g id="SvgjsG2750" class="apexcharts-bar-series apexcharts-plot-series">
+                      <g id="SvgjsG2751" class="apexcharts-series" rel="1" seriesName="seriesx1" data:realIndex="0">
+                        <path id="apexcharts-bar-area-0"
+                          d="M 1.704705882352941 40L 1.704705882352941 30L 7.765882352941176 30L 7.765882352941176 40L 1.704705882352941 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 1.704705882352941 40L 1.704705882352941 30L 7.765882352941176 30L 7.765882352941176 40L 1.704705882352941 40"
+                          pathFrom="M 1.704705882352941 40L 1.704705882352941 40L 7.765882352941176 40L 7.765882352941176 40L 1.704705882352941 40"
+                          cy="30" cx="7.765882352941176" j="0" val="25" barHeight="10" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 11.806666666666667 40L 11.806666666666667 13.600000000000001L 17.8678431372549 13.600000000000001L 17.8678431372549 40L 11.806666666666667 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 11.806666666666667 40L 11.806666666666667 13.600000000000001L 17.8678431372549 13.600000000000001L 17.8678431372549 40L 11.806666666666667 40"
+                          pathFrom="M 11.806666666666667 40L 11.806666666666667 40L 17.8678431372549 40L 17.8678431372549 40L 11.806666666666667 40"
+                          cy="13.600000000000001" cx="17.8678431372549" j="1" val="66" barHeight="26.4"
+                          barWidth="6.061176470588236"></path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 21.90862745098039 40L 21.90862745098039 23.6L 27.969803921568626 23.6L 27.969803921568626 40L 21.90862745098039 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 21.90862745098039 40L 21.90862745098039 23.6L 27.969803921568626 23.6L 27.969803921568626 40L 21.90862745098039 40"
+                          pathFrom="M 21.90862745098039 40L 21.90862745098039 40L 27.969803921568626 40L 27.969803921568626 40L 21.90862745098039 40"
+                          cy="23.6" cx="27.969803921568626" j="2" val="41" barHeight="16.4"
+                          barWidth="6.061176470588236"></path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 32.010588235294115 40L 32.010588235294115 4.399999999999999L 38.07176470588235 4.399999999999999L 38.07176470588235 40L 32.010588235294115 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 32.010588235294115 40L 32.010588235294115 4.399999999999999L 38.07176470588235 4.399999999999999L 38.07176470588235 40L 32.010588235294115 40"
+                          pathFrom="M 32.010588235294115 40L 32.010588235294115 40L 38.07176470588235 40L 38.07176470588235 40L 32.010588235294115 40"
+                          cy="4.399999999999999" cx="38.07176470588235" j="3" val="89" barHeight="35.6"
+                          barWidth="6.061176470588236"></path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 42.11254901960784 40L 42.11254901960784 14.8L 48.17372549019608 14.8L 48.17372549019608 40L 42.11254901960784 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 42.11254901960784 40L 42.11254901960784 14.8L 48.17372549019608 14.8L 48.17372549019608 40L 42.11254901960784 40"
+                          pathFrom="M 42.11254901960784 40L 42.11254901960784 40L 48.17372549019608 40L 48.17372549019608 40L 42.11254901960784 40"
+                          cy="14.8" cx="48.17372549019608" j="4" val="63" barHeight="25.2" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 52.214509803921565 40L 52.214509803921565 30L 58.2756862745098 30L 58.2756862745098 40L 52.214509803921565 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 52.214509803921565 40L 52.214509803921565 30L 58.2756862745098 30L 58.2756862745098 40L 52.214509803921565 40"
+                          pathFrom="M 52.214509803921565 40L 52.214509803921565 40L 58.2756862745098 40L 58.2756862745098 40L 52.214509803921565 40"
+                          cy="30" cx="58.2756862745098" j="5" val="25" barHeight="10" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 62.31647058823529 40L 62.31647058823529 22.4L 68.37764705882353 22.4L 68.37764705882353 40L 62.31647058823529 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 62.31647058823529 40L 62.31647058823529 22.4L 68.37764705882353 22.4L 68.37764705882353 40L 62.31647058823529 40"
+                          pathFrom="M 62.31647058823529 40L 62.31647058823529 40L 68.37764705882353 40L 68.37764705882353 40L 62.31647058823529 40"
+                          cy="22.4" cx="68.37764705882353" j="6" val="44" barHeight="17.6" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 72.41843137254902 40L 72.41843137254902 35.2L 78.47960784313726 35.2L 78.47960784313726 40L 72.41843137254902 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 72.41843137254902 40L 72.41843137254902 35.2L 78.47960784313726 35.2L 78.47960784313726 40L 72.41843137254902 40"
+                          pathFrom="M 72.41843137254902 40L 72.41843137254902 40L 78.47960784313726 40L 78.47960784313726 40L 72.41843137254902 40"
+                          cy="35.2" cx="78.47960784313726" j="7" val="12" barHeight="4.8" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 82.52039215686274 40L 82.52039215686274 25.6L 88.58156862745098 25.6L 88.58156862745098 40L 82.52039215686274 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 82.52039215686274 40L 82.52039215686274 25.6L 88.58156862745098 25.6L 88.58156862745098 40L 82.52039215686274 40"
+                          pathFrom="M 82.52039215686274 40L 82.52039215686274 40L 88.58156862745098 40L 88.58156862745098 40L 82.52039215686274 40"
+                          cy="25.6" cx="88.58156862745098" j="8" val="36" barHeight="14.4" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 92.62235294117647 40L 92.62235294117647 36.4L 98.68352941176471 36.4L 98.68352941176471 40L 92.62235294117647 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 92.62235294117647 40L 92.62235294117647 36.4L 98.68352941176471 36.4L 98.68352941176471 40L 92.62235294117647 40"
+                          pathFrom="M 92.62235294117647 40L 92.62235294117647 40L 98.68352941176471 40L 98.68352941176471 40L 92.62235294117647 40"
+                          cy="36.4" cx="98.68352941176471" j="9" val="9" barHeight="3.6" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 102.72431372549019 40L 102.72431372549019 18.4L 108.78549019607843 18.4L 108.78549019607843 40L 102.72431372549019 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 102.72431372549019 40L 102.72431372549019 18.4L 108.78549019607843 18.4L 108.78549019607843 40L 102.72431372549019 40"
+                          pathFrom="M 102.72431372549019 40L 102.72431372549019 40L 108.78549019607843 40L 108.78549019607843 40L 102.72431372549019 40"
+                          cy="18.4" cx="108.78549019607843" j="10" val="54" barHeight="21.6"
+                          barWidth="6.061176470588236"></path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 112.82627450980392 40L 112.82627450980392 30L 118.88745098039216 30L 118.88745098039216 40L 112.82627450980392 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 112.82627450980392 40L 112.82627450980392 30L 118.88745098039216 30L 118.88745098039216 40L 112.82627450980392 40"
+                          pathFrom="M 112.82627450980392 40L 112.82627450980392 40L 118.88745098039216 40L 118.88745098039216 40L 112.82627450980392 40"
+                          cy="30" cx="118.88745098039216" j="11" val="25" barHeight="10" barWidth="6.061176470588236">
+                        </path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 122.92823529411764 40L 122.92823529411764 13.600000000000001L 128.98941176470586 13.600000000000001L 128.98941176470586 40L 122.92823529411764 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 122.92823529411764 40L 122.92823529411764 13.600000000000001L 128.98941176470586 13.600000000000001L 128.98941176470586 40L 122.92823529411764 40"
+                          pathFrom="M 122.92823529411764 40L 122.92823529411764 40L 128.98941176470586 40L 128.98941176470586 40L 122.92823529411764 40"
+                          cy="13.600000000000001" cx="128.98941176470586" j="12" val="66" barHeight="26.4"
+                          barWidth="6.061176470588236"></path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 133.03019607843137 40L 133.03019607843137 23.6L 139.0913725490196 23.6L 139.0913725490196 40L 133.03019607843137 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 133.03019607843137 40L 133.03019607843137 23.6L 139.0913725490196 23.6L 139.0913725490196 40L 133.03019607843137 40"
+                          pathFrom="M 133.03019607843137 40L 133.03019607843137 40L 139.0913725490196 40L 139.0913725490196 40L 133.03019607843137 40"
+                          cy="23.6" cx="139.0913725490196" j="13" val="41" barHeight="16.4"
+                          barWidth="6.061176470588236"></path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 143.1321568627451 40L 143.1321568627451 4.399999999999999L 149.19333333333333 4.399999999999999L 149.19333333333333 40L 143.1321568627451 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 143.1321568627451 40L 143.1321568627451 4.399999999999999L 149.19333333333333 4.399999999999999L 149.19333333333333 40L 143.1321568627451 40"
+                          pathFrom="M 143.1321568627451 40L 143.1321568627451 40L 149.19333333333333 40L 149.19333333333333 40L 143.1321568627451 40"
+                          cy="4.399999999999999" cx="149.19333333333333" j="14" val="89" barHeight="35.6"
+                          barWidth="6.061176470588236"></path>
+                        <path id="apexcharts-bar-area-0"
+                          d="M 153.2341176470588 40L 153.2341176470588 14.8L 159.29529411764705 14.8L 159.29529411764705 40L 153.2341176470588 40"
+                          fill="rgba(46,204,113,0.85)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-bar-area" index="0"
+                          clip-path="url(#gridRectMasko4zb00kv)"
+                          pathTo="M 153.2341176470588 40L 153.2341176470588 14.8L 159.29529411764705 14.8L 159.29529411764705 40L 153.2341176470588 40"
+                          pathFrom="M 153.2341176470588 40L 153.2341176470588 40L 159.29529411764705 40L 159.29529411764705 40L 153.2341176470588 40"
+                          cy="14.8" cx="159.29529411764705" j="15" val="63" barHeight="25.2"
+                          barWidth="6.061176470588236"></path>
+                        <g id="SvgjsG2752" class="apexcharts-datalabels"></g>
+                      </g>
+                    </g>
+                    <line id="SvgjsLine2776" x1="0" y1="0" x2="161" y2="0" stroke="#b6b6b6" stroke-dasharray="0"
+                      stroke-width="1" class="apexcharts-ycrosshairs"></line>
+                    <line id="SvgjsLine2777" x1="0" y1="0" x2="161" y2="0" stroke-dasharray="0" stroke-width="0"
+                      class="apexcharts-ycrosshairs-hidden"></line>
+                    <g id="SvgjsG2778" class="apexcharts-yaxis-annotations"></g>
+                    <g id="SvgjsG2779" class="apexcharts-xaxis-annotations"></g>
+                    <g id="SvgjsG2780" class="apexcharts-point-annotations"></g>
+                  </g>
+                  <rect id="SvgjsRect2745" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe" opacity="1"
+                    stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                  <g id="SvgjsG2771" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)">
+                    <g id="SvgjsG2772" class="apexcharts-yaxis-texts-g"></g>
+                  </g>
+                </svg>
+                <div class="apexcharts-legend"></div>
+                <div class="apexcharts-tooltip light">
+                  <div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker"
+                      style="background-color: rgb(46, 204, 113);"></span>
+                    <div class="apexcharts-tooltip-text"
+                      style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
+                      <div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span
+                          class="apexcharts-tooltip-text-value"></span></div>
+                      <div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span
+                          class="apexcharts-tooltip-text-z-value"></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="resize-triggers">
+              <div class="expand-trigger">
+                <div style="width: 192px; height: 41px;"></div>
+              </div>
+              <div class="contract-trigger"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-4 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-6">
+            <h3>1,62,564</h3>
+            <h6 class="text-muted m-b-0">Event Registration<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+          </div>
+          <div class="col-6">
+            <div id="seo-chart3" class="d-flex align-items-end" style="min-height: 40px;">
+              <div id="apexchartsd13byl1k" class="apexcharts-canvas apexchartsd13byl1k light"
+                style="width: 161px; height: 40px;"><svg id="SvgjsSvg2783" width="161" height="40"
+                  xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                  xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS"
+                  transform="translate(0, 0)" style="background: transparent;">
+                  <g id="SvgjsG2785" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)">
+                    <defs id="SvgjsDefs2784">
+                      <clipPath id="gridRectMaskd13byl1k">
+                        <rect id="SvgjsRect2790" width="164" height="43" x="-1.5" y="-1.5" rx="0" ry="0" fill="#ffffff"
+                          opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      </clipPath>
+                      <clipPath id="gridRectMarkerMaskd13byl1k">
+                        <rect id="SvgjsRect2791" width="167" height="46" x="-3" y="-3" rx="0" ry="0" fill="#ffffff"
+                          opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                      </clipPath>
+                    </defs>
+                    <line id="SvgjsLine2789" x1="0" y1="0" x2="0" y2="40" stroke="#b6b6b6" stroke-dasharray="3"
+                      class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="40" fill="#b1b9c4" filter="none"
+                      fill-opacity="0.9" stroke-width="1"></line>
+                    <g id="SvgjsG2824" class="apexcharts-xaxis" transform="translate(0, 0)">
+                      <g id="SvgjsG2825" class="apexcharts-xaxis-texts-g" transform="translate(0, 1.875)"></g>
+                    </g>
+                    <g id="SvgjsG2828" class="apexcharts-grid">
+                      <line id="SvgjsLine2830" x1="0" y1="40" x2="161" y2="40" stroke="transparent"
+                        stroke-dasharray="0"></line>
+                      <line id="SvgjsLine2829" x1="0" y1="1" x2="0" y2="40" stroke="transparent" stroke-dasharray="0">
+                      </line>
+                    </g>
+                    <g id="SvgjsG2793" class="apexcharts-area-series apexcharts-plot-series">
+                      <g id="SvgjsG2794" class="apexcharts-series" seriesName="series1" data:longestSeries="true"
+                        rel="1" data:realIndex="0">
+                        <path id="apexcharts-area-0"
+                          d="M 0 40L 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4L 161 40M 161 36.4z"
+                          fill="rgba(231,76,60,0)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0"
+                          clip-path="url(#gridRectMaskd13byl1k)"
+                          pathTo="M 0 40L 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4L 161 40M 161 36.4z"
+                          pathFrom="M -1 40L -1 40L 13.416666666666666 40L 26.833333333333332 40L 40.25 40L 53.666666666666664 40L 67.08333333333333 40L 80.5 40L 93.91666666666666 40L 107.33333333333333 40L 120.75 40L 134.16666666666666 40L 147.58333333333334 40L 161 40">
+                        </path>
+                        <path id="apexcharts-area-0"
+                          d="M 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4"
+                          fill="none" fill-opacity="1" stroke="#e74c3c" stroke-opacity="1" stroke-linecap="butt"
+                          stroke-width="3" stroke-dasharray="0" class="apexcharts-area" index="0"
+                          clip-path="url(#gridRectMaskd13byl1k)"
+                          pathTo="M 0 36.4L 13.416666666666666 13.600000000000001L 26.833333333333332 23.6L 40.25 4.399999999999999L 53.666666666666664 14.8L 67.08333333333333 30L 80.5 22.4L 93.91666666666666 35.2L 107.33333333333333 25.6L 120.75 32L 134.16666666666666 18.4L 147.58333333333334 30L 161 36.4"
+                          pathFrom="M -1 40L -1 40L 13.416666666666666 40L 26.833333333333332 40L 40.25 40L 53.666666666666664 40L 67.08333333333333 40L 80.5 40L 93.91666666666666 40L 107.33333333333333 40L 120.75 40L 134.16666666666666 40L 147.58333333333334 40L 161 40">
+                        </path>
+                        <g id="SvgjsG2795" class="apexcharts-series-markers-wrap">
+                          <g id="SvgjsG2797" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2798" r="2" cx="0" cy="36.4"
+                              class="apexcharts-marker no-pointer-events wlbgep2sn" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="0" j="0" index="0"
+                              default-marker-size="2"></circle>
+                            <circle id="SvgjsCircle2799" r="2" cx="13.416666666666666" cy="13.600000000000001"
+                              class="apexcharts-marker no-pointer-events w3a6tmdgx" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="1" j="1" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2800" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2801" r="2" cx="26.833333333333332" cy="23.6"
+                              class="apexcharts-marker no-pointer-events w10e4lkob" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="2" j="2" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2802" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2803" r="2" cx="40.25" cy="4.399999999999999"
+                              class="apexcharts-marker no-pointer-events wosvakycwg" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="3" j="3" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2804" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2805" r="2" cx="53.666666666666664" cy="14.8"
+                              class="apexcharts-marker no-pointer-events wlll83ygi" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="4" j="4" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2806" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2807" r="2" cx="67.08333333333333" cy="30"
+                              class="apexcharts-marker no-pointer-events wb4let092" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="5" j="5" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2808" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2809" r="2" cx="80.5" cy="22.4"
+                              class="apexcharts-marker no-pointer-events wspk2s087l" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="6" j="6" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2810" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2811" r="2" cx="93.91666666666666" cy="35.2"
+                              class="apexcharts-marker no-pointer-events wj5tut2rk" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="7" j="7" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2812" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2813" r="2" cx="107.33333333333333" cy="25.6"
+                              class="apexcharts-marker no-pointer-events w5nz2kx9g" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="8" j="8" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2814" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2815" r="2" cx="120.75" cy="32"
+                              class="apexcharts-marker no-pointer-events wf9ek8iwl" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="9" j="9" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2816" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2817" r="2" cx="134.16666666666666" cy="18.4"
+                              class="apexcharts-marker no-pointer-events w2jkk70nvg" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="10" j="10" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2818" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2819" r="2" cx="147.58333333333334" cy="30"
+                              class="apexcharts-marker no-pointer-events wq86tmmwlh" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="11" j="11" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                          <g id="SvgjsG2820" class="apexcharts-series-markers"
+                            clip-path="url(#gridRectMarkerMaskd13byl1k)">
+                            <circle id="SvgjsCircle2821" r="2" cx="161" cy="36.4"
+                              class="apexcharts-marker no-pointer-events wvfkth0h4" stroke="#e74c3c" fill="#e74c3c"
+                              fill-opacity="1" stroke-width="2" stroke-opacity="0.9" rel="12" j="12" index="0"
+                              default-marker-size="2"></circle>
+                          </g>
+                        </g>
+                        <g id="SvgjsG2796" class="apexcharts-datalabels"></g>
+                      </g>
+                    </g>
+                    <line id="SvgjsLine2831" x1="0" y1="0" x2="161" y2="0" stroke="#b6b6b6" stroke-dasharray="0"
+                      stroke-width="1" class="apexcharts-ycrosshairs"></line>
+                    <line id="SvgjsLine2832" x1="0" y1="0" x2="161" y2="0" stroke-dasharray="0" stroke-width="0"
+                      class="apexcharts-ycrosshairs-hidden"></line>
+                    <g id="SvgjsG2833" class="apexcharts-yaxis-annotations"></g>
+                    <g id="SvgjsG2834" class="apexcharts-xaxis-annotations"></g>
+                    <g id="SvgjsG2835" class="apexcharts-point-annotations"></g>
+                  </g>
+                  <rect id="SvgjsRect2788" width="0" height="0" x="0" y="0" rx="0" ry="0" fill="#fefefe" opacity="1"
+                    stroke-width="0" stroke="none" stroke-dasharray="0"></rect>
+                  <g id="SvgjsG2826" class="apexcharts-yaxis" rel="0" transform="translate(-21, 0)">
+                    <g id="SvgjsG2827" class="apexcharts-yaxis-texts-g"></g>
+                  </g>
+                </svg>
+                <div class="apexcharts-legend"></div>
+                <div class="apexcharts-tooltip light">
+                  <div class="apexcharts-tooltip-series-group"><span class="apexcharts-tooltip-marker"
+                      style="background-color: rgb(231, 76, 60);"></span>
+                    <div class="apexcharts-tooltip-text"
+                      style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;">
+                      <div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-label"></span><span
+                          class="apexcharts-tooltip-text-value"></span></div>
+                      <div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span
+                          class="apexcharts-tooltip-text-z-value"></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="resize-triggers">
+              <div class="expand-trigger">
+                <div style="width: 192px; height: 41px;"></div>
+              </div>
+              <div class="contract-trigger"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Event -->
+  <div class="col-lg-8 col-md-12">
+    <div class="card table-card review-card">
+      <div [routerLink]="['/hccmatadmin/all-events']" class="card-header borderless">
+        <h5>Events Area</h5>
+        <div class="card-header-right">
+          <div class="btn-group card-option">
+            <button type="button" title="More options" class="btn dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-calendar-days"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body pb-0">
+        <div class="review-block">
+          <div *ngIf="events && events.length > 0; else noEvents">
+            <div class="row m-b-20" *ngFor="let event of events">
+              <div class="col-sm-auto p-r-0">
+                <div class="img-radius profile-img cust-img m-b-15" [ngStyle]="{'background-image': 'url(' + event.imageUrl + ')',
+                                 'background-size': 'cover',
+                                 'background-position': 'center',
+                                 'width': '70px',
+                                 'height': '70px',
+                                 'border-radius': '50%'}">
+                </div>
+              </div>
+              <div class="col">
+                <h6 class="m-b-15">
+                  {{ event.title }}
+                  <span class="float-right f-13 text-muted">
+                    {{ event.eventDate | date: 'mediumDate' }}
+                  </span>
+                </h6>
+                <p class="m-t-15 m-b-15 text-muted">
+                  {{ truncateDescription(event.description) }}
+                </p>
+
+                <span class="text-capitalize fw-semibold d-inline-flex align-items-center status-small"
+                  [ngClass]="getStatusTextClass(event.eventStatus)">
+                  <i class="feather me-1" [ngClass]="getStatusIcon(event.eventStatus)"></i>
+                  {{ event.eventStatus }}
+                </span>
+
+              </div>
+            </div>
+          </div>
+
+          <ng-template #noEvents>
+            <p class="text-muted text-center">No events found.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- placement Holders data -->
+    <div class="row">
+
+      <div [routerLink]="['/hccmatadmin/placements']" class="col-sm-6">
+        <div class="card" style="height: 500px; overflow-y: auto;">
+          <div class="card-header borderless">
+            <h5>Placement Holders</h5>
+            <div class="card-header-right">
+              <div class="btn-group card-option">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                  title="Open dropdown menu" aria-expanded="false">
+                  <i class="fa-solid fa-user-graduate"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <ng-container *ngIf="placements && placements.length > 0; else noPlacements">
+            <div *ngFor="let placement of placements" class="card-t flat-card widget-primary-card mb-2">
+              <div class="row-table">
+                <div class="col-sm-3 card-body">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="col-sm-9">
+                  <h6>&nbsp; {{ placement.name }}</h6>
+                  <p>&nbsp;Company: &nbsp; {{ placement.company }}</p>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+
+          <ng-template #noPlacements>
+            <div class="card-body text-center">
+              <p>No placement data available.</p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+
+      <!-- Rank Holdaers Data -->
+      <div [routerLink]="['/hccmatadmin/rank-holders']" class="col-sm-6">
+        <div class="card" style="height: 500px; overflow-y: auto;">
+          <div class="card-header borderless">
+            <h5>Rank Holders</h5>
+            <div class="card-header-right">
+              <div class="btn-group card-option">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                  title="Open dropdown menu" aria-expanded="false">
+                  <i class="fa-solid fa-ranking-star"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let rankHolder of rankHolders" class="card-t flat-card widget-purple-card">
+            <div class="row-table">
+              <div class="col-sm-3 card-body">
+                <i class="fa-solid fa-award"></i>
+              </div>
+              <div class="col-sm-9">
+                <h6>&nbsp; {{ rankHolder.name }}</h6>
+                <p>Course: &nbsp; {{ rankHolder.course }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-12">
+    <!-- <div class="card chat-card">
+      <div class="card-header">
+        <h5>Chat</h5>
+        <div class="card-header-right">
+          <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" title="Open dropdown menu"
+              aria-expanded="false">
+              <i class="feather icon-more-horizontal"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row m-b-20 received-chat">
+          <div class="col-auto p-r-0">
+            <img src="assets/images/user/avatar-2.jpg" alt="user image" class="img-radius wid-40">
+          </div>
+          <div class="col">
+            <div class="msg">
+              <p class="m-b-0">Nice to meet you!</p>
+            </div>
+            <p class="text-muted m-b-0"><i class="fa fa-clock-o m-r-10"></i>10:20am</p>
+          </div>
+        </div>
+        <div class="row m-b-20 send-chat">
+          <div class="col">
+            <div class="msg">
+              <p class="m-b-0">Nice to meet you!</p>
+            </div>
+            <p class="text-muted m-b-0"><i class="fa fa-clock-o m-r-10"></i>10:20am</p>
+          </div>
+          <div class="col-auto p-l-0">
+            <img src="./images/user/avatar-3.jpg" alt="user image" class="img-radius wid-40">
+          </div>
+        </div>
+        <div class="row m-b-20 received-chat">
+          <div class="col-auto p-r-0">
+            <img src="./images/user/avatar-2.jpg" alt="user image" class="img-radius wid-40">
+          </div>
+          <div class="col">
+            <div class="msg">
+              <p class="m-b-0">Nice to meet you!</p>
+              <img src="./images/widget/dashborad-1.jpg" alt="">
+              <img src="./images/widget/dashborad-3.jpg" alt="">
+            </div>
+            <p class="text-muted m-b-0"><i class="fa fa-clock-o m-r-10"></i>10:20am</p>
+          </div>
+        </div>
+        <div class="input-group m-t-15">
+          <input type="text" name="task-insert" class="form-control" id="Project" placeholder="Send message">
+          <div class="input-group-append">
+            <button class="btn btn-primary">
+              <i class="feather icon-message-circle"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- board members and staffs -->
+    <div [routerLink]="['/hccmatadmin/team-management']" class="card" style="height: 1050px; overflow-y: auto;">
+      <div class="card-header">
+        <h5>HCCMAT TEAMS</h5>
+        <div class="card-header-right">
+          <div class="btn-group card-option">
+            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              title="Open dropdown menu" aria-expanded="false">
+              <i class="fa-solid fa-users"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loop through boardMembers array -->
+      <div *ngFor="let member of boardMembers" class="card-t flat-card widget-primary-card">
+        <div class="row-table">
+          <div class="col-sm-3 card-body">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <div class="col-sm-9">
+            <h6>&nbsp; {{ member.name }}</h6>
+            <p>&nbsp; {{ member.jobTitle }}</p> <!-- Display job title -->
+          </div>
+        </div>
+      </div>
+    </div>

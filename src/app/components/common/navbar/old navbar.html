@@ -1,0 +1,353 @@
+<div class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="aboutUs" class="nav-link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">About Us</a>
+            <!-- <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home Demo - 1</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/index-2" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home Demo - 2</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/index-3" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home Demo - 3</a>
+                </li>
+            </ul> -->
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Courses</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="courses" [queryParams]="{ courseType: 'PG' }" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">PG Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="courses" [queryParams]="{ courseType: 'UG' }" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">UG Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="courses" [queryParams]="{ courseType: 'Add on course' }" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Add On Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/study-online" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Online Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/about" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Examination</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/application" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Application Form</a>
+                </li>
+            </ul>
+        </li>
+                            <!-- <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Explore</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/about" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Examination </a>
+
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a routerLink="/our-professors" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Rank Holders</a>
+                </li>
+
+                <li class="nav-item">
+                    <a routerLink="/our-professors" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Placements</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/about" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Achievements </a>
+                </li> -->
+
+                <!-- <li class="nav-item">
+                    <a routerLink="/about" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Faculty </a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a routerLink="/application" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Application form</a>
+                </li> -->
+
+                <!-- <li class="nav-item">
+                    <a routerLink="/faq" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">FAQ</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a routerLink="/gallery" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="nav-link">Faculty </a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item">
+                            <a routerLink="/login" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Administratiion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Commerce</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Computer Science</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of English </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Management </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Tourism </a>
+                        </li>
+                    </ul> -->
+              
+                <!-- <li class="nav-item">
+                    <a routerLink="/privacy-policy" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Privacy policy</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/terms-conditions" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Terms & conditions</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/not-found" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">404 error page</a>
+                </li> -->
+            <!-- </ul> -->
+        <!-- </li> -->
+        <!-- <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Events</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/events" class="nav-link">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/event-details" class="nav-link">Event details</a>
+                </li>
+            </ul>
+        </li> -->
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Our Campus</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/news-right-sidebar" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Campus News</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/campus-experience" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Campus Life</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/alumni" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Alumni</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/events" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/gallery" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admissions" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Admissions</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Achievements</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/rank-holders" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Rank Holders</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/placement" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Placements</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/news-grid" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">Campus Triumphs</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contact" class="nav-link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+        </li>
+    </ul>
+    <!-- navbar responsive -->
+    <ul class="navbar-nav for-responsive">
+        <a routerLink="aboutUs" class="nav-link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}" routerLink="aboutUs" >About Us</a>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Courses</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/courses" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">UG Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/courses" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">PG Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/courses" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Add On Courses</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/courses" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Online Courses</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Explore</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/about" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">About us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a routerLink="/our-professors" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Our professors</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/faq" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/gallery" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="javascript:void(0)" class="dropdown-toggle nav-link">Faculty</a>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item">
+                            <a routerLink="/login" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Administratiion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Commerce</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Computer Science</a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of English </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Management </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/register" class="nav-link" routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact: true}">Department of Tourism </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/privacy-policy" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Privacy policy</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/terms-conditions" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Terms &
+                        conditions</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/not-found" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">404 error page</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Events</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/events" class="nav-link" (click)="toggleClass()">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/event-details" class="nav-link" (click)="toggleClass()">Event
+                        details</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">Our Campus</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/campus-information" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Campus
+                        Life</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/campus-experience" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Campus
+                        Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/alumni" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Alumni</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/study-online" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Study online</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admissions" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Admissions</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:void(0)" class="dropdown-toggle nav-link">News</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a routerLink="/news-grid" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Campus News</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/news-right-sidebar" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">University
+                        News</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/news-details" class="nav-link" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Global News</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/contact" class="nav-link" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Contact Us</a>
+        </li>
+    </ul>
+    <div class="others-option d-flex align-items-center">
+        <div>
+            <a routerLink="/application" class="default-btn">
+                APPLY NOW
+            </a>
+        </div>
+        <!-- <div class="search-icon" (click)="searchToggleClass()">
+            <i class="ri-search-line"></i>
+        </div> -->
+    </div>
+</div>

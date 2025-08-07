@@ -1,0 +1,168 @@
+.user-form-content {
+    background-color: #f3f3f5;
+    max-width: 700px;
+    padding: 60px;
+    margin: {
+        left: auto;
+        right: auto;
+    };
+    h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e4e4e4;
+    }
+    form {
+        .form-group {
+            margin-bottom: 30px;
+
+            label {
+                margin-bottom: 12px;
+                font-weight: 500;
+            }
+            .form-control {
+                background-color: var(--white-color) !important;
+                box-shadow: var(--box-shadow) !important;
+                border-color: #d7d7d7 !important;
+
+                &:focus {
+                    border-color: var(--main-color) !important;
+                }
+            }
+        }
+        .login-action {
+            margin-bottom: 20px;
+
+            .form-check {
+                display: inline-block;
+
+                label {
+                    margin-bottom: 0 !important;
+                    cursor: pointer;
+                }
+                .form-check-input {
+                    box-shadow: unset !important;
+                    border-radius: 0;
+                    cursor: pointer;
+        
+                    &:checked {
+                        background-color: var(--main-color);
+                        border-color: var(--main-color);
+                    }
+                }
+            }
+            .forgot-login {
+                display: inline-block;
+            }
+            .forgot-login {
+                float: right;
+            }
+        }
+        .default-btn {
+            width: 100%;
+            padding: {
+                left: 30px;
+                right: 30px;
+            };
+        }
+    }
+    .create {
+        margin-top: 15px;
+        text-align: center;
+        
+        a {
+            color: var(--main-color);
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .user-form-content {
+        max-width: 100%;
+        padding: 20px;
+        
+        h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        form {
+            .form-group {
+                margin-bottom: 20px;
+    
+                label {
+                    margin-bottom: 8px;
+                }
+            }
+            .login-action {
+                margin-bottom: 15px;
+    
+                .form-check {
+                    display: block;
+                }
+                .forgot-login {
+                    float: unset;
+                    display: block;
+                    margin-top: 8px;
+                }
+            }
+        }
+        .create {
+            margin-top: 12px;
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .user-form-content {
+        max-width: 550px;
+        padding: 40px;
+        
+        h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+        }
+        form {
+            .form-group {
+                margin-bottom: 25px;
+    
+                label {
+                    margin-bottom: 10px;
+                }
+            }
+            .login-action {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .user-form-content {
+        max-width: 600px;
+        padding: 50px;
+        
+        h3 {
+            font-size: 22px;
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

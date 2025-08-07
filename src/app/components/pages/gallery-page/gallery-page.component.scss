@@ -1,0 +1,12 @@
+.single-gallery-item {
+    margin-bottom: 30px;
+        
+    img {
+        transition: var(--transition);
+    }
+    &:hover {
+        img {
+            opacity: .8;
+        }
+    }
+}

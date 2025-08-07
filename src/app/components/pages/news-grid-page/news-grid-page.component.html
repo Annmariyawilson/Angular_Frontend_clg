@@ -1,0 +1,73 @@
+<!-- Page Title -->
+<div class="page-title-area" style="background-image: url(assets/images/page-title/page-title-5.jpg);">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Campus News</h2>
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Campus News</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- News grid -->
+<div class="news-area ptb-100">
+    <div class="container">
+        <div *ngIf="loading" class="text-center">
+            <p>Loading news...</p>
+        </div>
+        <div *ngIf="errorMessage" class="text-danger text-center">
+            <p>{{ errorMessage }}</p>
+        </div>
+
+        <!-- Loop through news dynamically (Campus + University) -->
+        <div class="row justify-content-center" *ngIf="currentNews.length > 0">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let news of currentNews">
+                <div class="single-news-post">
+                    <a [routerLink]="['/news-details', news.newsId]" class="news-img">
+                        <img [src]="news.imageUrl || 'assets/images/default-news.jpg'" alt="news-image">
+                    </a>
+                    <div class="news-content">
+                        <span class="date">
+                            <i class="ri-calendar-line"></i>
+                            {{ news.date | date:'dd MMM, yyyy' }}
+                        </span>
+                        <h3>
+                            <a [routerLink]="['/news-details', news.newsId]">
+                                {{ news.title | slice:0:20 }}...
+                            </a>
+                        </h3>
+                        <p>{{ news.description | slice:0:100 }}...</p>
+                        <a [routerLink]="['/news-details', news.newsId]" class="read-more-btn">
+                            Find out more <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No news available message -->
+        <div *ngIf="!loading && currentNews.length === 0" class="text-center">
+            <p>No news available.</p>
+        </div>
+
+        <!-- Pagination controls -->
+        <!-- Pagination controls -->
+<div *ngIf="combinedNews.length > 6" class="pagination-area text-center">
+    <div class="nav-links">
+        <a *ngIf="currentPage > 1" (click)="changePage(currentPage - 1)" class="prev page-numbers">
+            <i class="ri-arrow-left-s-line"></i>
+        </a>
+        <span *ngFor="let page of pageNumbers" class="page-numbers">
+            <a *ngIf="currentPage !== page" (click)="changePage(page)">{{ page }}</a>
+            <span *ngIf="currentPage === page" class="current">{{ page }}</span> <!-- Current page styled here -->
+        </span>
+        <a *ngIf="currentPage < totalPages" (click)="changePage(currentPage + 1)" class="next page-numbers">
+            <i class="ri-arrow-right-s-line"></i>
+        </a>
+    </div>
+</div>
+
+    </div>
+</div>

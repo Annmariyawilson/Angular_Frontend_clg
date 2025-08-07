@@ -1,0 +1,198 @@
+<!-- Default Campus Experience Section -->
+<div
+    class="campus-experience-area ptb-100"
+    style="background-image: url(assets/images/campus-experience-bg.jpg)"
+    [ngClass]="{
+        'd-none':
+            router.url === '/index-3' ||
+            router.url === '/about' ||
+            router.url === '/admissions'
+    }"
+>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xl-6 col-lg-4 col-md-12">
+                <div class="video-button">
+                    <button
+                        type="button"
+                        class="video-btn"
+                        (click)="openPopup()"
+                        title="Play Video"
+                    >
+                        <i class="flaticon-play-button"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-8 col-md-12">
+                <div class="campus-experience-slider">
+                    <owl-carousel-o [options]="campusExperienceSlides">
+                        <ng-template carouselSlide>
+                            <div class="single-campus-experience">
+                                <h3>The campus experience</h3>
+                                <p>
+                                    Holy Cross College offers a vibrant campus
+                                    experience nestled among scenic tea
+                                    plantations in Puttady. Students enjoy
+                                    modern facilities, comfortable hostels with
+                                    dedicated wardens, and a supportive
+                                    community that fosters both academic
+                                    excellence and personal growth in a
+                                    pollution-free environment.
+                                </p>
+                                <p>
+                                    Our campus life includes numerous clubs,
+                                    cultural events, and sports activities that
+                                    complement the academic curriculum. With
+                                    dedicated faculty mentors, 24/7 security
+                                    services, and a peaceful atmosphere,
+                                    students develop holistic skills while
+                                    building lifelong connections in our
+                                    inclusive and diverse community.
+                                </p>
+                                <a
+                                    routerLink="/campus-experience"
+                                    class="read-more-btn"
+                                >
+                                    Find out more
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                            <div class="single-campus-experience">
+                                <h3>The campus experience about</h3>
+                                <p>
+                                    Holy Cross College offers a vibrant campus
+                                    life surrounded by scenic tea plantations of
+                                    Puttady. Students enjoy modern facilities,
+                                    comfortable hostels, and a supportive
+                                    community that fosters both academic
+                                    excellence and personal growth.
+                                </p>
+                                <p>
+                                    Our campus experience includes numerous
+                                    clubs, cultural events, and sports
+                                    activities that complement academic studies.
+                                    With dedicated faculty mentors, 24/7
+                                    security, and a peaceful environment,
+                                    students thrive in an atmosphere that
+                                    balances learning with extracurricular
+                                    development.
+                                </p>
+                                <a
+                                    routerLink="/campus-experience"
+                                    class="read-more-btn"
+                                >
+                                    Find out more
+                                    <i class="ri-arrow-right-line"></i>
+                                </a>
+                            </div>
+                        </ng-template>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Video Popup -->
+<div class="video-popup" *ngIf="isOpen">
+    <div class="popup-inner">
+        <iframe
+            width="853"
+            height="480"
+            src="https://www.youtube.com/embed/1_L1nT5T7gQ?si=xNEU2z-yAZceAkde"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+        ></iframe>
+        <button
+            (click)="closePopup()"
+            type="button"
+            class="close-btn"
+            title="Close Popup"
+        >
+            <i class="ri-close-fill"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Campus Experience Section for Home Demo - 3 -->
+<div
+    class="campus-experience-area d-none"
+    [ngClass]="{
+        'd-block':
+            router.url === '/index-3' ||
+            router.url === '/about' ||
+            router.url === '/admissions'
+    }"
+>
+    <div class="container">
+        <div
+            class="campus-experience-bg ptb-100"
+            style="
+                background-image: url(assets/images/campus-experience-bg-2.jpg);
+            "
+        >
+            <div class="campus-experience-slider">
+                <owl-carousel-o [options]="campusExperienceSlides">
+                    <ng-template carouselSlide>
+                        <div class="single-campus-experience">
+                            <span class="sub-title">Admission information</span>
+                            <h3>The campus experience</h3>
+                            <p>
+                                Holy Cross College offers a vibrant campus
+                                experience nestled among scenic tea plantations
+                                in Puttady. Students enjoy modern facilities
+                                including computer labs, library, and
+                                transportation services, along with comfortable
+                                hostels supervised by dedicated wardens. Our
+                                beautiful campus creates an ideal learning
+                                environment with lush greenery, pollution-free
+                                air, and a supportive community that fosters
+                                both academic excellence and personal
+                                development.
+                            </p>
+                            <a
+                                routerLink="/campus-experience"
+                                class="default-btn"
+                            >
+                                Find out more
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <div class="single-campus-experience">
+                            <span class="sub-title">Admission information</span>
+                            <h3>The campus experience about</h3>
+                            <p>
+                                Holy Cross College provides a transformative
+                                campus experience in the scenic hills of
+                                Puttady. Students thrive in our pollution-free
+                                environment surrounded by tea plantations and
+                                natural beauty. Our facilities include
+                                well-equipped computer labs, a comprehensive
+                                library, comfortable hostels with dedicated
+                                wardens, and reliable transportation services.
+                                The vibrant campus community fosters both
+                                academic excellence and personal growth through
+                                various clubs, cultural activities, and sports
+                                programs.
+                            </p>
+                            <a
+                                routerLink="/campus-experience"
+                                class="default-btn"
+                            >
+                                Find out more
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="main-content">
+  <div class="courses-table">
+    <div class="container">
+      <div class="content">
+
+        <!-- Header with Back, Title, Add Button, and Search Bar -->
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+          <!-- Left Section: Back Button, Heading, Add New Course Button -->
+          <div class="d-flex align-items-center flex-wrap gap-2">
+            <button class="btn btn-outline-dark back-btn me-2" (click)="goBack()" title="Go Back">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2 class="mb-0 me-3">All Courses</h2>
+          </div>
+
+          <!-- Right Section: Search Bar -->
+          <input 
+            type="text" 
+            [(ngModel)]="searchTerm" 
+            (input)="filterCourses()" 
+            placeholder="Search All Courses..." 
+            class="form-control search-bar"
+            style="max-width: 300px;"
+          />
+          <button class="btn btn-success" (click)="navigateToAddCourse()">Add New Course</button>
+
+        </div>
+
+
+        <!-- Courses Table -->
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Duration</th>
+                <th>Course Type</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of courseList">
+                <td>{{ course.courseId }}</td>
+                <td>{{ course.courseName }}</td>
+                <td>{{ course.duration }}</td>
+                <td>{{ course.courseType }}</td>
+                <td>
+                  <button class="btn btn-sm" (click)="editCourse(course.courseId)" title="Edit Course">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-sm" (click)="deleteCourse(course.courseId)" title="Delete Course">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

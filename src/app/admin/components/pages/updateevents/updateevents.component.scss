@@ -1,0 +1,130 @@
+$app-sidebar-width: 250px;
+$app-sidebar-collapsed-width: 80px;
+$navbar-height: 60px;
+$main-color: #007bff;
+$secondary-color: #004d40;
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  flex-grow: 1;
+  background-color: #f4f2f2;
+  overflow-y: auto;
+  height: calc(100vh - $navbar-height);
+  transition: margin-left 0.3s;
+  padding: 20px;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Event Image Styling */
+.event-image-upload {
+  .form-label {
+    font-weight: 700;
+  }
+
+  .event-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    display: block;
+  }
+  
+  .image-upload {
+    margin-top: 10px;
+  }
+}
+
+/* Event Details Left Section */
+.events-desc {
+  padding-right: 15px;
+
+  .form-label {
+    font-weight: 700;
+  }
+
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 17px;
+    margin-bottom: 15px;
+    resize: vertical;
+    background: #fff;
+  }
+}
+
+/* Event Sidebar Section */
+.events-sidebar {
+  background-color: #ffffff;
+  border: 1px solid #eaeaea;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: $secondary-color;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 20px;
+
+      .form-label {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        font-size: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background-color: #fdfdfd;
+      }
+    }
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: $app-sidebar-collapsed-width;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .events-desc {
+    padding-right: 0;
+  }
+
+  .events-sidebar {
+    margin-top: 25px;
+  }
+}

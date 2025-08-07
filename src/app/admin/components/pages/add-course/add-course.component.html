@@ -1,0 +1,135 @@
+<div class="main-content">
+  <div class="course-form">
+    <div class="container">
+      <div class="content">
+        <button class="btn btn-outline-dark back-btn me-2" (click)="goBack()" title="Go Back">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+
+        <h2>{{ isEditMode ? 'Edit Course' : 'Add Course' }}</h2>
+
+        <form #courseForm="ngForm" (ngSubmit)="isEditMode ? updateCourse() : addCourse()" enctype="multipart/form-data" novalidate>
+          <!-- Course Name -->
+          <div class="form-group">
+            <label for="courseName">Course Name</label>
+            <input type="text" id="courseName" class="form-control" name="courseName" [(ngModel)]="course.courseName" required #courseName="ngModel" />
+            <div *ngIf="courseName.invalid && courseName.touched" class="text-danger">
+              Course Name is required.
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" class="form-control" name="description" [(ngModel)]="course.description" required #description="ngModel"></textarea>
+            <div *ngIf="description.invalid && description.touched" class="text-danger">
+              Description is required.
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div class="form-group">
+            <label for="duration">Duration</label>
+            <input type="text" id="duration" class="form-control" name="duration" [(ngModel)]="course.duration" required #duration="ngModel" />
+            <div *ngIf="duration.invalid && duration.touched" class="text-danger">
+              Duration is required.
+            </div>
+          </div>
+
+          <!-- Eligibility -->
+          <div class="form-group">
+            <label for="eligibility">Eligibility</label>
+            <input type="text" id="eligibility" class="form-control" name="eligibility" [(ngModel)]="course.eligibility" required #eligibility="ngModel" />
+            <div *ngIf="eligibility.invalid && eligibility.touched" class="text-danger">
+              Eligibility is required.
+            </div>
+          </div>
+
+          <!-- Course Type -->
+          <div class="form-group">
+            <label for="courseType">Course Type</label>
+            <select id="courseType" class="form-control" name="courseType" [(ngModel)]="course.courseType" required #courseType="ngModel">
+              <option value="" disabled>Select Course Type</option>
+              <option value="UG">Undergraduate (UG)</option>
+              <option value="PG">Postgraduate (PG)</option>
+              <option value="Add on course">Add on course</option>
+            </select>
+            <div *ngIf="courseType.invalid && courseType.touched" class="text-danger">
+              Please select a course type.
+            </div>
+          </div>
+
+          <!-- Modules and Syllabus -->
+          <div class="form-group">
+            <label>Modules and Syllabus</label>
+            <div *ngFor="let mod of course.modules; let i = index" class="mb-3 border p-3 rounded">
+              <label>Module {{ i + 1 }}</label>
+              <input
+                type="text"
+                class="form-control mb-2"
+                [(ngModel)]="mod.name"
+                [name]="'module' + i"
+                required
+                #moduleName="ngModel"
+  [ngModelOptions]="{standalone: true}"
+  [attr.data-index]="i"
+/>
+<div *ngIf="moduleName.invalid && moduleName.touched" class="text-danger">
+                Module name is required.
+              </div>
+              <textarea
+                class="form-control"
+                [(ngModel)]="mod.syllabus"
+                [name]="'syllabus' + i"
+                rows="3"
+                placeholder="Enter syllabus"
+                required
+                #moduleSyllabus="ngModel"
+                [ngModelOptions]="{standalone: true}"
+              ></textarea>
+              <div *ngIf="moduleSyllabus.invalid && moduleSyllabus.touched" class="text-danger">
+                Module syllabus is required.
+              </div>
+              <button type="button" class="btn btn-sm btn-danger mt-2" (click)="removeModule(i)">Remove</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-secondary" (click)="addModule()">+ Add Module</button>
+          </div>
+
+          <!-- Career Opportunities -->
+          <div class="form-group">
+            <label for="careerOpportunities">Career Opportunities</label>
+            <textarea id="careerOpportunities" class="form-control" name="careerOpportunities" [(ngModel)]="course.careerOpportunities" required #careerOpportunities="ngModel"></textarea>
+            <div *ngIf="careerOpportunities.invalid && careerOpportunities.touched" class="text-danger">
+              Career opportunities are required.
+            </div>
+          </div>
+
+          <!-- Fee Structure -->
+          <div class="form-group">
+            <label for="feeStructure">Fee Structure</label>
+            <textarea id="feeStructure" class="form-control" name="feeStructure" [(ngModel)]="course.feeStructure" required #feeStructure="ngModel"></textarea>
+            <div *ngIf="feeStructure.invalid && feeStructure.touched" class="text-danger">
+              Fee structure is required.
+            </div>
+          </div>
+
+          <!-- Image Upload -->
+          <div class="form-group">
+            <label for="image">Course Image</label>
+            <input type="file" id="image" class="form-control" (change)="onFileSelected($event)" accept="image/png, image/jpeg" />
+            <div *ngIf="!imageSelected && courseForm.submitted && !isEditMode" class="text-danger mt-1">
+              Please select a course image.
+            </div>
+            <img *ngIf="imagePreview" [src]="imagePreview" class="img-preview mt-2" alt="Course image preview" />
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn" [ngClass]="isEditMode ? 'btn-primary' : 'btn-success'" [disabled]="courseForm.invalid || (!isEditMode && !imageSelected) || hasInvalidModules()">
+              {{ isEditMode ? 'Update Course' : 'Add Course' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

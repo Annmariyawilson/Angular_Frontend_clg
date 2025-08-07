@@ -1,0 +1,135 @@
+@import "../../common/courses/courses.component.scss";
+
+
+.single-events-box {
+    position: relative;
+    margin-bottom: 30px;
+    background-color: #f3f3f4;
+    padding: {
+        top: 25px;
+        left: 135px;
+        right: 25px;
+        bottom: 25px;
+    };
+    .events-date {
+        top: 28px;
+        left: 30px;
+        width: 85px;
+        height: 95px;
+        padding-top: 20px;
+        text-align: center;
+        position: absolute;
+        display: inline-block;
+        transition: var(--transition);
+        background-color: var(--optional-color);
+
+        span {
+            color: var(--white-color);
+            margin-bottom: 0;
+            font: {
+                size: 16px;
+                weight: 600;
+            };
+        }
+    }
+    span {
+        color: var(--main-color);
+        margin-bottom: 15px;
+        font-weight: 500;
+        display: block;
+    }
+    h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    &:hover {
+        .events-date {
+            background-color: var(--main-color);
+        }
+        h3 {
+            a {
+                color: var(--main-color);
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .single-events-box {
+        padding: 20px;
+
+        .events-date {
+            margin-bottom: 15px;
+            position: relative;
+            height: 90px;
+            left: 0;
+            top: 0;
+    
+            span {
+                font-size: 14px;
+            }
+        }
+        span {
+            margin-bottom: 9px;
+        }
+        h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 12px;
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .single-events-box {
+        padding: 25px;
+
+        .events-date {
+            top: 0;
+            left: 0;
+            padding: 20px;
+            position: relative;
+            margin-bottom: 17px;
+    
+            span {
+                font-size: 15px;
+            }
+        }
+        span {
+            margin-bottom: 13px;
+        }
+        h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .single-events-box {
+        h3 {
+            font-size: 22px;
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+

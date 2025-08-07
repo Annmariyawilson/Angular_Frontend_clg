@@ -1,0 +1,121 @@
+<div class="main-content">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center flex-wrap">
+      <div class="d-flex align-items-center flex-wrap mb-2 mb-md-0 w-100">
+        <button class="btn btn-outline-dark back-btn me-3" (click)="goBack()" title="Go Back">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <h5 class="mb-0 me-3">{{ tableHeading }}</h5>
+
+        <!--  Search Input -->
+        <input 
+          type="text"
+          class="form-control form-control-sm me-2 flex-grow-1"
+          placeholder="Search by table data"
+          [(ngModel)]="searchTerm"
+          (input)="applySearchAndFilter()"
+          style="max-width: 220px;"
+        />
+
+        <!--  Filter by Status Label -->
+        <span class="text-muted me-2" style="font-size: 0.9rem;">Filter by Status</span>
+
+        <!--  Status Filter -->
+        <select
+          class="form-select form-select-sm ms-2"
+          [(ngModel)]="selectedStatus"
+          (change)="applySearchAndFilter()"
+          title="Filter applications by status"
+  >
+          <option value="All">All</option>
+          <option value="Pending">Pending</option>
+          <option value="Completed">Completed</option>
+          <option value="Rejected">Rejected</option>
+          <option value="Approved">Approved</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="table-responsive" *ngIf="filteredApplications.length > 0; else noApplications">
+        <table class="table table-bordered table-hover">
+          <thead class="table-header">
+            <tr>
+              <th>ID</th>
+              <th>Full Name</th>
+              <th>Course</th>
+              <th>Gender</th>
+              <th>Contact</th>
+              <th>Email</th>
+              <!-- <th>DOB</th> -->
+              <th>Nationality</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let application of paginatedApplications">
+              <td>{{ application.formId ?? 'ID MISSING' }}</td>
+              <td>{{ application.name }}</td>
+              <td>{{ application.course }}</td>
+              <td>{{ application.sex }}</td>
+              <td>{{ application.contactNo }}</td>
+              <td>{{ application.email }}</td>
+              <!-- <td>{{ application.dob | date: 'yyyy-MM-dd' }}</td> -->
+              <td>{{ application.nationality }}</td>
+              <td [ngClass]="{
+                'status-completed': application.formStatus === 'Completed', 
+                'status-pending': application.formStatus === 'Pending',
+                'status-canceled': application.formStatus === 'Rejected',
+                'status-approved': application.formStatus === 'Approved'
+              }">
+                {{ application.formStatus }}
+              </td>
+              <td>
+                <button class="btn btn-outline-success btn-sm me-2" *ngIf="application.formId"
+                  (click)="viewDetails(application)" title="View Details">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+                <button class="btn btn-outline-danger btn-sm" *ngIf="application.formId"
+                  (click)="deleteApplication(application.formId)" title="Delete Application">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #noApplications>
+        <div class="text-center text-muted p-3">No applications available.</div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<!-- Pagination Controls -->
+<div class="d-flex justify-content-center mt-3" *ngIf="totalPages > 1">
+  <nav>
+    <ul class="pagination pagination-sm mb-0">
+      <!-- Previous Button -->
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" (click)="changePage(currentPage - 1)">
+          <i class="fas fa-angle-left"></i>
+        </a>
+      </li>
+
+      <!-- Page Numbers -->
+      <li class="page-item" 
+          *ngFor="let page of [].constructor(totalPages); let i = index" 
+          [class.active]="currentPage === i + 1">
+        <a class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</a>
+      </li>
+
+      <!-- Next Button -->
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" (click)="changePage(currentPage + 1)">
+          <i class="fas fa-angle-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

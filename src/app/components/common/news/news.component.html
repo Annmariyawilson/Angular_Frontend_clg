@@ -1,0 +1,41 @@
+<div class="news-area pt-100 pb-70">
+  <div class="container">
+    <div class="section-title">
+      <h2>Academic’s news</h2>
+      <p>
+        Stay updated with the latest academic developments, student
+        achievements, and campus events at Holy Cross College. Our news
+        section highlights educational milestones and opportunities for
+        current and prospective students.
+      </p>
+    </div>          
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let news of allNews">
+        <div class="single-news-post">
+          <a [routerLink]="['/news-grid']" class="news-img">
+            <img [src]="news.imageUrl || 'assets/images/news/default.jpg'" alt="news-image"/>
+          </a>
+          <div class="news-content">
+            <span class="date">
+              <i class="ri-calendar-line"></i>
+              {{ news.date | date: 'dd MMM, yyyy' }}
+            </span>
+            <h3>
+              <a [routerLink]="['/news-grid']">
+                {{ news.title.length > 20 ? (news.title | slice:0:20) + '...' : news.title }}
+              </a>
+            </h3>
+            
+            <p>
+              {{ news.description.length > 140 ? (news.description | slice:0:140) + '...' : news.description }}
+            </p>
+            <a [routerLink]="['/news-details', news.newsId]" class="read-more-btn">
+              Find out more
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

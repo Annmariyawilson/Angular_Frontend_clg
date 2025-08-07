@@ -1,0 +1,121 @@
+.blog-card {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 900px;
+  position: relative;
+
+  .image-col {
+    position: relative;
+    flex: 1 1 40%;
+    padding: 15px;
+
+    .image-wrapper {
+      position: relative;
+
+      img {
+        width: 400px;
+        
+        height: 218px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .floating-title {
+    position: absolute;
+    top: 15px;
+    left: 180px;
+    background-color: white;
+    padding: 12px 17px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.207);
+    z-index: 2;
+    max-width: 78%;
+    margin-top: 15px;
+    transform: translateY(-10%);
+
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+      color: #0a4b0c;
+    }
+  }
+
+  .content-col {
+    flex: 1 1 60%;
+    padding: 15px;
+    padding-top: 70px;
+
+    p {
+      color: #605f5f;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .blog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+      color: #5f5e5e;
+
+      .category {
+        background-color: #f05454;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .content-col p {
+    color: #666;
+    font-size: 14px;
+    margin-top: 12px;
+    line-height: 1.6;
+    max-height: 150px; /* Set a max-height for the paragraph */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  }
+  
+
+  // Responsive Styles
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .floating-title {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+      margin: 10px 15px;
+      max-width: 90%;
+    }
+
+    .image-col, .content-col {
+      flex: 1 1 100%;
+      padding: 10px 15px;
+    }
+
+    .content-col {
+      padding-top: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .floating-title h2 {
+      font-size: 14px;
+    }
+
+    .content-col p {
+      font-size: 13px;
+    }
+
+    .blog-meta {
+      font-size: 12px;
+    }
+  }
+}

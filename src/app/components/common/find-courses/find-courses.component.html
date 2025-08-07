@@ -1,0 +1,39 @@
+<!-- Rank Holders Section -->
+<div
+    class="rank-holders-area bg-image pt-70 pb-70"
+    style="background-image: url(assets/images/rank-holders-bg.jpg)"
+>
+    <div class="container">
+        <div class="text-center mb-4">
+            <h3 class="section-title">Our Rank Holders</h3>
+        </div>
+
+        <div class="rank-holders-slider">
+            <owl-carousel-o [options]="rankHolderSlides">
+                <ng-template carouselSlide *ngFor="let rank of rankHolders">
+                    <div class="card rank-card">
+                        <div class="image-wrapper">
+                            <img
+                                class="card-img-top"
+                                [src]="
+                                    rank.imageUrl ||
+                                    'assets/default-placeholder.png'
+                                "
+                                [alt]="'Rank ' + rank.rank"
+                            />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Rank: {{ rank.rank }}</h5>
+                            <p class="card-text1">
+                             {{ rank.name }}
+                            </p>
+                            <p class="card-text2">
+                             <strong>Course : </strong>  {{ rank.course }}
+                            </p>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<!-- Page Title -->
+<div class="page-title-area" style="background-image: url(assets/images/page-title/page-title-5.jpg);">
+  <div class="container">
+    <div class="page-title-content">
+      <h2>Events</h2>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li>Events</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Events Section -->
+<div class="events-area ptb-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div *ngIf="events.length === 0" class="col-12 text-center">
+        <p>No events available.</p>
+      </div>
+
+      <div *ngFor="let event of pagedEvents" class="col-lg-6 col-md-6 col-sm-6">
+        <div class="single-events-box">
+          <div class="events-date">
+            <span class="mb-2">{{ event.eventDate | date: 'dd MMM' }}</span>
+            <span>{{ event.eventDate | date: 'yyyy' }}</span>
+          </div>
+          <span>{{ event.category }}</span>
+          <h3>
+            <a routerLink="/event-details/{{ event.eventId }}">
+              {{ event.title | slice: 0:20 }}...
+            </a>
+          </h3>
+          <p>{{ event.description | slice: 0:60 }}...</p>
+          <a routerLink="/event-details/{{ event.eventId }}" class="read-more-btn">
+            Find out more <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="col-12 mt-4" *ngIf="totalPages > 1">
+        <div class="pagination-area text-center">
+          <div class="nav-links d-flex justify-content-center align-items-center flex-wrap gap-2">
+            <a class="prev page-numbers" (click)="previousPage()" [class.disabled]="currentPage === 1">
+              <i class="ri-arrow-left-s-line"></i>
+            </a>
+
+            <ng-container *ngFor="let page of [].constructor(totalPages); let i = index">
+              <a
+                class="page-numbers"
+                [class.current]="currentPage === i + 1"
+                (click)="goToPage(i + 1)"
+              >
+                {{ i + 1 }}
+              </a>
+            </ng-container>
+
+            <a class="next page-numbers" (click)="nextPage()" [class.disabled]="currentPage === totalPages">
+              <i class="ri-arrow-right-s-line"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

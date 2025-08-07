@@ -1,0 +1,260 @@
+<!-- Navbar -->
+<div class="navbar-area" [ngClass]="{'navbar-bg': router.url === '/index-3', 'sticky': isSticky}">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" [class.active]="classApplied">
+            <div class="brand-container" routerLink="/" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a class="navbar-brand">
+                    <img src="assets/images/logo.png" alt="logo" />
+                </a>
+                <h3 class="college-name">
+                    HOLY CROSS COLLEGE <br />
+                    <span class="small-text">OF MANAGEMENT AND TECHNOLOGY</span>
+                </h3>
+            </div>
+            <button class="navbar-toggler" type="button" (click)="toggleClass()" title="Toggle navigation">
+                <span class="burger-menu">
+                    <span class="top-bar"></span>
+                    <span class="middle-bar"></span>
+                    <span class="bottom-bar"></span>
+                </span>
+            </button>
+
+
+            <!-------------------------------------- Navbar --------------------------------------------->
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a routerLink="/" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/aboutUs" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="dropdown-toggle nav-link">Courses</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a routerLink="courses" [queryParams]="{ courseType: 'PG' }" class="nav-link"
+                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">PG Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="courses" [queryParams]="{ courseType: 'UG' }" class="nav-link"
+                                    routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">UG Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="courses" [queryParams]="{ courseType: 'Add on course' }"
+                                    class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Add On Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/study-online" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Online Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/examinations" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Examination</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/application" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Application
+                                    Form</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="dropdown-toggle nav-link">Our Campus</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a routerLink="//news-grid" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Campus News</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/campus-experience" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Campus Life</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/alumni" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Alumni</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/events" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Events</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/gallery" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/admissions" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Admissions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="dropdown-toggle nav-link">Achievements</a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a routerLink="/rank-holders" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Rank Holders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/placement" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Placements</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/campus-achievements" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}">Campus Triumphs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/contact" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}">Contact Us</a>
+                    </li>
+                </ul>
+                <!------------------------------------ Responsive Navbar ----------------------------->
+                <ul class="navbar-nav for-responsive">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" routerLink="/" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" routerLink="/aboutUs" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-toggle nav-link">Courses
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="courses" [queryParams]="{ courseType: 'PG' }" class="nav-link"
+                                        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                                        (click)="toggleClass()">PG
+                                        Courses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="courses" [queryParams]="{ courseType: 'UG' }" class="nav-link"
+                                        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                                        (click)="toggleClass()">UG
+                                        Courses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="courses" [queryParams]="{ courseType: 'Add on course' }"
+                                        class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Add On
+                                        Courses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/study-online" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Online
+                                        Courses</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/examinations" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}"
+                                        (click)="toggleClass()">Examination</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/application" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Application
+                                        Form</a>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="dropdown-toggle nav-link">Our Campus
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a routerLink="/news-grid" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Campus
+                                        News</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/campus-experience" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Campus
+                                        Life</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/alumni" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Alumni</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/events" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/gallery" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Gallery</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a routerLink="/admissions" class="nav-link" routerLinkActive="active"
+                                        [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Admissions</a>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="dropdown-toggle nav-link">Achievements
+                        <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a routerLink="/rank-holders" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Rank Holders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/placement" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Placements</a>
+                            </li>
+                            <li class="nav-item">
+                                <a routerLink="/campus-achievements" class="nav-link" routerLinkActive="active"
+                                    [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Campus Triumphs</a>
+                            </li>
+                        </ul>
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/contact" class="nav-link" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{exact: true}" (click)="toggleClass()">Contact Us</a>
+                    </li>
+                </ul>
+                <div class="others-option d-flex align-items-center">
+                    <div>
+                        <a routerLink="/application" class="default-btn" (click)="toggleClass()">
+                            Application form
+                        </a>
+                    </div>
+                    <div class="download-icon" (click)="downloadFunction()" title="Download Brochure">
+                    <i class="ri-download-line"></i>
+                    </div>
+
+                    <!-- <div class="search-icon" (click)="searchToggleClass()">
+                        <i class="ri-search-line"></i>
+                    </div> -->
+                </div>
+            </div>
+
+        </nav>
+    </div>
+</div>
+
+<!-- Search Overlay -->
+<!-- <div class="search-overlay" [class.search-overlay-active]="searchClassApplied">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="search-overlay-layer"></div>
+            <div class="search-overlay-layer"></div>
+            <div class="search-overlay-layer"></div>
+            <div class="search-overlay-close" (click)="searchToggleClass()">
+                <span class="search-overlay-close-line"></span>
+                <span class="search-overlay-close-line"></span>
+            </div>
+            <div class="search-overlay-form">
+                <form>
+                    <input type="text" class="input-search" placeholder="Enter your keywords...">
+                    <button type="submit" title="Search"><i class='flaticon-search-interface-symbol'></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->

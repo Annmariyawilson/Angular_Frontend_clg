@@ -1,0 +1,33 @@
+<!-- Placements Section -->
+<div
+    class="placements-area bg-image pt-70 pb-70"
+    style="background-image: url(assets/images/placement-bg.jpg)"
+>
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 30px">
+            <h5 class="section-title">Our Proud Achievers</h5>
+        </div>
+
+        <div class="placements-slider">
+            <owl-carousel-o [options]="placementSlides">
+                <ng-template
+                    carouselSlide
+                    *ngFor="let student of placementData"
+                >
+                    <div class="single-placement">
+                        <img
+                            [src]="student.image"
+                            alt="{{ student.name }}"
+                            class="placement-image"
+                        />
+                        <div class="placement-details">
+                            <h3>{{ student.name }}</h3>
+                            <p class="company">{{ student.company }}</p>
+                            <p class="designation">{{ student.designation }}</p>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>

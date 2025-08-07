@@ -1,0 +1,289 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <i id="icon" class="fa-sharp fa-solid fa-people-group"></i>  
+    <a class="navbar-brand" href="/boardmanagement" style="font-size: large; font-weight: bolder;">Board Management</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form class="d-flex" role="search">
+          <input (keyup)="search($event)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button type="button" class="btn d-flex align-items-center" (click)="toggleForm()">
+            <i class="fa fa-plus"></i>
+            <span class="ms-2">Add</span>
+          </button>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Add Board Member Form -->
+<div *ngIf="showForm" class="card mt-3 p-3">
+  <h5>Add Board Member</h5>
+  <form #boardForm="ngForm" (ngSubmit)="addBoardMember()" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Left Side -->
+        <div class="mb-3">
+          <label>Name</label>
+          <input type="text" class="form-control" [(ngModel)]="newBoard.name" name="name" required pattern="^[a-zA-Z\s]+$" #name="ngModel">
+          <div *ngIf="name.invalid && name.touched" class="text-danger">
+            Name is required and can only contain letters and spaces.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" class="form-control" [(ngModel)]="newBoard.email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" #email="ngModel">
+          <div *ngIf="email.invalid && email.touched" class="text-danger">
+            Please enter a valid Gmail address .
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Contact</label>
+          <input type="text" class="form-control" [(ngModel)]="newBoard.contact" name="contact" required pattern="^[0-9]+$" minlength="10" maxlength="10" #contact="ngModel">
+          <div *ngIf="contact.invalid && contact.touched" class="text-danger">
+            Contact is required and must contain 10 digits.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Place</label>
+          <input type="text" class="form-control" [(ngModel)]="newBoard.place" name="place" required pattern="^[a-zA-Z\s]+$" #place="ngModel">
+          <div *ngIf="place.invalid && place.touched" class="text-danger">
+            Place is required and can only contain letters and spaces.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Type</label>
+          <select class="form-select" [(ngModel)]="newBoard.type" name="type" required #type="ngModel">
+            <option value="">Select Type</option>
+            <option value="Board Member">Board Member</option>
+            <option value="Visionary">Visionary</option>
+          </select>
+          <div *ngIf="type.invalid && type.touched" class="text-danger">
+            Type is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- Right Side -->
+        <div class="mb-3">
+          <label>Job Title</label>
+          <select class="form-select" [(ngModel)]="newBoard.jobTitle" name="jobTitle" required #jobTitle="ngModel">
+            <option value="">Select Job Title</option>
+            <option *ngFor="let job of jobTitles" [value]="job">{{ job }}</option>
+          </select>
+          <div *ngIf="jobTitle.invalid && jobTitle.touched" class="text-danger">
+            Job Title is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Category</label>
+          <select class="form-select" [(ngModel)]="newBoard.category" name="category" required #category="ngModel">
+            <option value="">Select Category</option>
+            <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+          </select>
+          <div *ngIf="category.invalid && category.touched" class="text-danger">
+            Category is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Department</label>
+          <select class="form-select" [(ngModel)]="newBoard.department" name="department" required #department="ngModel">
+            <option value="">Select Department</option>
+            <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+          </select>
+          <div *ngIf="department.invalid && department.touched" class="text-danger">
+            Department is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Upload Image</label>
+          <input type="file" (change)="onImageUpload($event)" name="image" class="form-control" accept="image/jpeg,image/png" #imageInput required>
+          <div *ngIf="imageTouched && !newBoard.image" class="text-danger">
+            Please upload a valid image (.jpg or .png).
+          </div>
+        </div>
+
+        <div class="mb-3" *ngIf="newBoard.imagePreview">
+          <label>Image Preview:</label><br>
+          <img [src]="newBoard.imagePreview" alt="Preview" class="img-thumbnail" width="150">
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="boardForm.invalid || !newBoard.image">
+      Submit
+    </button>
+  </form>
+</div>
+
+<!-- Board Member List -->
+<div class="userview">
+  <div class="container-fluid g-0 p-2">
+    <div class="row g-0" *ngFor="let member of boardList; let i = index">
+      <!-- Profile Image -->
+      <div class="col-md-2 d-flex justify-content-center align-items-center position-relative">
+        <img [src]="member.imageUrl" *ngIf="member.imageUrl" alt="Profile" class="profile">
+      </div>
+
+      <!-- Member Info and Actions -->
+      <div class="col ps-2">
+        <div class="row g-0">
+          <div class="col-md-8 text-center">
+            <span class="user-name" *ngIf="editingIndex !== i">{{ member.name }}</span>
+            <input type="text" class="form-control" [(ngModel)]="editingBoard.name" [attr.name]="'name-' + i" *ngIf="editingIndex === i">
+          </div>
+          <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <div class="d-flex gap-2 align-items-center">
+              <div *ngIf="editingIndex === i">
+                <input type="file" (change)="onImageChange($event)" #fileInput class="d-none" accept="image/jpeg,image/png">
+                <i class="fa-solid fa-cloud-arrow-up update-icon" (click)="fileInput.click()"></i>
+              </div>
+              <i class="fa-solid update-icon"
+                 [ngClass]="editingIndex === i ? 'fa-floppy-disk' : 'fa-pencil'"
+                 (click)="editingIndex === i ? updateBoardMember(member.memberId) : toggleEdit(i)">
+              </i>
+              <i class="fa-solid fa-xmark update-icon" *ngIf="editingIndex === i" (click)="cancelEdit()"></i>
+              <i class="fa-solid fa-trash update-icon" (click)="deleteBoardMember(member.memberId)"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact and Job Details -->
+        <div class="row g-0 mt-3">
+          <!-- Contact -->
+          <div class="col-md">
+            <table class="table table-hover mx-auto">
+              <thead class="text-center fs-5 text-secondary">
+                <tr><td colspan="2">Contact Details</td></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Email</td>
+                  <td *ngIf="editingIndex !== i">{{ member.email }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <input
+                      type="email"
+                      class="form-control"
+                      [(ngModel)]="editingBoard.email"
+                      [attr.name]="'email-' + i"
+                      [pattern]="emailPattern"
+                      #email="ngModel"
+                      required
+                    />
+                    <div *ngIf="email.touched && email.invalid" class="text-danger">
+                      <div *ngIf="email.errors?.['required']">Email is required.</div>
+                      <div *ngIf="email.errors?.['pattern']">Email must be in vaid format.</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Contact</td>
+                  <td *ngIf="editingIndex !== i">{{ member.contact }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="editingBoard.contact"
+                      [attr.name]="'contact-' + i"
+                      [pattern]="contactPattern"
+                      #contact="ngModel"
+                      required
+                    />
+                    <div *ngIf="contact.touched && contact.invalid" class="text-danger">
+                      <div *ngIf="contact.errors?.['required']">Contact is required.</div>
+                      <div *ngIf="contact.errors?.['pattern']">Contact must be a 10-digit number.</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Place</td>
+                  <td *ngIf="editingIndex !== i">{{ member.place }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="editingBoard.place"
+                      [attr.name]="'place-' + i"
+                      [pattern]="placePattern"
+                      #place="ngModel"
+                      required
+                    />
+                    <div *ngIf="place.touched && place.invalid" class="text-danger">
+                      <div *ngIf="place.errors?.['required']">Place is required.</div>
+                      <div *ngIf="place.errors?.['pattern']">Place must contain only letters.</div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Job -->
+          <div class="col">
+            <table class="table table-hover mx-auto">
+              <thead class="text-center fs-5 text-secondary">
+                <tr>
+                  <td colspan="3">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span>Board Details</span>
+                      <select *ngIf="editingIndex === i" [(ngModel)]="editingBoard.type" class="form-select form-select-sm w-auto" [attr.name]="'type-' + i">
+                        <option value="Board Member">Board Member</option>
+                        <option value="Visionary">Visionary</option>
+                      </select>
+                      <span *ngIf="editingIndex !== i"
+                            [ngClass]="{
+                              'text-success': member.type === 'Board Member',
+                              'text-primary': member.type === 'Visionary'
+                            }"
+                            style="font-size: 0.875rem;">
+                        {{ member.type }}
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Job Title</td>
+                  <td *ngIf="editingIndex !== i">{{ member.jobTitle }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <select class="form-select" [(ngModel)]="editingBoard.jobTitle" [attr.name]="'jobTitle-' + i">
+                      <option *ngFor="let job of jobTitles" [value]="job">{{ job }}</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Category</td>
+                  <td *ngIf="editingIndex !== i">{{ member.category }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <select class="form-select" [(ngModel)]="editingBoard.category" [attr.name]="'category-' + i">
+                      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Department</td>
+                  <td *ngIf="editingIndex !== i">{{ member.department }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <select class="form-select" [(ngModel)]="editingBoard.department" [attr.name]="'department-' + i">
+                      <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

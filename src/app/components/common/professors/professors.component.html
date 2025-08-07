@@ -1,0 +1,33 @@
+<div class="team-area pb-70">
+    <div class="container">
+      <div class="section-title">
+        <h2>Meet The Visionaries</h2>
+        <p>
+          Our dedicated Visionaries are the heart of Holy Cross, transforming education through expertise, passion, and unwavering commitment to student success. With diverse backgrounds and cutting-edge knowledge, they inspire, challenge, and guide students to reach their full potential.
+        </p>
+      </div>
+  
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let visionary of visionaries">
+          <div class="single-team-member">
+            <img [src]="visionary.image" alt="Visionary" />
+            <div class="team-content">
+              <div class="team-social">
+                <a href="#" class="control"><i class="ri-share-fill"></i></a>
+                <ul>
+                  <li><a href="https://www.facebook.com/" target="_blank"><i class="ri-facebook-fill"></i></a></li>
+                  <li><a href="https://www.instagram.com/" target="_blank"><i class="ri-instagram-line"></i></a></li>
+                  <li><a href="https://www.linkedin.com/" target="_blank"><i class="ri-linkedin-fill"></i></a></li>
+                  <li><a href="https://twitter.com/" target="_blank"><i class="ri-twitter-fill"></i></a></li>
+                </ul>
+              </div>
+              <div class="team-name">
+                <h3>{{ visionary.name }}</h3>
+                <span>{{ visionary.jobTitle }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

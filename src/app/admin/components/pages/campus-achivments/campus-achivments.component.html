@@ -1,0 +1,126 @@
+<!-- Filter and Search -->
+<div class="campus-achievement">
+    <button class="add-btn" (click)="toggleForm('add')">
+        <i class="fa fa-plus"></i> Add
+    </button>
+
+    <select
+        class="filter-btn"
+        [(ngModel)]="selectedType"
+        (change)="applyFilters()"
+    >
+        <option value="">All Types</option>
+        <option *ngFor="let type of achievementTypes" [value]="type">
+            {{ type }}
+        </option>
+    </select>
+
+    <div class="search-container">
+        <input
+            type="text"
+            placeholder="Search by Title..."
+            class="search-input"
+            [(ngModel)]="searchQuery"
+            (input)="applyFilters()"
+        />
+    </div>
+</div>
+
+<!-- Loading Indicator -->
+<div *ngIf="isLoading" class="loading-spinner">Loading...</div>
+
+<!-- Combined Add/Edit Form -->
+<div *ngIf="showForm" class="form-wrapper">
+    <h3>{{ isEditMode ? "Edit Achievement" : "Add New Achievement" }}</h3>
+    <input type="text" placeholder="Title" [(ngModel)]="blogForm.title" />
+    <textarea
+        placeholder="Description"
+        [(ngModel)]="blogForm.description"
+    ></textarea>
+    <select [(ngModel)]="blogForm.achievementType">
+        <option value="">Select Type</option>
+        <option *ngFor="let type of achievementTypes" [value]="type">
+            {{ type }}
+        </option>
+    </select>
+    <input type="file" (change)="onFileSelected($event)" />
+    <div *ngIf="imagePreviewUrl" class="image-preview">
+        <img
+            [src]="imagePreviewUrl"
+            alt="Preview Image"
+            style="max-width: 200px; margin-top: 10px"
+        />
+    </div>
+
+    <button (click)="submitForm()" [disabled]="isLoading">
+        {{ isEditMode ? "Update" : "Submit" }}
+    </button>
+</div>
+
+<!-- Achievement Cards -->
+<div *ngFor="let blog of filteredList; let i = index" class="blog-card row">
+    <div class="image-col col-md-5">
+        <div class="image-wrapper">
+            <img [src]="blog.imageUrl" alt="Achievement Image" />
+        </div>
+    </div>
+
+    <div class="floating-title">
+        <h2>{{ blog.title }}</h2>
+    </div>
+
+    <div class="content-col col-md-7">
+        <p id="contentText-{{ i }}">{{ blog.description }}</p>
+        <div class="blog-meta">
+            <span class="category">{{ blog.achievementType }}</span>
+            <span class="date">{{ blog.date }}</span>
+        </div>
+        <div class="action-icons">
+            <button class="edit-btn" (click)="toggleForm('edit', blog)">
+                <i class="fa fa-pencil"></i>
+            </button>
+            <button class="delete-btn" (click)="deleteContent(i)">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="blog-card row">
+    <div class="image-col col-md-5">
+      <div class="image-wrapper">
+        <img src="assets/images/banner/banner-bg-2.jpg" alt="Device Image" />
+      </div>
+    </div>
+  
+    <div class="floating-title">
+      <h2>A device you can use both headphones and usb</h2>
+    </div>
+  
+    <div class="content-col col-md-7">
+      <p id="contentText">
+        Aenean interdum arcu blandit, vehicula magna non, placerat elit.
+        Mauris et pharetrator tortor. Suspendissea sodales urna. In at augue elit.
+        Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
+  
+        Aenean interdum arcu blandit, vehicula magna non, placerat elit.
+        Mauris et pharetrator tortor. Suspendissea sodales urna. In at augue elit.
+        Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.
+      </p>
+  
+      <div class="blog-meta">
+        <span class="category">TECHNOLOGY</span>
+        <span class="date">21 JULY, 2045</span>
+      </div>
+  
+      <div class="action-icons">
+        <button class="edit-btn" onclick="editContent()">
+          <i class="fa fa-pencil"></i>
+        </button>
+        <button class="delete-btn" onclick="deleteContent()">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+   -->

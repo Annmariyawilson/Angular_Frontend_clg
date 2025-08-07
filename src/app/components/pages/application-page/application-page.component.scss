@@ -1,0 +1,190 @@
+.candidates-resume-content {
+	background-color: var(--white-color);
+	box-shadow: var(--box-shadow);
+	padding: 50px;
+
+	.resume-info {
+		h3 {
+			font-size: 24px;
+			margin-bottom: 25px;
+		}
+		.form-group {
+			margin-bottom: 25px;
+            position: relative;
+
+			label {
+				margin-bottom: 12px;
+			}
+			.form-control {
+				box-shadow: var(--box-shadow) !important;
+                padding: 15px 20px;
+			}
+            select {
+                cursor: pointer;
+            }
+            i {
+                top: 48px;
+                z-index: 1;
+                right: 15px;
+                font-size: 20px;
+                position: absolute;
+            }
+		}
+	}
+    .description {
+        font-style: italic;
+        margin: {
+            top: -15px;
+            bottom: 30px;
+        };
+    }
+    .form-check {
+        label {
+            margin-bottom: 0 !important;
+            cursor: pointer;
+        }
+        .form-check-input {
+            box-shadow: unset !important;
+            border-radius: 0;
+            cursor: pointer;
+
+            &:checked {
+                background-color: var(--main-color);
+                border-color: var(--main-color);
+            }
+        }
+        a {
+            color: var(--black-color);
+            font-weight: 500;
+
+            &:hover {
+                color: var(--main-color);
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .candidates-resume-content {
+        padding: 20px;
+    
+        .resume-info {
+            h3 {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            .form-group {
+                margin-bottom: 20px;
+    
+                label {
+                    margin-bottom: 10px;
+                }
+                .form-control {
+                    padding: 12px;
+                }
+                select {
+                    cursor: pointer;
+
+                    &.form-control {
+                        padding: 0 12px;
+                    }
+                }
+                i {
+                    top: 39px;
+                    right: 12px;
+                }
+            }
+        }
+        .description {
+            margin: {
+                top: -10px;
+                bottom: 20px;
+            };
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .candidates-resume-content {
+        padding: 40px;
+    
+        .resume-info {
+            h3 {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            .form-group {
+                margin-bottom: 20px;
+    
+                label {
+                    margin-bottom: 10px;
+                }
+                .form-control {
+                    padding: 15px;
+                }
+                select {
+                    cursor: pointer;
+
+                    &.form-control {
+                        padding: 0 15px;
+                    }
+                }
+                i {
+                    top: 43px;
+                    right: 15px;
+                }
+            }
+        }
+        .description {
+            margin: {
+                top: -8px;
+                bottom: 25px;
+            };
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .candidates-resume-content {
+        .resume-info {
+            h3 {
+                font-size: 22px;
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}
+
+.form-control {
+    border: 1px solid #33333325; 
+    color: #000;            
+    background-color: #fff; 
+    &:focus {
+      border-color: #000;   
+      box-shadow: none;   
+    }
+  }
+
+  select:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+  }
+  
+  

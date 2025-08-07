@@ -1,0 +1,188 @@
+<form #eventForm="ngForm" (ngSubmit)="submitEvent(eventForm)" novalidate>
+  <div class="main-content">
+    <div class="container">
+      <div class="row">
+        <!-- Event Details -->
+        <div class="col-lg-8 col-md-12">
+          <div class="events-desc">
+            <!-- Image Upload -->
+            <div class="event-image-upload mb-3">
+              <img *ngIf="previewImage" [src]="previewImage" class="event-img-preview" />
+              <input
+                type="file"
+                class="form-control"
+                accept="image/*"
+                (change)="onFileSelected($event)"
+                name="image"
+                required
+              />
+              <div class="text-danger" *ngIf="eventForm.submitted && !event.image">
+                Event image is required
+              </div>
+            </div>
+
+            <!-- Title -->
+            <h4>Event Title</h4>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="event.title"
+              name="title"
+              required
+              #title="ngModel"
+            />
+            <div class="text-danger" *ngIf="eventForm.submitted && title.invalid">Title is required</div>
+
+            <!-- Description -->
+            <h4>Event Description</h4>
+            <textarea
+              class="form-control"
+              rows="4"
+              [(ngModel)]="event.description"
+              name="description"
+              required
+              #description="ngModel"
+            ></textarea>
+            <div class="text-danger" *ngIf="eventForm.submitted && description.invalid">
+              Description is required
+            </div>
+
+            <!-- Target Audience -->
+            <h4>Who is this event for?</h4>
+            <textarea
+              class="form-control"
+              rows="2"
+              [(ngModel)]="event.targetAudience"
+              name="targetAudience"
+              required
+              #targetAudience="ngModel"
+            ></textarea>
+            <div class="text-danger" *ngIf="eventForm.submitted && targetAudience.invalid">
+              Target audience is required
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4 col-md-12">
+          <div class="events-sidebar">
+            <h3>Add New Event</h3>
+            <ul class="p-0">
+              <li>
+                <label>Start Date:</label>
+                <input
+                  type="date"
+                  [(ngModel)]="event.eventDate"
+                  name="eventDate"
+                  required
+                  #eventDate="ngModel"
+                  [min]="minDate"
+                />
+                <div class="text-danger" *ngIf="eventForm.submitted && eventDate.invalid">
+                  Start date is required
+                </div>
+              </li>
+
+              <li>
+                <label>End Date:</label>
+                <input
+                  type="date"
+                  [(ngModel)]="event.endDate"
+                  name="endDate"
+                  required
+                  #endDate="ngModel"
+                  [min]="event.eventDate"
+                />
+                <div class="text-danger" *ngIf="eventForm.submitted && endDate.invalid">
+                  End date is required and must be after start
+                </div>
+              </li>
+
+              <li>
+                <label>Category:</label>
+                <select
+                  class="custom-select"
+                  [(ngModel)]="event.category"
+                  name="category"
+                  required
+                  #category="ngModel"
+                >
+                  <option value="" disabled selected>Select Category</option>
+                  <option value="Conference">Conference</option>
+                  <option value="Seminar">Seminar</option>
+                  <option value="Workshop">Workshop</option>
+                </select>
+                <div class="text-danger" *ngIf="eventForm.submitted && category.invalid">
+                  Category is required
+                </div>
+              </li>
+
+              <li>
+                <label>Location:</label>
+                <input
+                  type="text"
+                  [(ngModel)]="event.location"
+                  name="location"
+                  required
+                  #location="ngModel"
+                />
+                <div class="text-danger" *ngIf="eventForm.submitted && location.invalid">
+                  Location is required
+                </div>
+              </li>
+
+              <li>
+                <label>Total Slots:</label>
+                <input
+                  type="number"
+                  [(ngModel)]="event.totalSlots"
+                  name="totalSlots"
+                  required
+                  min="0"
+                  #totalSlots="ngModel"
+                />
+              </li>
+
+              <li>
+                <label>Booked Slots:</label>
+                <input
+                  type="number"
+                  [(ngModel)]="event.bookedSlots"
+                  name="bookedSlots"
+                  min="0"
+                />
+              </li>
+
+              <li>
+                <label>Status:</label>
+                <select
+                  class="custom-select"
+                  [(ngModel)]="event.eventStatus"
+                  name="eventStatus"
+                  required
+                  #eventStatus="ngModel"
+                >
+                  <option value="" disabled selected>Select Status</option>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="completed">Completed</option>
+                  <option value="canceled">Canceled</option>
+                </select>
+                <div class="text-danger" *ngIf="eventForm.submitted && eventStatus.invalid">
+                  Status is required
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-12 text-center mt-4">
+          <button type="submit" class="default-btn">
+            {{ isEditing ? 'Update Event' : 'Add Event' }}
+            <i class="ri-arrow-right-line"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+<!-- Page Title -->
+<div class="page-title-area" style="background-image: url(assets/images/banner/banner-bg-2.jpg);">
+  <div class="container">
+    <div class="page-title-content">
+      <h2>Campus Achievements</h2>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li>Campus Achievements</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- campus-achievement-page.component.html -->
+<div *ngFor="let achievement of campusAchievements" class="blog-card row">
+  <!-- Left Column: Image -->
+  <div class="image-col col-md-5">
+    <div class="image-wrapper">
+      <img [src]="achievement.imageUrl" alt="Achievement Image" />
+    </div>
+  </div>
+
+  <!-- Floating Title (spanning across columns) -->
+  <div class="floating-title">
+    <h2>{{ achievement.title }}</h2>
+  </div>
+
+  <!-- Right Column: Content -->
+  <div class="content-col col-md-7">
+    <p>{{ achievement.description }}</p>
+    <div class="blog-meta">
+      <span class="category">{{ achievement.achievementType }}</span>
+      <span class="date">{{ achievement.date | date: 'dd MMMM, yyyy' }}</span>
+    </div>
+  </div>
+</div>

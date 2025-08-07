@@ -1,0 +1,158 @@
+<aside class="pc-sidebar" [class.open]="isSidebarOpen">
+    <div class="navbar-wrapper">
+        <button class="close-btn" (click)="toggleSidebar()" title="Close Sidebar">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="pc-navbar">
+            <li class="pc-item pc-hasmenu">
+                <a 
+                  [routerLink]="['/hccmatadmin']" 
+                  class="pc-link" 
+                  [class.active]="isActive('/hccmatadmin')"
+                >
+                  <i class="fas fa-home"></i> <span>Dashboard</span>
+                </a>
+              </li>
+
+              <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('applications')">
+                <a 
+                  class="pc-link" 
+                  [routerLink]="['/hccmatadmin/all-applications']" 
+                  [class.active]="isActive('/hccmatadmin/all-applications')"
+                >
+                  <i class="fa-solid fa-book"></i>
+                  <span>Applications</span>
+                  <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['applications']"></i>
+                </a>
+              </li>
+            <!-- Contact Form -->
+            <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('contactForm')">
+                <a class="pc-link" [routerLink]="['/hccmatadmin/contact-form']"
+                [class.active]="isActive('/hccmatadmin/contact-form')"
+                >
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Enquiry</span>
+                    <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['contactForm']"></i>
+                </a>
+            </li>
+
+            <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('events')">
+                <a class="pc-link" [routerLink]="['/hccmatadmin/all-events']"
+                [class.active]="isActive('/hccmatadmin/all-events')"
+                >
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Events</span>
+                    <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['events']"></i>
+                </a>
+            </li>
+            <!-- rank and placement -->
+            <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('achivment')">
+                <a class="pc-link">
+                    <i class="fa-solid fa-layer-group"></i><span>Rank & Placements</span>
+
+                    <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['achivment']"
+                    ></i>
+                </a>
+                <ul class="pc-submenu" [class.open]="openMenus['achivment']">
+                    <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('rank', $event)">
+                        <a class="pc-link" [routerLink]="['/hccmatadmin/rank-holders']"
+                        [class.active]="isActive('/hccmatadmin/rank-holders')"
+                        >
+                            <i class="fa-solid fa-graduation-cap"></i> &nbsp;
+                            Rank Holders
+                            <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['rank']"></i>
+                        </a>
+                    </li>
+                    <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('Placements', $event)">
+                        <a class="pc-link" [routerLink]="['/hccmatadmin/placements']"
+                        [class.active]="isActive('/hccmatadmin/placements')"
+                        >
+                            <i class="fa-solid fa-user-tie"></i>
+                            <span>Placements</span>
+                            <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['Placements']"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('team')">
+                <a class="pc-link">
+                    <i class="fa-solid fa-people-group"></i>
+                    <span>Team Management</span>
+
+                    <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['team']"></i>
+                </a>
+                <ul class="pc-submenu" [class.open]="openMenus['team']">
+                    <!-- Faculty Management -->
+                    <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('faculty', $event)">
+                        <a class="pc-link" [routerLink]="['/hccmatadmin/all-faculty']"
+                        [class.active]="isActive('/hccmatadmin/all-faculty')"
+                        >
+                            Faculty Management
+                            <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['faculty']"></i>
+                        </a>
+                    </li>
+                    <!-- Board Management -->
+                    <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('board', $event)">
+                        <a class="pc-link" [routerLink]="['/hccmatadmin/team-management']"
+                        [class.active]="isActive('/hccmatadmin/team-management')"
+                        >
+                            Board Management
+                            <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['board']"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!-- News Section -->
+            <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('news')">
+                <a class="pc-link">
+                    <i class="fa-solid fa-square-rss"></i>
+                    <span>News</span>
+                    <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['news']"></i>
+                </a>
+                <ul class="pc-submenu" [class.open]="openMenus['news']">
+                    <li class="pc-item" (click)="toggleSubMenu('campusNews', $event)">
+                        <a class="pc-link" [routerLink]="['/hccmatadmin/add-campus-news']"
+                        [class.active]="isActive('/hccmatadmin/add-campus-news')"
+                        >
+                            Campus News
+                        </a>
+                    </li>
+                    <li class="pc-item" (click)="toggleSubMenu('universityNews', $event)">
+                        <a class="pc-link" [routerLink]="['/hccmatadmin/add-university-news']"
+                        [class.active]="isActive('/hccmatadmin/add-university-news')"
+                        >
+                            University News
+                        </a>
+                    </li>
+                    <li class="pc-item" (click)="toggleSubMenu('universityNews', $event)">
+                        <a class="pc-link" [routerLink]="['/hccmatadmin/campus-achivments']"
+                        [class.active]="isActive('/hccmatadmin/campus-achivments')"
+                        >
+                            Campus Achivment
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('course')">
+                <a class="pc-link" [routerLink]="['/hccmatadmin/all-courses']"
+                [class.active]="isActive('/hccmatadmin/all-courses')"
+                >
+                    <i class="fas fa-university"></i>
+                    <span>Course Management</span>
+                    <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['course']"></i>
+                </a>
+            </li>
+
+            <li class="pc-item pc-hasmenu" (click)="toggleSubMenu('testimonial')">
+                <a class="pc-link" [routerLink]="['/hccmatadmin/add-testimonial']"
+                    [class.active]="isActive('/hccmatadmin/add-testimonial')">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Testimonial</span>
+                    <i class="fas fa-chevron-right pc-arrow" [class.open]="openMenus['testimonial']"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>

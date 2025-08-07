@@ -1,0 +1,111 @@
+.error-area {
+	background-color: #e9fcff;
+
+    .error-content {
+        text-align: center;
+
+		h1 {
+			line-height: 1;
+			color: var(--main-color);
+            font: {
+                size: 300px;
+                weight: 700;
+            };
+            margin: {
+                bottom: 0;
+                top: -48px;
+            };
+			span {
+				color: #ff0000;
+			}
+		}
+        h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .default-btn {
+            margin-top: 10px;
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .error-area {
+        .error-content {
+            h1 {
+                font-size: 100px;
+                margin: {
+                    bottom: 5px;
+                    top: -15px;
+                };
+            }
+            h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            .default-btn {
+                margin-top: 0;
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .error-area {
+        .error-content {
+            h1 {
+                font-size: 200px;
+                margin: {
+                    bottom: 5px;
+                    top: -35px;
+                };
+            }
+            h3 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            .default-btn {
+                margin-top: 5px;
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .error-area {
+        .error-content {
+            h1 {
+                font-size: 250px;
+                margin: {
+                    bottom: 5px;
+                    top: -45px;
+                };
+            }
+            h3 {
+                font-size: 22px;
+                margin-bottom: 12px;
+            }
+            .default-btn {
+                margin-top: 10px;
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

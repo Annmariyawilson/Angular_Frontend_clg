@@ -1,0 +1,172 @@
+$navbar-height: 60px;
+$primary-color: #ffffff;
+$secondary-color: #004d40;
+$icon-color: #034903;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 1282px;
+  height: $navbar-height;
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  color: $secondary-color;
+  transition: all 0.3s ease;
+  z-index: 999;
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    
+
+    span {
+      font-size: 14px;
+      color: $secondary-color;
+    }
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .menu-btn {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: $icon-color;
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+
+    button {
+      background: none;
+      border: none;
+      color: $icon-color;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .profile-button {
+      font-size: 24px;
+      color: $icon-color;
+    }
+  }
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #ffffff;
+  height: 60px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  span {
+    font-size: 12px;
+    color: $secondary-color;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-left {
+    display: flex;
+    align-items: center;
+    
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .menu-btn {
+    display: block;
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #034903;
+    cursor: pointer;
+    z-index: 11;
+  }
+}
+
+/* Profile Dropdown */
+.profile-container {
+  position: relative;
+
+  .dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px 0;
+    width: 150px;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: none;
+    z-index: 1000;
+
+    a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #f4f4f4;
+      }
+    }
+  }
+
+  .dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.navbar-brand {
+  padding: 0;
+  display: flex;
+
+
+  img {
+      width: 40px;
+      height: auto;
+      transition: transform 0.3s ease;
+      animation: logoBounce 1s ease-in-out;
+       
+  }
+
+  &:hover img {
+      transform: scale(1.1);
+  }
+}

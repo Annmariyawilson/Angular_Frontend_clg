@@ -1,0 +1,227 @@
+<!-- Rank Holders Navbar -->
+<nav class="navbar navbar-expand-lg bg-light d-none d-sm-flex">
+  <div class="container-fluid">
+    <i class="fa-sharp fa-solid fa-database cursor-pointer me-2"></i>
+    <a class="navbar-brand fw-bold fs-5 m-3">Rank Holders</a>
+    <div class="collapse navbar-collapse">
+      <form class="d-flex">
+        <input 
+          (keyup)="search($event)" 
+          class="form-control me-2" 
+          type="search" 
+          placeholder="Search by name" 
+        />
+        <button 
+          type="button" 
+          class="btn d-flex align-items-center" 
+          (click)="openAddModal()" 
+          data-bs-toggle="modal" 
+          data-bs-target="#rankHolderModal"
+        >
+          <i class="fa fa-plus"></i><span>&nbsp;Add</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Navbar -->
+<nav class="navbar navbar-expand-lg bg-light d-flex d-sm-none">
+  <div class="container-fluid flex-column align-items-start">
+    <div class="d-flex align-items-center w-100 mb-2">
+      <i class="fa-sharp fa-solid fa-database cursor-pointer me-2"></i>
+      <a class="navbar-brand fw-bold fs-5 m-0">Rank Holders</a>
+    </div>
+    <form class="d-flex flex-column w-100 gap-2">
+      <input 
+        (keyup)="search($event)" 
+        class="form-control" 
+        type="search" 
+        placeholder="Search by name"
+      />
+      <button 
+        type="button" 
+        class="btn btn-primary d-flex align-items-center justify-content-center" 
+        (click)="openAddModal()" 
+        data-bs-toggle="modal" 
+        data-bs-target="#rankHolderModal"
+      >
+        <i class="fa fa-plus"></i><span class="ms-1">Add</span>
+      </button>
+    </form>
+  </div>
+</nav>
+
+<!-- Rank Holders Cards -->
+<div class="row mt-4" *ngIf="filteredRankHolders.length > 0">
+  <div class="col-md-4 mb-4" *ngFor="let holder of filteredRankHolders">
+    <div class="card">
+      <div class="card-img-container">
+        <img [src]="holder.imageUrl || 'assets/placeholder.jpg'" alt="Rank holder image" />
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ holder.name }}</h5>
+        <p class="card-text">Contact: {{ holder.contact }}</p>
+        <p class="card-text">Place: {{ holder.place }}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Rank: {{ holder.rank }}</li>
+        <li class="list-group-item">Department: {{ holder.department }}</li>
+        <li class="list-group-item">Course: {{ holder.course }}</li>
+        <li class="list-group-item">Mark: {{ holder.mark }}</li>
+      </ul>
+      <div class="card-body">
+        <a class="card-link" style="cursor: pointer;" (click)="updateRankHolder(holder)" data-bs-toggle="modal" data-bs-target="#rankHolderModal">Update</a>
+        <a class="card-link text-danger" style="cursor: pointer;" (click)="deleteRankHolder(holder._id)">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- No Data -->
+<div *ngIf="filteredRankHolders.length === 0" class="text-center mt-5">
+  <p>No Rank Holders found.</p>
+</div>
+
+<!-- Add/Edit Modal -->
+<div class="modal fade" id="rankHolderModal" tabindex="-1" aria-labelledby="rankHolderModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form (ngSubmit)="onSubmit()" #rankForm="ngForm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ isEdit ? 'Edit' : 'Add' }} Rank Holder</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #rankModalCloseBtn></button>
+        </div>
+        <div class="modal-body">
+          <!-- Name -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Name" 
+              [(ngModel)]="currentHolder.name" 
+              name="name" 
+              required 
+              pattern="^[a-zA-Z\s]+$"
+
+              #name="ngModel"
+            />
+            <small class="text-danger" *ngIf="name.invalid && name.touched">Name is required.</small>
+          </div>
+
+          <!-- Contact -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Contact" 
+              [(ngModel)]="currentHolder.contact" 
+              name="contact" 
+              required 
+              pattern="^[0-9]{10}$"
+              #contact="ngModel"
+            />
+            <small class="text-danger" *ngIf="contact.invalid && contact.touched">
+              Enter a valid 10-digit contact number.
+            </small>
+          </div>
+
+          <!-- Place -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Place" 
+              [(ngModel)]="currentHolder.place" 
+              name="place"
+              required
+              pattern="^[a-zA-Z\s]+$"
+
+              #place="ngModel"
+            />
+            <small class="text-danger" *ngIf="place.invalid && place.touched">Place is required.</small>
+          </div>
+
+          <!-- Rank -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Rank" 
+              [(ngModel)]="currentHolder.rank" 
+              name="rank"
+              required
+              #rank="ngModel"
+            />
+            <small class="text-danger" *ngIf="rank.invalid && rank.touched">Rank is required.</small>
+          </div>
+
+          <!-- Department -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Department" 
+              [(ngModel)]="currentHolder.department" 
+              name="department"
+              required
+              pattern="^[a-zA-Z\s]+$"
+
+              #department="ngModel"
+            />
+            <small class="text-danger" *ngIf="department.invalid && department.touched">Department is required.</small>
+          </div>
+
+          <!-- Course -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Course" 
+              [(ngModel)]="currentHolder.course" 
+              name="course"
+              required
+              pattern="^[a-zA-Z\s]+$"
+
+              #course="ngModel"
+            />
+            <small class="text-danger" *ngIf="course.invalid && course.touched">Course is required.</small>
+          </div>
+
+          <!-- Percentage -->
+          <div class="mb-2">
+            <input 
+              type="number" 
+              class="form-control" 
+              placeholder="Percentage" 
+              [(ngModel)]="currentHolder.mark" 
+              name="mark"
+              required
+              #mark="ngModel"
+            />
+            <small class="text-danger" *ngIf="mark.invalid && mark.touched">Percentage is required.</small>
+          </div>
+
+          <!-- Image -->
+          <div class="mb-2">
+            <input
+  type="file"
+  #fileInput
+  (change)="onFileSelected($event)"
+  accept="image/*"
+  class="form-control"
+/>
+
+            <small class="text-danger" *ngIf="imageError">{{ imageError }}</small>
+          </div>
+          <img *ngIf="previewImage" [src]="previewImage" class="img-thumbnail mt-2" style="max-height: 150px;">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success" [disabled]="rankForm.invalid || !selectedFile || imageError">
+            {{ isEdit ? 'Update' : 'Add' }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+.rank-card {
+  background-color: #e7f6dba2;
+  border: 1px solid rgba(21, 93, 6, 0.518);
+  border-radius: 0; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-wrapper {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 8px;
+    }
+  }
+
+  .card-body {
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+
+    .card-title {
+      font-size: 0.95rem; 
+      font-weight: 600;
+      color: #074719;
+    }
+        .card-text1 {
+      font-size: 0.80rem; 
+      color: #000000;
+    }
+
+
+    .card-text2 {
+      font-size: 0.70rem; 
+      color: #393402;
+    }
+  }
+}

@@ -1,0 +1,401 @@
+<!-- Default Courses Section -->
+<div
+    class="study-area bg-image pt-70 pb-70"
+    style="background-image: url(assets/images/study-bg.jpg)"
+    [ngClass]="{ 'd-none': router.url !== '/' }"
+>
+    <div class="container">
+        <div class="section-title white-title">
+            <h2>Browse courses by study area</h2>
+            <p>
+                Explore Holy Cross College's diverse undergraduate and
+                postgraduate programs designed to provide quality education with
+                industry-relevant skills. Our courses blend academic excellence
+                with practical experience to prepare you for successful careers
+                in today's competitive global marketplace.
+            </p>
+        </div>
+        <div class="study-slider">
+            <owl-carousel-o [options]="coursesCarouselOptions">
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-finance"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/course-details">
+                                Bachelor of Commerce Honours
+                            </a>
+                        </h3>
+                        <p>
+                            Explore our academic programs designed to develop
+                            essential skills for your career success.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn">
+                            Find out more
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-data-scientist"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses">
+                                Bachelor of Computer Applications
+                            </a>
+                        </h3>
+                        <p>
+                            A three-year program, empowering you to master
+                            software development and IT technologies.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn">
+                            Find out more
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-compliant"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses">
+                                Bachelor of Business Administration
+                            </a>
+                        </h3>
+                        <p>
+                            Industry-relevant skills in finance, marketing, HR,
+                            and operations, you're ready to succeed globally.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn">
+                            Find out more
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-health"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses">
+                                Bachelor of Social Work
+                            </a>
+                        </h3>
+                        <p>
+                            Join MGU's pioneering BSW program to become a
+                            skilled social worker and drive social change.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn">
+                            Find out more
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-data-scientist"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses">
+                                Bachelor of Tourism & Travel Management
+                            </a>
+                        </h3>
+                        <p>
+                            Career in tourism with expertise in management,
+                            destination planning, and sustainable practices.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn">
+                            Find out more
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-health"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses"
+                                >Master of Social <br />
+                                Work</a
+                            >
+                        </h3>
+                        <p>
+                            Join MGU's pioneering MSW program to become a
+                            skilled social worker and drive social change.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn"
+                            >Find out more <i class="ri-arrow-right-line"></i
+                        ></a>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-teacher"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses">
+                                Master of Arts in HR Management
+                            </a>
+                        </h3>
+                        <p>
+                            Advanced HR skills in leadership, strategy, and
+                            development for global impact.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn">
+                            Find out more
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-data-scientist"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses">M.SC Computer Science</a>
+                        </h3>
+                        <p>
+                            Gain deep technical knowledge in computing, AI, and
+                            data science for advanced tech careers.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn"
+                            >Find out more <i class="ri-arrow-right-line"></i
+                        ></a>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-data-scientist"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses"
+                                >Master of Computer Applications</a
+                            >
+                        </h3>
+                        <p>
+                            A specialized program to build advanced software
+                            development, systems, and application skills.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn"
+                            >Find out more <i class="ri-arrow-right-line"></i
+                        ></a>
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="single-study">
+                        <div class="icon">
+                            <i class="flaticon-data-scientist"></i>
+                        </div>
+                        <h3>
+                            <a routerLink="/courses"
+                                >Master of Tourism and Travel Management</a
+                            >
+                        </h3>
+                        <p>
+                            Career in tourism with expertise in management,
+                            destination planning, and sustainable practices.
+                        </p>
+                        <a routerLink="/courses" class="read-more-btn"
+                            >Find out more <i class="ri-arrow-right-line"></i
+                        ></a>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>
+
+<!-- Board Members ----------------------------------------------------------------------------------------------- -->
+
+<div
+    class="study-area staff bg-image pt-70 pb-70"
+    style="background-image: url(assets/images/study-bg.jpg)"
+    [ngClass]="{ 'd-none': router.url !== '/aboutUs' }"
+>
+    <div class="container">
+        <!-- Heading and Description -->
+        <div style="text-align: center; margin-bottom: 30px">
+            <h2 style="font-size: 28px; font-weight: bold; color: #fff">
+                Meet Our Inspiring Guides
+            </h2>
+            <p
+                style="
+                    font-size: 16px;
+                    color: #eee;
+                    max-width: 600px;
+                    margin: 0 auto;
+                "
+            >
+                "Our mentors are dedicated professionals, bringing expertise and
+                passion to shape the future of aspiring learners."
+            </p>
+        </div>
+
+        <div class="study-slider">
+            <owl-carousel-o [options]="boardCarouselOptions">
+                <ng-template
+                    carouselSlide
+                    *ngFor="let member of boardMembers; let i = index"
+                >
+                    <div
+                        class="single-study"
+                        style="
+                            width: 260px;
+                            height: auto;
+                            border: none;
+                            padding: 0;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            overflow: hidden;
+                            background-color: #0b3707;
+                        "
+                    >
+                        <!-- Mentor Image -->
+                        <div
+                            style="width: 100%; height: 250px; overflow: hidden"
+                        >
+                            <img
+                                [src]="
+                                    member?.imageUrl ||
+                                    'assets/images/user3.jpg'
+                                "
+                                alt="{{ member.name }}"
+                                style="
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    display: block;
+                                "
+                            />
+                        </div>
+
+                        <!-- Name and Position -->
+                        <div
+                            style="
+                                text-align: center;
+                                padding: 10px;
+                                width: 100%;
+                            "
+                        >
+                            <h3
+                                style="
+                                    font-size: 18px;
+                                    font-weight: bold;
+                                    color: #fff;
+                                    margin: 0;
+                                "
+                            >
+                                {{ member.name }}
+                            </h3>
+                            <p
+                                style="
+                                    font-size: 14px;
+                                    color: #eee;
+                                    margin: 5px 0 0 0;
+                                "
+                            >
+                                {{ member.department }}
+                            </p>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+    </div>
+</div>
+
+<!-- Faculty Section -------------------------------------------------------------------------------------------------- -->
+<div
+    class="faculty-section"
+    [ngClass]="{ 'd-none': router.url !== '/aboutUs' }"
+>
+    <div class="container">
+        <div class="row">
+            <!-- Left Info Section -->
+            <div class="col-md-4 faculty-info mb-5">
+                <h2>OUR FACULTY DEPARTMENTS</h2>
+                <p>
+                    Our faculty departments are centers of innovation and
+                    learning where students receive mentorship from experienced
+                    professionals. Whether in engineering, business, science, or
+                    humanities, our educators bring both academic rigor and
+                    practical insight into the classroom.
+                </p>
+            </div>
+
+            <!-- Right Faculty Department Dropdowns -->
+            <div class="col-md-8">
+                <div
+                    *ngFor="let department of facultyDepartments; let i = index"
+                    class="faculty-department"
+                >
+                    <!-- Clickable Department Heading -->
+                    <div class="faculty-heading" (click)="toggleFaculty(i)">
+                        <h5>{{ department.name }}</h5>
+                        <span>
+                            <i
+                                class="ri-arrow-down-s-line"
+                                *ngIf="activeFaculty !== i"
+                            ></i>
+                            <i
+                                class="ri-arrow-up-s-line"
+                                *ngIf="activeFaculty === i"
+                            ></i>
+                        </span>
+                    </div>
+
+                    <!-- Dropdown Content -->
+                    <div class="faculty-cards" *ngIf="activeFaculty === i">
+                        <owl-carousel-o [options]="facultyCarouselOptions">
+                            <ng-template
+                                carouselSlide
+                                *ngFor="
+                                    let faculty of department.facultyMembers
+                                "
+                            >
+                                <div class="faculty-card">
+                                    <img
+                                        [src]="faculty.image"
+                                        (error)="setDefaultImage($event)"
+                                        alt="Faculty Image"
+                                        class="faculty-image"
+                                    />
+                                    <div class="faculty-info">
+                                        <h6 class="faculty-name">
+                                            {{ faculty.name }}
+                                        </h6>
+                                        <h6 class="faculty-designation">
+                                            {{ faculty.jobTitle }}
+                                        </h6>
+                                        <h6 class="faculty-contact">
+                                            📞 {{ faculty.contact }}
+                                        </h6>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </owl-carousel-o>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

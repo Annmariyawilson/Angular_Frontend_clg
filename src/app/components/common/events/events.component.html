@@ -1,0 +1,251 @@
+<div
+  class="events-area bg-color ptb-100"
+  [ngClass]="{ 'd-none': router.url === '/index-2' || router.url === '/aboutUs' }"
+>
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Column: Events List -->
+      <div class="col-lg-7 col-md-12">
+        <div class="events-content">
+          <span class="sub-title">Events</span>
+          <h2>Upcoming events</h2>
+          <ul class="events-list">
+            <li *ngFor="let event of upcomingEvents">
+              <div class="events-date">
+                <span class="mb-2">{{ event.eventDate | date: 'dd MMM' }}</span>
+                <span>{{ event.eventDate | date: 'yyyy' }}</span>
+              </div>
+              <span>{{ event.eventType || 'Conference' }}</span>
+              <h3>
+                <a [routerLink]="['/event-details', event._id]">
+                  {{ event.title.length > 40 ? event.title.substring(0, 40) + '...' : event.title }}
+                </a>
+              </h3>
+              <p>{{ event.description.length > 160 ? event.description.substring(0, 160) + '...' : event.description }}</p>
+              <a [routerLink]="['/event-details', event.eventId]" class="read-more-btn">
+                Find out more
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </li>
+          </ul>          
+        </div>
+      </div>
+
+      <!-- Right Column: Countdown for Next Event -->
+      <div class="col-lg-5 col-md-12 mt-3">
+        <div class="events-timer" *ngIf="upcomingEvent && countdown">
+          <div class="event-img-wrapper">
+          <div class="event-img">
+            <img
+              [src]="upcomingEvent.imageUrl || 'assets/images/event-img.jpg'"
+              alt="events-image"
+            />
+          </div>
+        </div>
+          <span>Next Event</span>
+          <div class="timer">
+            <div>{{ countdown.days }}d</div>
+            <div>{{ countdown.hours }}h</div>
+            <div>{{ countdown.minutes }}m</div>
+            <div>{{ countdown.seconds }}s</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="events-area bg-color ptb-100" [ngClass]="{'d-none': router.url !== '/aboutUs'}">
+    <div class="container">
+        <div class="row align-items-center">
+            
+            <!-- Left Side - Content (Moves below image on mobile) -->
+            <div class="col-lg-7 col-md-12 order-md-1 order-2">
+                <h1 class="text-center text-md-left">CHAIRMAN</h1>
+                <div class="events-content" style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
+                    <p>
+                    Our Chairman <Strong>Thomas Mar Themotheos</Strong> , Metropolitan
+                    (Arch-Bishop) of Kottayam Diocese was ordained as the
+                    Metropolitan of the Outside Kerala Diocese on 3rd
+                    January 1991. Thomas was born on 2nd May 1950 in the
+                    Muriyankal family of the Lakkattoor village (Kottayam
+                    District, Kerala, India) to Mr. Kurian Kuruvilla and
+                    Mrs. Annamma Kuruvilla, as the sixth of their eight
+                    children. Thomas had his initial primary education in
+                    the village CMS (Church Missionary Society School)
+                    originally the Anglican Church Missionary Society.
+                    Middle School and High School education were completed
+                    at the Amayannoor High School. IN 1964, while in the
+                    ninth grade, Thomas was ordained as sub-deacon (Korooyo)
+                    by Mar Philexinos Paulose (later Catholicos Baselius
+                    Paulose II) who was then Metropolitan of the Kottayam
+                    Diocese.
+                </p>
+                <p>
+                    His parish priest, Cor Episcopo V. Rev. Thomas
+                    Mattathil, imparted early instruction in Syriac and
+                    liturgical rites. Having completed the Secondary School
+                    Leaving Certificate (SSLC) examination in 1965, Dn.
+                    Thomas joined the Baselius College, Kottayam for
+                    Pre-Degree course. Subsequently, he joined the CMS
+                    College, Kottayam, where he continued till 1972,
+                    graduating with a Bachelors and Masters Degrees in
+                    English literature. In 1973, Dn. Thomas joined the Old
+                    Seminary, Kottayam for theological studies. He could
+                    study there only for a year due to the erupting volatile
+                    situation in the Malankara Church, which had its echoes
+                    on the Seminary too. Finding it difficult to continue,
+                    Dn. Thomas joined the Manjinikkara Dayra for Syriac
+                    Studies and priestly formation. Under the spiritual
+                    guidance of V. Rev. Jacob Madapattu Remban (later
+                    Metropolitan H.G. Mar Julius Yakoub), he completed
+                    liturgical studies. During the one year’s stay at the
+                    monastery, he completed a Bachelor of Education degree
+                    (B.Ed) at the NSS Training College, Pandalam. While at
+                    the Seminary, late Metropolitan of Kottayam Diocese,
+                    H.G. Mor Gregorius Gheevarghese (Perumpilly Thirumeni)
+                    ordained him shamshono (full deacon).
+                </p>
+                <p>
+                    In 1975, H.G. Mor Philexinos Paulose (later Catholicos)
+                    ordained him as a priest on. Thereupon, Fr. Thomas began
+                    to assist the vicar of his parish. Later he began to
+                    teach at the T.M. High School, Akkikavu, close to
+                    Perumpilavu near Kunnamkulam. While teaching there, he
+                    assisted Rev. Fr. K.V. Kuriakose (the late H.G. Mar
+                    Julius Kuriakose), at the Simhasana Church, Kunnamkulam.
+                    When late Mor Philexinos Paulose was consecrated as
+                    Catholicose of the East, His Beatitude invited Fr.
+                    Thomas to assist him at the Muvattupuzha Aramana. After
+                    a few months, Fr. Thomas was appointed as vicar of the
+                    St. Mary’s Church, Bangalore. This became a turning
+                    point in his life. He served a congregation in that
+                    capacity for eight years until 1984. During this period,
+                    along with his pastoral duties, Fr. Thomas completed a
+                    Bachelor of Divinity and Master of Theology Degrees. The
+                    St. Mary’s Church in Bangalore was built during this
+                    period.
+                </p>
+                <p>
+                    In 1984, Fr. Thomas became the vicar of St. Peter’s
+                    Church, New Delhi. He served there for two years
+                    organizing the parish. In 1986, he left for Germany for
+                    higher studies and joined the Erlangen-Nuremberg
+                    University. After completing studies in the German
+                    language, he moved to the Goettingen University in 1987,
+                    to pursue Syriac patristic studies. He returned to India
+                    in 1990, after being elected to the bishopric of the
+                    Outside Kerala Diocese. On 3rd January 1991, Fr. Thomas
+                    was consecrated bishop by late H.B. Catholicos Baselius
+                    Paulose II, giving the name Themotheos, and was
+                    appointed to assist the Metropolitan of the Outside
+                    Kerala Diocese, H.G. Mar Theophilus Thomas who was
+                    advanced in age. When HG passed away on 12th January
+                    1992, Mar Themotheos was given full responsibility for
+                    the Diocese. The Metropolitan established his
+                    administrative office at Mulund, Bombay. A new
+                    publication, “The Vision” was started thereafter, and
+                    continued to be published as a bilingual monthly, till
+                    2009. In 1993, when a severe earthquake occurred in the
+                    Latur district of Maharashtra, His Grace launched a
+                    rehabilitation program with the support of the entire
+                    Church. Gram Jyothi Social Welfare Centre was
+                    established at the Harangul village in Latur which
+                    served three villages with health clinics and
+                    educational programs. Ten acres of land were purchased
+                    in 1996 at Anagalpura near Bangalore city and a mission
+                    center was organized there, and the Centre started the
+                    St. George’s School, which is now a full-fledged high
+                    School with 750 children studying.
+                </p>
+                <p>
+                    In 1998, when the late Metropolitan of Kottayam Diocese,
+                    H.G. Gregorius Gheevarghese fell ill, Mar Themotheos
+                    Thomas assumed responsibility of the Kottayam Diocese as
+                    Assistant Metropolitan in 1998. After the demise of Mor
+                    Gregorious (Perumpally Thirumeni) on February 22nd,
+                    1999, full responsibility of the Diocese was entrusted
+                    to Mor Themotheos. A couple of years later His Grace was
+                    given responsibilities as Assistant Metropolitan of the
+                    South Kerala Diocese of Thumpamon, Niranam, and Quilon
+                    and continued this responsibility for the next three
+                    years. His Grace served as the President of the
+                    Malankara Syrian Orthodox Theological Seminary at
+                    Udayagiri, near Mulanthuruthy for nine years from 1992
+                    onwards. For three years His Grace was the President of
+                    the Youth Association of the Malankara Church. His Grace
+                    participated in the Vienna Consultations–the dialogue
+                    between the Roman Catholic Church and the Oriental
+                    Orthodox Churches.
+                </p>
+                <p>
+                    H.G. represented the Syrian Orthodox Church in the
+                    eighth Assembly of the World Council of Churches, held
+                    at Harare in Zimbabwe in 1998, and the WCC Assembly of
+                    2005, held in Brazil. H.G. is a regular participant in
+                    forums of the National Council of Churches in India
+                    (NCCI). From 2002 to 2006 he was the Vice-President of
+                    the NCCI. Mar Themotheos has also been a key participant
+                    in the dialogue between the Malankara Syrian Orthodox
+                    Church and the Catholic Church which produced
+                    breakthrough agreement on controversial issues, such as
+                    inter-confessional marriages. As Metropolitan of the
+                    Outside Kerala Diocese (later Syrian Orthodox
+                    Arch-Diocese of Greater India), His Grace was able to
+                    establish more than 50 parish churches throughout the
+                    length and breadth of the Indian union. The Hosur
+                    Mission Centre and the Bhiman Kuppa Centre at Hosur Road
+                    in Mysore were developed under the leadership of
+                    Metropolitan Thomas Themotheos. The Nest India
+                    Foundation in Bombay for the destitute children (for
+                    girls) was organized in 1998. It is functioning quite
+                    well with its own building to accommodate 28 girl
+                    children. A team of co-workers struggles hard for taking
+                    care of the children and their education. It is a
+                    commendable charity work initiated by His Grace. In the
+                    Kottayam Diocese Snehitha, a charitable home for the
+                    orphaned or semi-orphaned girl children was started in
+                    April 24, 2007. It is functioning well with 16 girl
+                    children. The Asraya Guidance and Counseling Centre is
+                    actually an offshoot of the Anagalpura Mission Centre in
+                    Bangalore. The Centre is providing lunch to a large
+                    number of patients and their bystanders at the
+                    Government Medical College Hospital, Kottayam. This was
+                    begun on March 15, 2007.
+                </p>
+                <p>
+                    Throughout his spiritual life, he has given much
+                    importance for education and providing education to the
+                    younger generation who will be the steering wheel of the
+                    next generation. In 1983 he started St. Mary’s School at
+                    Queen’s Road, which has grown as a High School with one
+                    thousand children now. Preparations for the beginning of
+                    the Holy Cross College of Management and Technology
+                    (HCCMAT) was begun in 2002.
+                </p>
+                <p>
+                    Holy Cross Educational Trust was formed (incorporated)
+                    in 2000. In 2001 Bombay Estate was purchased. In 2002
+                    application was submitted for permission, to start a
+                    Management College and it was granted in the same year.
+                    In June 2003 the College was begun. The first building
+                    of the College was completed in September 2003, and
+                    classes were moved from the parish hall of St. Mary’s
+                    Jacobite Church, Puttady, to the completed building.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12 order-md-2 order-1">
+            <div class="events-timer text-center"style="background: none;">
+                <div class="event-img" style="background: none;">
+                    <img src="assets/images/bishop.jpg" alt="Chairman Image" class="img-fluid" style="max-height: 470px; width: 380px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

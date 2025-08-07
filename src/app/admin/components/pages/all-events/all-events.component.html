@@ -1,0 +1,95 @@
+<div class="main-content">
+  <div class="card">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a><i class="fa-solid fa-left-long" (click)="goBack()"></i></a>
+        <a class="navbar-brand" routerLink="/todo-dashboard">
+          &nbsp;&nbsp;{{ tableHeading }}&nbsp;
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          <div class="statusBar">
+            <button (click)="sortEvent('')" type="button" class="btn btn-light btn-sm">
+              All Events <span class="badge badge-dark" style="color: black;">{{ TotalEvent | async }}</span>
+            </button>
+            <button [routerLink]="['/hccmatadmin/add-events']" class="btn btn-dark btn-sm">
+              Add Event
+            </button>
+            <button (click)="sortEvent('pending')" class="btn btn-info btn-sm">
+              Upcoming <span class="badge badge-light">{{ upcomingEvent | async }}</span>
+            </button>
+            <button (click)="sortEvent('completed')" class="btn btn-success btn-sm">
+              Completed <span class="badge badge-light">{{ completedEvent | async }}</span>
+            </button>
+            <button (click)="sortEvent('canceled')" class="btn btn-danger btn-sm">
+              Canceled <span class="badge badge-light">{{ canceledEvent | async }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Event Cards -->
+    <div class="container mt-3">
+      <div *ngIf="events && events.length > 0; else noEvents">
+        <div *ngFor="let event of events" class="card-media mb-4">
+          <!-- Image and Slots -->
+          <div class="card-media-object-container">
+            <div class="card-media-object" [style.background-image]="'url(' + event.imageUrl + ')'">
+            </div>
+            <span class="card-media-object-tag subtle">
+              Booked Slots: {{ event.bookedSlots || 0 }}
+            </span>
+          </div>
+
+          <!-- Event Body -->
+          <div class="card-media-body">
+            <div class="card-media-body-top">
+              <span class="subtle">{{ event.eventDate | date: 'EEE, MMM dd, h:mm a' }}</span>
+              <div class="card-media-body-top-icons u-float-right">
+                <i class="fa-solid fa-file-pen" [routerLink]="['/hccmatadmin/updateevents', event.eventId]"></i>
+                <i class="fa-solid fa-trash" (click)="deleteEvent(event.eventId)"></i>
+              </div>
+            </div>
+
+            <span class="card-media-body-heading">{{ event.title }}</span>
+
+            <div class="card-media-body-supporting-bottom">
+              <span class="card-media-body-supporting-bottom-text subtle">
+                {{ event.location }}
+              </span>
+              <span class="card-media-body-supporting-bottom-text subtle u-float-right">
+                Entry: {{ event.entry || 'Free' }}
+              </span>
+            </div>
+
+            <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+              <span class="card-media-body-supporting-bottom-text subtle">
+                Event Status: {{ event.eventStatus }}&nbsp;&nbsp;&nbsp;
+              </span>
+              <span class="card-media-body-supporting-bottom-text subtle">
+                &emsp;Event Type: {{ event.category }}
+              </span>
+              <a [href]="event.website || '#'" target="_blank"
+                 class="card-media-body-supporting-bottom-text card-media-link u-float-right">
+                VIEW EVENT
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Events Fallback -->
+      <ng-template #noEvents>
+        <div class="alert alert-info text-center">No events found.</div>
+      </ng-template>
+    </div>
+  </div>
+</div>

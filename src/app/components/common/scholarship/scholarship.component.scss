@@ -1,0 +1,85 @@
+.scholarship-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: #f8f9fa;
+
+  .scholarship-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    padding: 2rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    .title {
+      font-size: 2rem;
+      color: #045e0b;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .intro,
+    .conclusion {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .details {
+      list-style: disc inside;
+      padding-left: 0;
+      margin-bottom: 1rem;
+
+      li {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        color: #333;
+        line-height: 1.5;
+
+        strong {
+          color: #06552f;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    .scholarship-card {
+      padding: 1.5rem;
+
+      .title {
+        font-size: 1.75rem;
+      }
+
+      .intro,
+      .conclusion,
+      .details li {
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem;
+
+    .scholarship-card {
+      padding: 1rem;
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .intro,
+      .conclusion,
+      .details li {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+    }
+  }
+}

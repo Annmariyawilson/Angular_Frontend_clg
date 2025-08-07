@@ -1,0 +1,93 @@
+<div class="main-content">
+  <div class="events-details-area">
+    <div class="container">
+      <div class="row">
+        <!-- Event Details -->
+        <div class="col-lg-8 col-md-12">
+          <div class="events-desc">
+            <div class="event-image-upload mt-3">
+              <label for="imageInput" class="form-label">Event Image <span class="text-danger">*</span></label>
+              <img *ngIf="event.imageUrl" [src]="event.imageUrl" alt="Event Image" class="event-img mb-2" />
+              <input id="imageInput" type="file" class="form-control image-upload" accept="image/*" (change)="onFileSelected($event)" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="title" class="form-label">Event Title <span class="text-danger">*</span></label>
+              <input id="title" type="text" class="form-control" [(ngModel)]="event.title" placeholder="Enter event title" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Event Description <span class="text-danger">*</span></label>
+              <textarea id="description" class="form-control" rows="4" [(ngModel)]="event.description" placeholder="Enter event description" required></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="audience" class="form-label">Target Audience <span class="text-danger">*</span></label>
+              <textarea id="audience" class="form-control" rows="2" [(ngModel)]="event.targetAudience" placeholder="Who is this event for?" required></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Info -->
+        <div class="col-lg-4 col-md-12">
+          <div class="events-sidebar">
+            <h3>Update Event</h3>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <label class="form-label">Start Date <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" [(ngModel)]="event.eventDate" [min]="todayDate" required />
+              </li>
+
+              <li class="mb-3">
+                <label class="form-label">End Date <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" [(ngModel)]="event.endDate" [min]="event.eventDate || todayDate" required />
+              </li>
+
+              <li class="mb-3">
+                <label class="form-label">Category <span class="text-danger">*</span></label>
+                <select class="form-control" [(ngModel)]="event.category" required>
+                  <option value="" disabled selected>Select a category</option>
+                  <option value="Conference">Conference</option>
+                  <option value="Seminar">Seminar</option>
+                  <option value="Workshop">Workshop</option>
+                </select>
+              </li>
+
+              <li class="mb-3">
+                <label class="form-label">Location <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="event.location" placeholder="Event location" required />
+              </li>
+
+              <li class="mb-3">
+                <label class="form-label">Total Slots <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" [(ngModel)]="event.totalSlots" min="1" placeholder="Total available slots" required />
+              </li>
+
+              <li class="mb-3">
+                <label class="form-label">Booked Slots <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" [(ngModel)]="event.bookedSlots" min="0" [max]="event.totalSlots" placeholder="Booked slots" required />
+              </li>
+
+              <li class="mb-3">
+                <label class="form-label">Status <span class="text-danger">*</span></label>
+                <select class="form-control" [(ngModel)]="event.eventStatus" required>
+                  <option value="upcoming">Upcoming</option>
+                  <option value="completed">Completed</option>
+                  <option value="canceled">Canceled</option>
+                </select>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Update Button -->
+        <div class="col-lg-12 col-md-12 text-center">
+          <button type="button" class="default-btn" (click)="updateEvent()">
+            Update Event
+            <i class="ri-arrow-right-line"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

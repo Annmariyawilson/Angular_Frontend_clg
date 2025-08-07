@@ -1,0 +1,91 @@
+<!-- Default About Us Section -->
+<div
+    class="about-area ptb-100"
+    [ngClass]="{
+        'd-none': router.url === '/index-2' || router.url === '/index-3'
+    }"
+>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="about-img">
+                    <img src="assets/images/about-img.jpg" alt="about-image" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="about-content">
+                    <span class="sub-title">About Our College</span>
+                    <h2>Our education system inspires the next generation</h2>
+                    <p>
+                        The Future in Focus. : "Focus on where you want to go,
+                        not on what you fear”, The Holy Cross College of
+                        Management And Technology(HCCMAT), is really inspired by
+                        these words of Anthony Robbins. True !, the exclusive
+                        learning atmosphere created here, is ideal for
+                        innovative thinking, a confident attitude, a competitive
+                        spirit, and everything that is focused on a prosperous
+                        future.
+                    </p>
+                    <a routerLink="/aboutUs" class="default-btn">
+                        Find out more
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- About Us Section Home Demo - 2 -->
+<div
+    class="about-area bg-color-f8fafb ptb-100 d-none"
+    [ngClass]="{
+        'd-block': router.url === '/index-2' || router.url === '/index-3'
+    }"
+>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="about-img-two">
+                    <img
+                        src="assets/images/about-img-2.jpg"
+                        alt="about-image"
+                    />
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="about-content">
+                    <span class="sub-title">About our university</span>
+                    <h2>Our education system inspires the next generation</h2>
+                    <p>
+                        At Holy Cross, we believe education is more than
+                        academic achievement—it's about empowering students to
+                        become innovative, compassionate leaders who can
+                        transform the world. Our holistic approach combines
+                        rigorous academic training with personal development,
+                        creating an environment where students discover their
+                        potential and develop the skills to make meaningful
+                        impact. Our educational philosophy goes beyond
+                        traditional learning. We cultivate critical thinking,
+                        creativity, and global awareness. Through personalized
+                        mentorship, cutting-edge research opportunities, and
+                        community engagement, we prepare students to navigate
+                        complex challenges and drive positive change in their
+                        chosen fields. We are committed to creating a dynamic
+                        learning ecosystem that nurtures individual talents
+                        while fostering collaboration, empathy, and social
+                        responsibility. Our diverse programs, expert faculty,
+                        and state-of-the-art facilities provide students with
+                        the tools to excel academically and professionally,
+                        ensuring they are well-equipped to lead and innovate in
+                        an ever-changing world.
+                    </p>
+                    <a routerLink="/about" class="default-btn">
+                        Find out more
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

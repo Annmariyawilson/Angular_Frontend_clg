@@ -1,0 +1,261 @@
+.tuition-fees-content {
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+        margin-bottom: 10px;
+
+        &:not(:first-child) {
+            margin-top: 25px;
+        }
+    }
+    ul, ol {
+        li {
+            color: var(--body-color);
+            margin-bottom: 12px;
+
+            a {
+                color: var(--main-color);
+    
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .course-pdf-bg {
+        background-color: #f3f3f4;
+        margin-top: 25px;
+        padding: 30px;
+
+        .course-pdf {
+            position: relative;
+            padding-left: 70px;
+
+            i {
+                left: 0;
+                top: -24px;
+                font-size: 45px;
+                position: absolute;
+                color: var(--main-color);
+            }
+            h3 {
+                font-size: 20px;
+                margin: {
+                    bottom: 0;
+                    top: 0;
+                };
+            }
+        }
+        .download-pdf {
+            text-align: end;
+        }
+    }
+    .single-costing-card {
+        padding: 30px;
+        margin-top: 10px;
+        text-align: center;
+        background-color: #f3f3f4;
+    
+        h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        .sub-title {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .features {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style-type: none;
+    
+            li {
+                font-weight: 600;
+                margin-bottom: 15px;
+                padding-bottom: 15px;
+                color: var(--body-color);
+                border-bottom: 1px solid #dddfe2;
+    
+                p {
+                    line-height: initial;
+                    margin-bottom: 5px;
+    
+                    span {
+                        color: var(--heading-color);
+                    }
+                }
+                span {
+                    span {
+                        color: var(--main-color);
+                    }
+                }
+            }
+        }
+        .total {
+            list-style-type: none;
+            text-align: start;
+            margin-bottom: 0;
+            padding-left: 0;
+    
+            li {
+                display: inline-block;
+                font: {
+                    weight: 600;
+                    size: 16px;
+                };
+            }
+            .price {
+                color: var(--main-color);
+                float: right;
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .tuition-fees-content {
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+            &:not(:first-child) {
+                margin-top: 20px;
+            }
+        }
+        .course-pdf-bg {
+            margin-top: 25px;
+            padding: 20px;
+    
+            .course-pdf {
+                padding-left: 0;
+    
+                i {
+                    top: 0;
+                    line-height: 1;
+                    font-size: 40px;
+                    position: relative;
+                }
+                h3 {
+                    font-size: 18px;
+                    margin-top: 12px;
+                }
+            }
+            .download-pdf {
+                text-align: start;
+                margin-top: 15px;
+            }
+        }
+        .single-costing-card {
+            padding: 20px 15px;
+    
+            h3 {
+                font-size: 18px;
+                margin-bottom: 8px;
+            }
+            .sub-title {
+                margin-bottom: 20px;
+            }
+            .features {
+                li {
+                    margin-bottom: 12px;
+                    padding-bottom: 12px;
+                }
+            }
+            .total {
+                li {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .tuition-fees-content {
+        .course-pdf-bg {
+            margin-top: 25px;
+            padding: 30px;
+    
+            .course-pdf {
+                padding-left: 55px;
+    
+                i {
+                    top: -20px;
+                    font-size: 40px;
+                }
+                h3 {
+                    font-size: 20px;
+                }
+            }
+        }
+        .single-costing-card {
+            padding: 25px 20px;
+    
+            h3 {
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+            .sub-title {
+                margin-bottom: 20px;
+            }
+            .features {
+                li {
+                    margin-bottom: 13px;
+                    padding-bottom: 13px;
+                }
+            }
+            .total {
+                li {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .tuition-fees-content {
+        .course-pdf-bg {
+            padding: 20px;
+    
+            .course-pdf {
+                padding-left: 50px;
+    
+                i {
+                    top: -18px;
+                    font-size: 40px;
+                }
+                h3 {
+                    font-size: 20px;
+                }
+            }
+        }
+        .single-costing-card {
+            padding: 30px 25px;
+        
+            h3 {
+                font-size: 22px;
+            }
+            .sub-title {
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

@@ -1,0 +1,59 @@
+<!-- Default Campus Information Section for Home -->
+<div class="our-campus-information-area pb-100" [ngClass]="{'d-none': router.url === '/index-2' || router.url === '/aboutUs'}">
+    <div class="container">
+        <div class="row m-0">
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="campus-img" style="background-image: url(assets/images/campus-img.jpg);">
+                    <img src="assets/images/campus-img.jpg" alt="Campus Image">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 p-0">
+                <div class="campus-content">
+                    <span class="sub-title">Our campus information</span>
+                    <h2>We are proud that students from different states and nationalities study on our campus.</h2>
+                    <p>Holy Cross College has established itself as a trailblazer in education, shaping the future of
+                        students across multiple states in India and extending its impact globally. Our institution is committed to academic excellence and social responsibility, particularly for students from underprivileged backgrounds.</p>
+                    <a routerLink="/campus-experience" class="read-more-btn">
+                        Find out more <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Manager Section for About Us -->
+<div class="our-campus-information-area pb-100" [ngClass]="{'d-none': router.url !== '/aboutUs'}">
+    <div class="container">
+        <div class="row m-0 d-flex align-items-stretch">
+            <!-- Manager Image -->
+            <div class="col-lg-4 col-md-6 col-12 p-0">
+                <div class="manager-img" style="display: flex; align-items: center; justify-content: center; height: 100%;">
+                    <img src="assets/images/manager.jpg" 
+                         style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 5px;" 
+                         alt="Manager Image" 
+                         class="img-fluid">
+                </div>
+            </div>
+
+            <!-- Manager Content -->
+            <div class="col-lg-8 col-md-6 col-12 p-0">
+                <div class="campus-content" 
+                     style="padding: 60px 40px; background-color: var(--main-color); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                    <h1 class="text-white" style="color: var(--white-color); margin-bottom: 15px;">MANAGER</h1>
+                    <p style="color: var(--white-color); margin-bottom: 10px;">
+                        Manager <strong>Mr. M.K. Scaria</strong>, a Cardamom Planter from Idukki, is the Manager of the College.
+                        As an investor and Board member since its inception, he has played a crucial role in developing the
+                        College to its current prestigious status among the affiliated colleges of Mahatma Gandhi University, Kottayam.
+                        He manages the day-to-day operations of the College.
+                    </p>
+                    <p style="color: var(--white-color); margin-bottom: 0;">
+                        Mr. Scaria is also the President of the Cardamom Grower’s Association, Vadanmedu, which advocates for
+                        the interests of cardamom planters. Additionally, he serves as the Chairman of Header Systems India Pvt. Ltd.,
+                        a Cardamom Auctioneer Company involved in trading and stocking cardamom.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

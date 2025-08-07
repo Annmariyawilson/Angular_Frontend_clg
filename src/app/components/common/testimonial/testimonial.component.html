@@ -1,0 +1,22 @@
+<div class="container-fluid bg-light bg-icon py-6 review-section"> 
+    <div class="container"> 
+        <div class="section-header text-center mx-auto mb-5" style="max-width: 500px;"> 
+            <h2 class="display-5 mb-2" style="font-weight: 700;">Customer Review</h2> 
+            <p>Experience excellence in education with top-tier faculty, modern infrastructure, and a vibrant campus life. Our commitment to knowledge and innovation empowers students for a successful future.</p> 
+</div>
+
+<!-- Testimonial Carousel -->
+<div class="testimonial-carousel owl-carousel">
+  <div class="testimonial-item position-relative p-5 mt-4" *ngFor="let testimonial of testimonials">
+    <i class="fa fa-quote-left fa-3x position-absolute top-0 start-0 mt-n4 ms-5"></i>
+    <p class="mb-4">{{testimonial.text}}</p>
+    <div class="d-flex align-items-center justify-content-center">
+      <img class="flex-shrink-0 rounded-circle" [src]="testimonial.imageUrl" alt="">
+      <div class="ms-3 text-start">
+        <h5 class="mb-1">{{testimonial.name}}</h5>
+        <span>{{testimonial.profession}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+

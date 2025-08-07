@@ -1,0 +1,102 @@
+.main-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.549);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+    .form-group.styled-form-group {
+      margin-bottom: 20px;
+  
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 6px;
+        font-family: 'Poppins', sans-serif;
+      }
+  
+      input,
+      select {
+        border-radius: 8px;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        font-family: 'Roboto', sans-serif;
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          border-color: #0d6efd;
+          outline: none;
+          box-shadow: 0 0 5px rgba(13, 110, 253, 0.2);
+        }
+      }
+    }
+  
+    .btn-success {
+      background-color: #198754;
+      border-color: #198754;
+      font-weight: 600;
+      padding: 8px 20px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #157347;
+      }
+    }
+  }
+  
+  .custom-select-wrapper {
+    position: relative;
+  
+    .custom-select {
+      appearance: none; 
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-color: #fff;
+      background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1rem;
+      padding-right: 2.5rem; 
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    .custom-select:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+  }
+  
+  .student-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    .student-info {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      color: #1a1a1a;
+    }
+  
+    .update-status {
+      text-align: right;
+    }
+  
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+  
+      .update-status {
+        width: 100%;
+        margin-top: 10px;
+        text-align: left;
+      }
+    }
+  }
+  

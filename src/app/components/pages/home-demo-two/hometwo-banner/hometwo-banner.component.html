@@ -1,0 +1,53 @@
+<div class="banner-area banner-area-style-two" style="background-image: url(assets/images/banner/banner-bg-2.jpg);">
+    <div class="container">
+        <div class="banner-content">
+            <span class="sub-title">Welcome to Holly Cross College</span>
+            <!-- <h1>Life the journey get the bright career</h1> -->
+            <!-- <form class="find-courses-form-bg">
+                <ul class="row align-items-center">
+                    <li class="col-xl-5 col-lg-4 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="Keyword search">
+                        </div>
+                    </li>
+                    <li class="col-xl-5 col-lg-5 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <select class="form-select">
+                                <option value="1">Category course</option>	
+                                <option value="2">Web Design</option>
+                                <option value="3">Web Development</option>
+                                <option value="4">Graphic Design</option>
+                                <option value="5">App Development</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="col-xl-2 col-lg-3 col-sm-12 col-md-12">
+                        <button type="submit" class="default-btn">
+                            Search
+                            <i class="ri-search-line"></i>
+                        </button>
+                    </li>
+                </ul>
+            </form> -->
+        </div>
+        <div class="video-banner">
+            <img src="assets/images/banner/video-img.jpg" alt="banner-image">
+            <button type="button" class="video-btn" (click)="openPopup()" title="Play Video">
+                <i class="flaticon-play-button"></i>
+            </button>
+            <div class="shape-1">
+                <img src="assets/images/banner/banner-shape.png" alt="shape">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Video Popup -->
+<div class="video-popup" *ngIf="isOpen">
+    <div class="popup-inner">
+        <iframe width="853" height="480" src="https://www.youtube.com/embed/Qm4cCrWq7FE" title="Celebrating 15th Year of Success ! HCCMAT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <button (click)="closePopup()" type="button" class="close-btn" title="Close Popup">
+            <i class="ri-close-fill"></i>
+        </button>
+    </div>
+</div>

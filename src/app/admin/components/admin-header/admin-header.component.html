@@ -1,0 +1,26 @@
+<header class="navbar">
+  <div class="nav-left">
+    <button class="menu-btn" (click)="toggleSidebar($event)" title="Toggle Sidebar">
+      <i class="fas fa-bars"></i>
+    </button>
+    <a class="navbar-brand" [routerLink]="['/hccmatadmin']" title="Home">
+      <img src="assets/images/logo.png" alt="logo" />
+    </a>
+    <h4 [class.hide]="isSearchOpen">HCCMAT</h4>
+  </div>
+  <div class="nav-actions">
+    <div class="profile-container">
+      <button class="profile-button" (click)="toggleDropdown($event)" title="Profile Options">
+        <i class="fas fa-user-circle"></i>
+      </button>
+      <div class="dropdown-menu" [class.show]="isDropdownOpen">
+        <a (click)="selectDropdownItem()">
+          <i class="fas fa-user"></i><span> Account Settings</span>
+        </a>
+        <a (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i><span> Logout</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

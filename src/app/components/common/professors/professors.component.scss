@@ -1,0 +1,280 @@
+.single-team-member {
+    transition: var(--transition);
+    margin-bottom: 30px;
+    position: relative;
+  
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+  
+    .team-content {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transition: var(--transition);
+      background-color: var(--white-color);
+  
+      .team-name {
+        background: var(--white-color);
+        box-shadow: var(--box-shadow);
+        text-align: center;
+        padding: 20px 20px;
+        max-width: 100%;
+        width: 350px;
+  
+        h3 {
+          margin-bottom: 10px;
+          font-size: 24px;
+        }
+  
+        span {
+          display: block;
+          color: var(--body-color);
+        }
+      }
+  
+      .team-social {
+        .control {
+          bottom: 0;
+          z-index: 1;
+          left: -65px;
+          width: 65px;
+          height: 65px;
+          font-size: 20px;
+          line-height: 65px;
+          text-align: center;
+          position: absolute;
+          color: var(--white-color);
+          background-color: var(--optional-color);
+        }
+  
+        ul {
+          opacity: 0;
+          left: -65px;
+          bottom: 65px;
+          padding-left: 0;
+          margin-bottom: 0;
+          position: absolute;
+          list-style: none;
+          transition: var(--transition);
+  
+          li {
+            a {
+              width: 65px;
+              height: 65px;
+              font-size: 20px;
+              line-height: 65px;
+              text-align: center;
+              display: inline-block;
+              color: var(--white-color);
+              transition: var(--transition);
+              border-bottom: 1px solid #eee;
+              background-color: var(--main-color);
+  
+              &:hover {
+                background-color: var(--heading-color);
+              }
+            }
+  
+            &:nth-child(4) a { transform: translateY(40px); }
+            &:nth-child(3) a { transform: translateY(80px); }
+            &:nth-child(2) a { transform: translateY(120px); }
+            &:nth-child(1) a { transform: translateY(160px); }
+          }
+        }
+  
+        &:hover {
+          .control {
+            background-color: var(--main-color);
+          }
+  
+          ul {
+            opacity: 1;
+  
+            li a {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  // Media Queries
+  
+  @media only screen and (max-width: 767px) {
+    .single-team-member {
+      .team-content {
+        position: relative;
+  
+        .team-name {
+          padding: 20px 15px;
+          width: auto;
+  
+          h3 {
+            font-size: 18px;
+          }
+        }
+  
+        .team-social {
+          top: -45px;
+          left: 0;
+          right: 0;
+          text-align: center;
+          position: absolute;
+  
+          .control {
+            display: none;
+          }
+  
+          ul {
+            position: relative;
+            left: 0;
+            bottom: 0;
+            opacity: 1;
+  
+            li {
+              display: inline-block;
+              margin: 0 2px;
+  
+              a {
+                width: 30px;
+                height: 30px;
+                font-size: 17px;
+                line-height: 30px;
+                border-bottom: none;
+                transform: translateY(0) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .single-team-member {
+      .team-content {
+        position: relative;
+  
+        .team-name {
+          padding: 25px 20px;
+          width: auto;
+  
+          h3 {
+            font-size: 20px;
+          }
+        }
+  
+        .team-social {
+          top: -55px;
+          left: 0;
+          right: 0;
+          text-align: center;
+          position: absolute;
+  
+          .control {
+            display: none;
+          }
+  
+          ul {
+            position: relative;
+            left: 0;
+            bottom: 0;
+            opacity: 1;
+  
+            li {
+              display: inline-block;
+              margin: 0 2px;
+  
+              a {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                line-height: 40px;
+                border-bottom: none;
+                transform: translateY(0) !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .single-team-member {
+      .team-content {
+        .team-name {
+          width: 245px;
+  
+          h3 {
+            font-size: 22px;
+          }
+        }
+  
+        .team-social {
+          .control {
+            left: -50px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+          }
+  
+          ul {
+            left: -50px;
+            bottom: 50px;
+  
+            li a {
+              width: 50px;
+              height: 50px;
+              font-size: 20px;
+              line-height: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+    .single-team-member {
+      .team-content {
+        .team-name {
+          width: 300px;
+        }
+  
+        .team-social {
+          .control {
+            left: -56px;
+            width: 56px;
+            height: 56px;
+            line-height: 56px;
+          }
+  
+          ul {
+            left: -56px;
+            bottom: 56px;
+  
+            li a {
+              width: 56px;
+              height: 56px;
+              line-height: 56px;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 1600px) {
+    // Reserved for very large screen customizations if needed
+  }
+  

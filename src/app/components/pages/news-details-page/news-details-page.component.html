@@ -1,0 +1,47 @@
+<!-- Page Title -->
+<div class="page-title-area" style="background-image: url(assets/images/page-title/page-title-6.jpg);">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>News Details</h2>
+            <ul>
+                <li>
+                    <a routerLink="/">
+                        Home 
+                    </a>
+                </li>
+                <li>News Details</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- News Details -->
+<div class="news-details-area ptb-100">
+    <div class="container">
+        <div class="row" style="display: flex; justify-content: center;">
+            <!-- Main News Content -->
+            <div class="col-lg-8 col-md-12">
+                <div *ngIf="isLoading" class="text-center">
+                    <p>Loading news details...</p>
+                </div>
+
+                <div *ngIf="errorMessage" class="text-danger text-center">
+                    <p>{{ errorMessage }}</p>
+                </div>
+
+                <div class="news-details-content" *ngIf="newsDetails" style="text-align: center;">
+                    <h2>{{ newsDetails.title }}</h2>
+                    <p class="news-date">
+                        <i class="ri-calendar-line"></i> {{ newsDetails.date | date:'dd MMM, yyyy' }}
+                    </p>
+                    <img 
+                    [src]="newsDetails.imageUrl || 'assets/images/default-news.jpg'" 
+                    alt="news-image" 
+                    class="news-image">
+                    <p class="news-description">{{ newsDetails.description }}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

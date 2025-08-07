@@ -1,0 +1,150 @@
+.main-content {
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .course-form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .back-btn {
+    font-size: 16px;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        font-size: 16px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-color: #007bff;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      input[type='file'] {
+        padding: 0;
+      }
+    }
+
+    .img-preview {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-top: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+
+      .btn {
+        width: auto;
+        min-width: 130px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        color: #fff;
+
+        &.btn-success {
+          background-color: #28a745;
+
+          &:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+          }
+        }
+
+        &.btn-primary {
+          background-color: #007bff;
+
+          &:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+          }
+        }
+
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .course-form {
+      padding: 20px;
+    }
+
+    .content {
+      width: 100%;
+    }
+  }
+}

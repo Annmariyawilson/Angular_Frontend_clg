@@ -1,0 +1,246 @@
+.campus-experience-area {
+   
+    background: {
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    };
+}
+.video-button {
+	text-align: center;
+
+    .video-btn {
+        border: 0;
+        z-index: 1;
+        width: 120px;
+        height: 120px;
+        border-radius: 0;
+        text-align: center;
+        position: relative;
+        border-radius: 50%;
+        display: inline-block;
+        color: var(--heading-color);
+        transition: var(--transition);
+        background-color: rgba(255, 255, 255, 0.8);
+
+        i {
+            left: 0;
+            top: 50%;
+            right: 0;
+            margin-top: 3px;
+            font-size: 80px;
+            position: absolute;
+            transform: translateY(-50%);
+        }
+        &::after, &::before {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            content: "";
+            display: block;
+            border-radius: 0;
+            position: absolute;
+            border-radius: 50%;
+            transition: var(--transition);
+            animation: ripple 1.6s ease-out infinite;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        &:hover {
+            background-color: rgba(6, 67, 20, 0.933);
+            color: var(--white-color);
+            
+            &::before, &::after {
+                background-color: rgba(12, 243, 58, 0.8);
+            }
+        }
+    }
+}
+.campus-experience-slider {
+	background-color: var(--white-color);
+	padding: 50px;
+
+    .single-campus-experience {
+        .sub-title {
+            color: var(--main-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: block;
+        }
+        h3 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+        .read-more-btn {
+            margin-top: 8px;
+        }
+        .default-btn {
+            margin-top: 5px;
+        }
+    }
+}
+.campus-experience-bg {
+    padding-right: 120px;
+    background: {
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    };
+	.campus-experience-slider {
+		max-width: 620px;
+        margin-left: auto;
+	}
+}
+.d-none {
+    &.d-block {
+        display: block !important;
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .video-button {
+        margin-bottom: 40px;
+    
+        .video-btn {
+            width: 70px;
+            height: 70px;
+    
+            i {
+                margin-top: 3px;
+                font-size: 40px;
+            }
+        }
+    }
+    .campus-experience-slider {
+        padding: 20px;
+
+        .single-campus-experience {
+            .sub-title {
+                margin-bottom: 8px;
+            }
+            h3 {
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+            .read-more-btn {
+                margin-top: 0;
+            }
+            .default-btn {
+                margin-top: 0;
+            }
+        }
+    }
+    .campus-experience-bg {
+        padding: {
+            left: 15px;
+            right: 15px;
+        };
+        .campus-experience-slider {
+            max-width: 100%;
+            margin-left: 0;
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .video-button {
+        margin-bottom: 40px;
+    
+        .video-btn {
+            width: 100px;
+            height: 100px;
+    
+            i {
+                font-size: 60px;
+            }
+        }
+    }
+    .campus-experience-slider {
+        max-width: 655px;
+        margin: {
+            left: auto;
+            right: auto;
+        };
+        padding: {
+            top: 30px;
+            bottom: 30px;
+        };
+        .single-campus-experience {
+            h3 {
+                font-size: 25px;
+                margin-bottom: 12px;
+            }
+            .read-more-btn {
+                margin-top: 0;
+            }
+            .default-btn {
+                margin-top: 0;
+            }
+        }
+    }
+    .campus-experience-bg {
+        padding: {
+            left: 50px;
+            right: 50px;
+        };
+        .campus-experience-slider {
+            max-width: 100%;
+            margin: {
+                left: auto;
+                right: auto;
+            };
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .video-button {
+        .video-btn {
+            width: 100px;
+            height: 100px;
+    
+            i {
+                font-size: 60px;
+            }
+        }
+    }
+    .campus-experience-slider {
+        padding: 40px 50px;
+
+        .single-campus-experience {
+            h3 {
+                font-size: 28px;
+                margin-bottom: 12px;
+            }
+            .read-more-btn {
+                margin-top: 0;
+            }
+        }
+    }
+    .campus-experience-bg {
+        padding-right: 60px;
+
+        .campus-experience-slider {
+            max-width: 580px;
+        }
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

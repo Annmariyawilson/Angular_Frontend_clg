@@ -1,0 +1,91 @@
+<!-- Filters Section -->
+<div class="filters d-flex justify-content-between mt-3 mb-1 px-3">
+  <div class="enquiry-heading">
+    <h5>Enquiry Forms</h5>
+  </div>
+  <div class="search-filter-bar">
+    <div class="search-input">
+      <input type="text" placeholder="Search by name or subject..." [(ngModel)]="searchTerm" />
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="status-filter">
+      <select id="statusFilter" [(ngModel)]="selectedStatus" title="Filter by status">
+        <option value="">All Enquiries</option>
+        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- Contact List -->
+<div class="contact-container">
+  <ul>
+    <li *ngFor="let contact of filteredContacts" [class.selected]="selectedContact?.contactId === contact.contactId"
+      class="contact-item">
+      <!-- Contact Summary -->
+      <div class="contact-summary" (click)="selectContact(contact); $event.stopPropagation()">
+        <div class="info-block">
+          <span class="contact-name">👤 {{ contact.name }}</span>
+          <span class="contact-subject">✉️ {{ contact.subject | truncateWords: 5 }}</span>
+          <span class="contact-message">💬 {{ contact.message | truncateWords: 10 }}</span>
+          <span class="contact-status" [ngClass]="{
+            'status-pending': contact.status === 'pending',
+            'status-viewed': contact.status === 'viewed',
+            'status-replied': contact.status === 'replied',
+            'status-closed': contact.status === 'closed',
+          }">
+            {{ contact.status | titlecase }}
+          </span>
+        </div>
+        <div class="action-buttons">
+
+          <i *ngIf="contact.status== 'viewed'" class="fas fa-eye" title="View"></i>
+          <i *ngIf="contact.status === 'closed'" class="fas fa-check-circle" title="closed"></i>
+          <i class="fas fa-trash-alt" (click)="deleteContact(contact.contactId); $event.stopPropagation()"
+            title="Delete"></i>
+        </div>
+      </div>
+
+      <!-- Expanded Contact View -->
+      <div class="expanded-contact-view" *ngIf="selectedContact?.contactId === contact.contactId">
+        <div class="expanded-card">
+          <button (click)="closeSidebar()" class="close-button">&times;</button>
+          <h2>{{ selectedContact.subject }}</h2>
+          <div class="contact-info">
+            <p><strong>Name:</strong> {{ selectedContact.name }}</p>
+            <p><strong>Email:</strong> {{ selectedContact.email }}</p>
+            <p><strong>Phone:</strong> {{ selectedContact.phone }}</p>
+            <p>
+              <strong>Status:</strong>
+              <span class="status-badge" [ngClass]="{
+                'pending': selectedContact.status === 'pending',
+                'replied': selectedContact.status === 'replied',
+                'closed': selectedContact.status === 'closed',
+                'rejected': selectedContact.status === 'rejected'
+              }">
+                {{ selectedContact.status | titlecase }}
+              </span>
+            </p>
+          </div>
+          <div class="message-box">
+            <label>Message:</label>
+            <div class="message-content">{{ selectedContact.message }}</div>
+          </div>
+          <div *ngIf="contact.status !== 'closed'">
+            <h6>{{ selectedContact.status }}</h6>
+            <div class="status-update">
+              <label for="status">Update Status:</label>
+              <select [(ngModel)]="selectedContact.status" id="status" name="status">
+                <option *ngFor="let status of statusViewForm" [value]="status">{{ status | titlecase }}</option>
+              </select>
+            </div>
+            
+            <div class="save-button-wrapper">
+              <button (click)="saveStatus(selectedContact)" [disabled]="!selectedContact?.status">Update Status</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

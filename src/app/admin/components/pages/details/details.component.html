@@ -1,0 +1,74 @@
+<div class="main-content">
+  <div class="candidates-resume-area">
+    <div class="container">
+      <div class="candidates-resume-content">
+        <form class="resume-info" [formGroup]="studentForm" (ngSubmit)="updateApplicationStatus()">
+          <div class="student-info-container d-flex align-items-center mb-4">
+            <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-outline-dark back-btn me-3" (click)="goBack()" title="Go Back">
+                <i class="fas fa-arrow-left"></i>
+              </button>
+              <h3 class="mb-0 student-info">Student Information</h3>
+            </div>
+            <div class="update-status" *ngIf="isStatusChanged">
+              <button type="submit" class="btn btn-success" [disabled]="studentForm.invalid">
+                Update Status <i class="ri-arrow-up-line"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Application ID & Status -->
+          <div class="row mb-3">
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group styled-form-group">
+                <label>Application ID</label>
+                <input type="text" class="form-control" formControlName="applicationId" readonly>
+              </div>
+            </div>
+
+            <!-- Change Status -->
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group styled-form-group custom-select-wrapper">
+                <label>Update Application Status</label>
+                <select class="form-control custom-select" formControlName="status" title="Update Application Status">
+                  <option *ngFor="let option of statusOptions" [value]="option">
+                    {{ option }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+
+            <!-- Reason for Rejection -->
+            <div class="col-lg-6 col-md-6"
+              *ngIf="studentForm.get('status')?.value?.toLowerCase() === 'rejected' || studentForm.get('applicationStatus')?.value?.toLowerCase() === 'rejected'">
+              <div class="form-group styled-form-group">
+                <label>Reason for Rejection</label>
+                <input type="text" class="form-control" formControlName="rejectionReason"
+                  [readonly]="!studentForm.get('status')?.value" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Remaining Fields -->
+          <div class="row">
+            <div class="col-lg-6 col-md-6" *ngFor="let field of formFields">
+  <div class="form-group styled-form-group">
+    <label>{{ field.label }}</label>
+    
+<input class="form-control-plaintext"
+       [type]="field.type"
+       [formControlName]="field.name"
+       readonly />
+    <select *ngIf="field.type === 'select'" class="form-control"
+            [formControlName]="field.name" title="{{ field.label }}">
+    </select>
+  </div>
+</div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

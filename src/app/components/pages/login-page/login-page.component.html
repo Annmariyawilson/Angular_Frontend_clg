@@ -1,0 +1,53 @@
+<!-- Page Title -->
+<div class="page-title-area" style="background-image: url(assets/images/page-title/page-title-3.jpg);">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Admin Login</h2>
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Login</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Login Form -->
+<div class="user-area ptb-100">
+    <div class="container">
+        <div class="user-form-content">
+            <h4>HCCMAT ADMIN LOGIN</h4>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input class="form-control" type="email" formControlName="email">
+                    <small *ngIf="email?.invalid && email?.touched" class="text-danger">
+                        Valid email is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" type="password" formControlName="password">
+                    <small *ngIf="password?.invalid && password?.touched" class="text-danger">
+                        Password must be at least 6 characters.
+                    </small>
+                </div>
+                <div class="login-action">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="keepLoggedIn">
+                        <label class="form-check-label" for="keepLoggedIn">Keep me logged in</label>
+                    </div>
+                    <span class="forgot-login">
+                        <a routerLink="/forgot-password">Forgot your password?</a>
+                    </span>
+                </div>
+                <button class="default-btn" type="submit" [disabled]="loginForm.invalid || loading">
+                    {{ loading ? 'Logging in...' : 'Login' }}
+                </button>
+                <p class="create">Don’t have an account? <a routerLink="/register">Register now</a></p>
+                <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+                    {{ errorMessage }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

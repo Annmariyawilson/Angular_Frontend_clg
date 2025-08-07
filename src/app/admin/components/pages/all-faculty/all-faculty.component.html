@@ -1,0 +1,323 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <i id="icon" class="fa-sharp fa-solid fa-database"></i>&nbsp;&nbsp;
+    <a class="navbar-brand" href="/hccmatadmin" style="font-size: large; font-weight: bolder;">Faculty Management</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form class="d-flex" role="search">
+          <input (keyup)="search($event)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button type="button" class="btn d-flex align-items-center" (click)="toggleForm()">
+            <i class="fa fa-plus"></i>
+            <span class="ms-2">Add</span>
+          </button>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Add Faculty Form -->
+<div *ngIf="showForm" class="card mt-3 p-3">
+  <h5>Add Faculty Member</h5>
+  <form #facultyForm="ngForm" (ngSubmit)="addFaculty()">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Name -->
+        <div class="mb-3">
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="newFaculty.name"
+            name="name"
+            required
+            pattern="^[a-zA-Z ]+$"
+            #name="ngModel"
+          />
+          <small class="text-danger" *ngIf="name.errors?.['required'] && name.touched">
+            Name is required.
+          </small>
+          <small class="text-danger" *ngIf="name.errors?.['pattern'] && name.touched">
+            Name must contain only letters and spaces (no numbers or symbols).
+          </small>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label>Email</label>
+          <input
+            type="email"
+            class="form-control"
+            [(ngModel)]="newFaculty.email"
+            name="email"
+            required
+            pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+            #email="ngModel"
+          />
+          <small class="text-danger" *ngIf="email.errors?.['required'] && email.touched">
+            Email is required.
+          </small>
+          <small class="text-danger" *ngIf="email.errors?.['pattern'] && email.touched">
+            Please enter a valid email address (e.g., user&#64;gmail.com).
+          </small>
+        </div>
+
+        <!-- Contact Number -->
+        <div class="mb-3">
+          <label>Contact Number</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="newFaculty.contact"
+            name="contact"
+            required
+            pattern="^[0-9]{10}$"
+            #contact="ngModel"
+          />
+          <small class="text-danger" *ngIf="contact.errors?.['required'] && contact.touched">
+            Contact number is required.
+          </small>
+          <small class="text-danger" *ngIf="contact.errors?.['pattern'] && contact.touched">
+            Contact number must be a 10-digit number.
+          </small>
+        </div>
+
+        <!-- Place -->
+        <div class="mb-3">
+          <label>Place</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="newFaculty.place"
+            name="place"
+            required
+            pattern="^[a-zA-Z ]+$"
+            #place="ngModel"
+          />
+          <small class="text-danger" *ngIf="place.errors?.['required'] && place.touched">
+            Place is required.
+          </small>
+          <small class="text-danger" *ngIf="place.errors?.['pattern'] && place.touched">
+            Place must contain only letters and spaces (no numbers or symbols).
+          </small>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="col-md-6">
+        <!-- Job Title -->
+        <div class="mb-3">
+          <label>Job Title</label>
+          <select class="form-select" [(ngModel)]="newFaculty.jobTitle" name="jobTitle" required #jobTitle="ngModel">
+            <option value="" disabled selected>Select a job title</option>
+            <option *ngFor="let title of jobTitles" [value]="title">{{ title }}</option>
+          </select>
+          <small class="text-danger" *ngIf="jobTitle.errors?.['required'] && jobTitle.touched">Job title is required.</small>
+        </div>
+
+        <!-- Category -->
+        <div class="mb-3">
+          <label>Category</label>
+          <select class="form-select" [(ngModel)]="newFaculty.category" name="category" required #category="ngModel">
+            <option value="" disabled selected>Select a category</option>
+            <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+          </select>
+          <small class="text-danger" *ngIf="category.errors?.['required'] && category.touched">Category is required.</small>
+        </div>
+
+        <!-- Department -->
+        <div class="mb-3">
+          <label>Department</label>
+          <select class="form-select" [(ngModel)]="newFaculty.department" name="department" required #department="ngModel">
+            <option value="" disabled selected>Select a department</option>
+            <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+          </select>
+          <small class="text-danger" *ngIf="department.errors?.['required'] && department.touched">Department is required.</small>
+        </div>
+
+          <!-- Upload Image -->
+          <div class="mb-3">
+            <label>Upload Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              class="form-control"
+              (change)="onImageUpload($event)"
+              [class.is-invalid]="!newFaculty.image && imageTouched"
+              (blur)="imageTouched = true"
+              name="image"
+              required
+            />
+            <small class="text-danger" *ngIf="!newFaculty.image && imageTouched">
+              Image is required.
+            </small>
+
+            <!-- Image Preview -->
+            <div *ngIf="newFaculty.imagePreview" class="mt-2">
+              <img [src]="newFaculty.imagePreview" alt="Preview" width="150" class="img-thumbnail" />
+              </div>
+            </div>
+        </div>
+     </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="facultyForm.invalid || !newFaculty.image">Submit</button>
+  </form>
+</div>
+
+<!-- Faculty List -->
+<div class="userview">
+  <div class="container-fluid g-0 p-2">
+    <div class="row g-0" *ngFor="let faculty of facultyList; let i = index">
+      
+      <!-- Profile Image -->
+      <div class="col-md-2 d-flex justify-content-center align-items-center position-relative">
+        <img [src]="faculty.imageUrl" *ngIf="faculty.imageUrl; else noImage" alt="Faculty Image" class="img-fluid">
+        <ng-template #noImage>
+          <img src="path/to/default-image.jpg" alt="Default Faculty Image" class="img-fluid">
+        </ng-template>
+      </div>
+
+      <!-- Faculty Details -->
+      <div class="col ps-2">
+        <div class="row g-0">
+          <div class="col-md-8 text-center">
+            <span class="user-name" *ngIf="editingIndex !== i">{{ faculty.name }}</span>
+            <input type="text" class="form-control" [(ngModel)]="editingFaculty.name" name="name" *ngIf="editingIndex === i">
+          </div>
+          
+          <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <div class="d-flex gap-2 align-items-center">
+              <div *ngIf="editingIndex === i">
+                <input type="file" (change)="onImageChange($event)" #fileInput class="d-none">
+                <i class="fa-solid fa-cloud-arrow-up update-icon" (click)="fileInput.click()"></i>
+              </div>
+              <i class="fa-solid update-icon" [ngClass]="editingIndex === i ? 'fa-floppy-disk' : 'fa-pencil'" (click)="editingIndex === i ? updateFaculty(faculty.facultyId) : toggleEdit(i)"></i>
+              <i class="fa-solid fa-xmark update-icon" *ngIf="editingIndex === i" (click)="cancelEdit()"></i>
+              <i class="fa-solid fa-trash update-icon" (click)="deleteUser(faculty.facultyId)"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-0 mt-3">
+          <div class="col-md">
+            <table class="table table-hover mx-auto">
+              <thead class="text-center fs-5 text-secondary">
+                <tr><td colspan="2">Employee Details</td></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Email</td>
+                  <td *ngIf="editingIndex !== i">{{ faculty.email }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <input type="email" class="form-control" [(ngModel)]="editingFaculty.email" name="email"
+                           required email #email="ngModel">
+                    <div *ngIf="email.invalid && email.touched" class="text-danger">
+                      Please enter a valid email address (e.g., user&#64;gmail.com).
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Contact Number</td>
+                  <td *ngIf="editingIndex !== i">{{ faculty.contact }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <input type="text" class="form-control" [(ngModel)]="editingFaculty.contact" name="contact"
+                           required pattern="^[0-9]{10}$" #contact="ngModel">
+                    <div *ngIf="contact.invalid && contact.touched" class="text-danger">
+                      Contact number must be exactly 10 digits.
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Place</td>
+                  <td *ngIf="editingIndex !== i">{{ faculty.place }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="editingFaculty.place"
+                      name="place"
+                      required
+                      pattern="^[A-Za-z\s]+$"
+                      #place="ngModel"
+                    />
+                    <div *ngIf="place.errors?.['required'] && place.touched" class="text-danger">
+                      Place is required.
+                    </div>
+                    <div *ngIf="place.errors?.['pattern'] && place.touched" class="text-danger">
+                      Place should only contain letters and spaces (no numbers or special characters).
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col">
+            <table class="table table-hover mx-auto">
+              <thead class="text-center fs-5 text-secondary">
+                <tr><td colspan="2">Job Details</td></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Job Title</td>
+                  <td *ngIf="editingIndex !== i">{{ faculty.jobTitle }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <select class="form-select" [(ngModel)]="editingFaculty.jobTitle" name="jobTitle">
+                      <option value="Professor">Professor</option>
+                      <option value="Assistant Professor">Assistant Professor</option>
+                      <option value="Lecturer">Lecturer</option>
+                      <option value="Senior Lecturer">Senior Lecturer</option>
+                      <option value="Visiting Professor">Visiting Professor</option>
+                      <option value="Research Fellow">Research Fellow</option>
+                      <option value="Adjunct Professor">Adjunct Professor</option>
+                      <option value="Assistant Dean">Assistant Dean</option>
+                      <option value="Associate Professor">Associate Professor</option>
+                      <option value="Head of Department">Head of Department</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Category</td>
+                  <td *ngIf="editingIndex !== i">{{ faculty.category }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <select class="form-select" [(ngModel)]="editingFaculty.category" name="category">
+                      <option value="Permanent">Permanent</option>
+                      <option value="Contract">Contract</option>
+                      <option value="Guest">Guest</option>
+                      <option value="Temporary">Temporary</option>
+                      <option value="Probationary">Probationary</option>
+                      <option value="Adjunct">Adjunct</option>
+                      <option value="Visiting">Visiting</option>
+                      <option value="Freelancer">Freelancer</option>
+                      <option value="Retired">Retired</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Department</td>
+                  <td *ngIf="editingIndex !== i">{{ faculty.department }}</td>
+                  <td *ngIf="editingIndex === i">
+                    <select class="form-select" [(ngModel)]="editingFaculty.department" name="department">
+                      <option value="Department of Commerce">Department of Commerce</option>
+                      <option value="Department of Computer Science">Department of Computer Science</option>
+                      <option value="Department of English">Department of English</option>
+                      <option value="Department of Management">Department of Management</option>
+                      <option value="Department of Tourism">Department of Tourism</option>
+                      <option value="Department of Mathematics">Department of Mathematics</option>
+                      <option value="Department of Physics">Department of Physics</option>
+                      <option value="Department of Chemistry">Department of Chemistry</option>
+                      <option value="Department of History">Department of History</option>
+                      <option value="Department of Sociology">Department of Sociology</option>
+                      <option value="Department of Psychology">Department of Psychology</option>
+                    </select>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

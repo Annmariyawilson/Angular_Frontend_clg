@@ -1,0 +1,215 @@
+<!-- Page Title -->
+<div class="page-title-area" style="background-image: url(assets/images/page-title/page-title-7.jpg)">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>Join With Us</h2>
+            <ul>
+                <li><a routerLink="/">Home</a></li>
+                <li>Application</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Application Form -->
+<div class="candidates-resume-area ptb-100">
+    <div class="container">
+        <div class="candidates-resume-content">
+            <form [formGroup]="applicationForm" (ngSubmit)="submitApplication()" class="resume-info">
+                <h3>Student Information</h3>
+
+                <div class="row">
+                    <!-- Full Name -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" formControlName="name" />
+                            <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('name')?.touched && applicationForm.get('name')?.invalid">
+                                Name is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Area of Study Dropdown -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Area of Study</label>
+                            <select class="form-control" formControlName="areaOfStudy" (change)="onCategoryChange($event)">
+                                <option value="">Select Area</option>
+                                <option value="UG">Undergraduate (UG)</option>
+                                <option value="PG">Postgraduate (PG)</option>
+                            </select>
+                            <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('areaOfStudy')?.touched && applicationForm.get('areaOfStudy')?.invalid">
+                                Area of Study is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course Dropdown -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                        <label>Course</label>
+                        <select 
+                            class="form-control" 
+                            formControlName="course" 
+                            [disabled]="!applicationForm.get('areaOfStudy')?.value"
+                        >
+                            <!-- Show warning option if area of study is not selected -->
+                            <option *ngIf="!applicationForm.get('areaOfStudy')?.value" value="" disabled>
+                            Please select Area of Study first
+                            </option>
+                    
+                            <!-- Default option -->
+                            <option *ngIf="applicationForm.get('areaOfStudy')?.value" value="">Select Course</option>
+                    
+                            <!-- Display available courses -->
+                            <ng-container *ngIf="displayedCourses.length > 0">
+                            <option *ngFor="let course of displayedCourses" [value]="course">{{ course }}</option>
+                            </ng-container>
+                        </select>
+                    
+                        <!-- Error if course not selected -->
+                        <div 
+                            class="text-danger" 
+                            style="font-size: 0.7rem;" 
+                            *ngIf="applicationForm.get('course')?.touched && applicationForm.get('course')?.invalid"
+                        >
+                            Course is required.
+                        </div>
+                        </div>
+                    </div>
+    
+
+                    <!-- Father's Name -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Father's Name</label>
+                            <input type="text" class="form-control" formControlName="fatherName" />
+                            <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('fatherName')?.touched && applicationForm.get('fatherName')?.invalid">
+                                Father's name is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mother's Name -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Mother's Name</label>
+                            <input type="text" class="form-control" formControlName="motherName" />
+                            <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('motherName')?.touched && applicationForm.get('motherName')?.invalid">
+                                Mother's name is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select class="form-control" formControlName="sex">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Transgender">Transgender</option>
+                            </select>
+                            <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('sex')?.touched && applicationForm.get('sex')?.invalid">
+                                Gender is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input type="text" class="form-control" formControlName="contactNo" />
+                            <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('contactNo')?.touched && applicationForm.get('contactNo')?.invalid">
+                                <span *ngIf="applicationForm.get('contactNo')?.hasError('required')">Contact number is required.</span>
+                                <span *ngIf="applicationForm.get('contactNo')?.hasError('pattern')">Please enter a 10-digit contact number.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" formControlName="email" />
+                            <div class="text-danger" style="font-size: 0.7rem;" style="font-size: 0.7rem;" *ngIf="applicationForm.get('email')?.touched && applicationForm.get('email')?.invalid">
+                                <span *ngIf="applicationForm.get('email')?.hasError('required')">Email is required.</span>
+                                <span *ngIf="applicationForm.get('email')?.hasError('pattern')">Please enter a valid Gmail address (e.g., example&#64;gmail.com).</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Present Address -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Present Address</label>
+                            <input type="text" class="form-control" formControlName="presentAddress" />
+                            <div class="text-danger" style="font-size: 0.7rem;" style="font-size: 0.7rem;" *ngIf="applicationForm.get('presentAddress')?.touched && applicationForm.get('presentAddress')?.invalid">
+                                Address is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                          <label>Date of Birth</label>
+                          <input type="date" class="form-control" formControlName="dob" />
+                          <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('dob')?.touched && applicationForm.get('dob')?.invalid">
+                            Date of birth is required.
+                          </div>
+                        </div>
+                      </div>
+            
+
+                    <!-- Nationality -->
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group">
+                            <label>Nationality</label>
+                            <input type="text" class="form-control" formControlName="nationality" />
+                            <div class="text-danger" style="font-size: 0.7rem;" *ngIf="applicationForm.get('nationality')?.touched && applicationForm.get('nationality')?.invalid">
+                                Nationality is required.
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="referredBy">Referred By</label>
+                        <input 
+                        type="text" 
+                        id="referredBy" 
+                        class="form-control" 
+                        formControlName="referredBy" 
+                        placeholder="Enter 'NA' if none" />
+                        
+                        <small *ngIf="applicationForm.get('referredBy')?.touched && applicationForm.get('referredBy')?.errors?.['required']" class="text-danger">
+                        This field is required. Enter 'NA' if no one referred you.
+                        </small>
+                        <small *ngIf="applicationForm.get('referredBy')?.touched && applicationForm.get('referredBy')?.errors?.['maxlength']" class="text-danger">
+                        Maximum 50 characters allowed.
+                        </small>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <button type="submit" class="default-btn" [disabled]="isSubmitting">
+                            Submit application <i class="ri-arrow-right-line"></i>
+                        </button>
+                        <p *ngIf="successMessage" class="text-success">
+                            {{ successMessage }}
+                        </p>
+                        <p *ngIf="errorMessage" class="text-danger">
+                            {{ errorMessage }}
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

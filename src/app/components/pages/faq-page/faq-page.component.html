@@ -1,0 +1,155 @@
+<!-- Page Title -->
+<div class="page-title-area" style="background-image: url(assets/images/page-title/page-title-4.jpg);">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>FAQ</h2>
+            <ul>
+                <li>
+                    <a routerLink="/">
+                        Home 
+                    </a>
+                </li>
+                <li>FAQ</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-area ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-accordion">
+            <div class="accordion">
+                <div class="accordion-section">
+                    <div class="accordion-header" (click)="toggleSection(0)" [ngClass]="{ 'open': isSectionOpen(0) }">
+                        01. What's a study term?
+                    </div>
+                    <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(0) }">
+                        <p><strong>Lian</strong> is always looking for talented <a routerLink="/">information</a> security and IT risk management professionals who are dedicated, hard working and looking for a challenge. If you are interested in employment with <strong>Lian</strong>, a company who values you and your family, visit our careers page.</p>
+                        <ul>
+                            <li>a console</li>
+                            <li>Two Joy-Con controllers that are detachable</li>
+                            <li>A grip that enables you to combine them into a single gamepad for play on the TV</li>
+                            <li>Two straps for turning the Joy-Cons into individual controllers</li>
+                            <li>A dock which you can use to connect your console to the television for traditional gameplay</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-section">
+                    <div class="accordion-header" (click)="toggleSection(1)" [ngClass]="{ 'open': isSectionOpen(1) }">
+                        02. Which subjects should I start with?
+                    </div>
+                    <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(1) }">
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.</p>
+                        <ul>
+                            <li>a console</li>
+                            <li>Two Joy-Con controllers that are <a routerLink="/">detachable</a></li>
+                            <li>A grip that enables you to combine them into a single gamepad for play on the TV</li>
+                            <li>Two straps for turning the Joy-Cons into <strong>individual</strong> controllers</li>
+                            <li>A dock which you can use to connect your console to the television for traditional gameplay</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-section">
+                    <div class="accordion-header" (click)="toggleSection(2)" [ngClass]="{ 'open': isSectionOpen(2) }">
+                        03. Can I get credit for my previous studies?
+                    </div>
+                    <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(2) }">
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor.</p>
+                        <p>Tunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.</p>
+                    </div>
+                </div>
+                <div class="accordion-section">
+                    <div class="accordion-header" (click)="toggleSection(3)" [ngClass]="{ 'open': isSectionOpen(3) }">
+                        04. I'm not great with technology will I be able to learn online?
+                    </div>
+                    <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(3) }">
+                        <ul>
+                            <li>a console</li>
+                            <li>Two Joy-Con controllers that are detachable</li>
+                            <li>A grip that enables you to combine them into a single gamepad for play on the TV</li>
+                            <li>Two straps for turning the Joy-Cons into individual controllers</li>
+                            <li>A dock which you can use to connect your console to the television for traditional gameplay</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="accordion-section">
+                    <div class="accordion-header" (click)="toggleSection(4)" [ngClass]="{ 'open': isSectionOpen(4) }">
+                        05. What’s a payment statement?
+                    </div>
+                    <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(4) }">
+                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo.</p>
+                    </div>
+                </div>
+                <div class="accordion-section">
+                    <div class="accordion-header" (click)="toggleSection(5)" [ngClass]="{ 'open': isSectionOpen(5) }">
+                        06. How do I withdraw from a subject?
+                    </div>
+                    <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(5) }">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam optio soluta fuga illum, beatae perspiciatis similique officia, id repellendus voluptatum impedit alias, praesentium omnis neque exercitationem quam minima expedita vitae incididunt ut labore et dolore magna.</p>
+                    </div>
+                </div>
+                <div class="accordion-section">
+                    <div class="accordion-header" (click)="toggleSection(6)" [ngClass]="{ 'open': isSectionOpen(6) }">
+                        07. How do I know if you’ve received my application?
+                    </div>
+                    <div class="accordion-content" [ngClass]="{ 'open': isSectionOpen(6) }">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam optio soluta fuga illum, beatae perspiciatis similique officia, id repellendus voluptatum impedit alias, praesentium omnis neque exercitationem quam minima expedita vitae incididunt ut labore et dolore magna.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+<div class="contact-area pb-100">
+    <div class="container">
+        <div class="section-title">
+            <h2>Do you have any questions?</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        </div>
+        <form class="contact-form">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" name="phone_number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" name="msg_subject" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" class="form-control" cols="30" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                    <button type="submit" class="default-btn">
+                        <span>Send message</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

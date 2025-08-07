@@ -1,0 +1,197 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    .news-form {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+      .form-group {
+        margin-bottom: 15px;
+  
+        label {
+          font-weight: 600;
+          margin-bottom: 5px;
+          display: block;
+        }
+  
+        input,
+        textarea {
+          width: 100%;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          font-size: 14px;
+  
+          &:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+          }
+        }
+      }
+  
+      button {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+  
+        &.btn-primary {
+          background: #007bff;
+          border: none;
+          color: #fff;
+  
+          &:hover {
+            background: #0056b3;
+          }
+        }
+  
+        &.btn-secondary {
+          background: #6c757d;
+          border: none;
+          color: #fff;
+  
+          &:hover {
+            background: #5a6268;
+          }
+        }
+      }
+    }
+  
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+  
+      thead {
+        background: #007bff;
+        color: white;
+        text-align: left;
+  
+        th {
+          padding: 12px;
+          font-weight: bold;
+        }
+      }
+  
+      tbody {
+        tr {
+          &:nth-child(even) {
+            background: #f8f9fa;
+          }
+  
+          &:hover {
+            background: rgba(0, 123, 255, 0.1);
+          }
+        }
+  
+        td {
+          padding: 12px;
+          vertical-align: middle;
+  
+          img {
+            border-radius: 5px;
+            object-fit: cover;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          }
+  
+          button {
+            border: none;
+            background: transparent;
+            color: #007bff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+  
+            &:hover {
+              color: #0056b3;
+              transform: scale(1.1);
+            }
+  
+            &:first-child {
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+    }
+    .fixed-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover; // Ensures image fills the space without distortion
+      border-radius: 8px; // Optional: makes the image corners rounded
+      border: 1px solid #ccc; // Optional: adds a subtle border
+    }
+    
+    // Responsive Design
+    @media (max-width: 768px) {
+      .news-form {
+        padding: 15px;
+      }
+  
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+  
+      td, th {
+        white-space: nowrap;
+        font-size: 12px;
+      }
+  
+      img {
+        width: 40px;
+        height: 40px;
+      }
+  
+      button {
+        font-size: 14px;
+        padding: 6px 12px;
+      }
+    }
+  
+    @media (max-width: 576px) {
+      .news-form {
+        padding: 10px;
+      }
+  
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+  
+      td, th {
+        font-size: 11px;
+        padding: 8px;
+      }
+  
+      img {
+        width: 35px;
+        height: 35px;
+      }
+  
+      button {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+    }
+  }
+  

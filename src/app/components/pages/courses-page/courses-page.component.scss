@@ -1,0 +1,17 @@
+@import "../../common/courses/courses.component.scss";
+
+.section-title {
+  text-align: center !important;
+
+  margin: {
+    left: auto !important;
+    right: auto !important;
+  };
+
+  p {
+    margin: {
+      left: auto !important;
+      right: auto !important;
+    };
+  }
+}

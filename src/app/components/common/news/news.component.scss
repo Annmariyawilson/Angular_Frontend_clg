@@ -1,0 +1,43 @@
+.single-news-post {
+  margin-bottom: 30px;
+
+  .news-img {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    aspect-ratio: 4 / 3; 
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; 
+      border-radius: 5px;
+      background-color: #f0f0f0; 
+    }
+  }
+
+  .news-content {
+    .date {
+      display: block;
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 14px;
+
+      i {
+        left: 0;
+        top: 1px;
+        position: absolute;
+        color: var(--main-color);
+      }
+    }
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+  }
+}

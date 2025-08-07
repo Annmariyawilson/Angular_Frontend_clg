@@ -1,0 +1,199 @@
+<!-- Desktop Navbar (visible on sm and up) -->
+<nav class="navbar navbar-expand-lg bg-light d-none d-sm-flex">
+  <div class="container-fluid">
+    <i class="fa-sharp fa-solid fa-database cursor-pointer me-2"></i>
+    <a class="navbar-brand fw-bold fs-5" href="#">Students Placement</a>
+
+    <div class="collapse navbar-collapse">
+      <form class="d-flex">
+        <input (keyup)="search($event)" class="form-control me-2" type="search" placeholder="Search by name" />
+        <button type="button" class="btn d-flex align-items-center" (click)="onAdd()" data-bs-toggle="modal" data-bs-target="#placementModal">
+          <i class="fa fa-plus"></i><span>&nbsp;Add</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Navbar (visible only on xs screens) -->
+<nav class="navbar navbar-expand-lg bg-light d-flex d-sm-none">
+  <div class="container-fluid flex-column align-items-start">
+    <div class="d-flex align-items-center w-100 mb-2">
+      <i class="fa-sharp fa-solid fa-database cursor-pointer me-2"></i>
+      <a class="navbar-brand fw-bold fs-5 m-0" href="#">Students Placement</a>
+    </div>
+
+    <form class="d-flex flex-column w-100 gap-2">
+      <input 
+        (keyup)="search($event)" 
+        class="form-control" 
+        type="search" 
+        placeholder="Search by name"
+      />
+      <button 
+        type="button" 
+        class="btn btn-primary d-flex align-items-center justify-content-center" 
+        (click)="onAdd()" 
+        data-bs-toggle="modal" 
+        data-bs-target="#placementModal"
+      >
+        <i class="fa fa-plus"></i><span class="ms-1">Add</span>
+      </button>
+    </form>
+  </div>
+</nav>
+
+<!-- Placements Grid -->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let placement of filteredPlacements">
+      <div class="card shadow-sm">
+        <img *ngIf="placement.imageUrl" [src]="placement.imageUrl" alt="Student Image" class="card-img-top fixed-image">
+        <div class="card-body">
+          <h5 class="card-title">{{ placement.name }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Company: {{ placement.company }}</li>
+          <li class="list-group-item">Designation: {{ placement.designation }}</li>
+          <li class="list-group-item">LPA: {{ placement.salary }}</li>
+          <li class="list-group-item">Location: {{ placement.location }}</li>
+        </ul>
+        <div class="card-body d-flex justify-content-between">
+          <a class="card-link cursor-pointer" (click)="onEdit(placement)" data-bs-toggle="modal" data-bs-target="#placementModal">Update</a>
+          <a class="card-link text-danger cursor-pointer" (click)="onDelete(placement._id)">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add/Edit Modal -->
+<div class="modal fade" id="placementModal" tabindex="-1" aria-labelledby="placementModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form (ngSubmit)="onSubmit()" #placementForm="ngForm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ isEdit ? 'Edit' : 'Add' }} Placement</h5>
+          <button #placementModalCloseBtn type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+          <!-- Name -->
+          <div class="mb-2">
+            <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Name" 
+            [(ngModel)]="currentPlacement.name" 
+            name="name" 
+            required 
+            #name="ngModel"
+            pattern="^[a-zA-Z\s]+$"
+          />
+          <div *ngIf="name.invalid && name.touched" class="text-danger small">
+            Name is required and must not contain numbers.
+          </div>
+          </div>
+
+          <!-- Company -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Company" 
+              [(ngModel)]="currentPlacement.company" 
+              name="company" 
+              required 
+              pattern="^[a-zA-Z\s]+$"
+
+              #company="ngModel"
+            >
+            <div *ngIf="company.invalid && company.touched" class="text-danger small">
+              Company is required.
+            </div>
+          </div>
+
+          <!-- Designation -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Designation" 
+              [(ngModel)]="currentPlacement.designation" 
+              name="designation" 
+              required 
+              pattern="^[a-zA-Z\s]+$"
+
+              #designation="ngModel"
+            >
+            <div *ngIf="designation.invalid && designation.touched" class="text-danger small">
+              Designation is required.
+            </div>
+          </div>
+
+          <!-- Salary -->
+          <div class="mb-2">
+            <input 
+              type="number" 
+              class="form-control" 
+              placeholder="Salary (LPA)" 
+              [(ngModel)]="currentPlacement.salary" 
+              name="salary" 
+              min="0" 
+              #salary="ngModel"
+            >
+            <div *ngIf="salary.invalid && salary.touched" class="text-danger small">
+              Salary must be a positive number.
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="mb-2">
+            <input 
+              type="text" 
+              class="form-control" 
+              placeholder="Location" 
+              [(ngModel)]="currentPlacement.location" 
+              name="location" 
+              required 
+              pattern="^[a-zA-Z\s]+$"
+
+              #location="ngModel"
+            >
+            <div *ngIf="location.invalid && location.touched" class="text-danger small">
+              Location is required.
+            </div>
+          </div>
+
+          <!-- File Upload -->
+          <div class="mb-2">
+            <input 
+              #fileInput 
+              type="file" 
+              accept="image/*" 
+              class="form-control" 
+              (change)="onFileSelected($event)"
+            >
+            <!-- Show error if image is not selected on Add mode -->
+            <div *ngIf="!isEdit && !currentPlacement.imageFile && placementForm.submitted" class="text-danger small">
+              Image is required.
+            </div>
+          </div>
+
+          <!-- Image Preview -->
+          <img *ngIf="previewImage" [src]="previewImage" class="img-thumbnail fixed-image">
+        </div>
+
+        <div class="modal-footer">
+          <button 
+            type="submit" 
+            class="btn btn-success" 
+            [disabled]="placementForm.invalid || (!isEdit && !currentPlacement.imageFile)"
+          >
+            {{ isEdit ? 'Update' : 'Add' }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

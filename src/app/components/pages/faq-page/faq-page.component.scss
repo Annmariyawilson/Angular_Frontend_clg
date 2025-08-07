@@ -1,0 +1,146 @@
+@import "../contact-page/contact-page.component.scss";
+
+.faq-accordion {
+    max-width: 960px;
+    margin: {
+        left: auto;
+        right: auto;
+    };
+    .accordion {
+        .accordion-section {
+			margin-bottom: 25px;
+
+            .accordion-header {
+				display: block;
+                cursor: pointer;
+				position: relative;
+                color: var(--black-color);
+				font: {
+					size: 19px;
+					weight: 600;
+				};
+				&::before {
+					top: 50%;
+					right: 0;
+					content: "\ea13";
+					position: absolute;
+					color: var(--main-color);
+					transform: translateY(-50%);
+					font: {
+						size: 20px;
+						family: "remixicon";
+					};
+				}
+                &.open {
+                    &::before {
+                        content: '\f1af';
+                    }
+                }
+            }
+            .accordion-content {
+                padding: 13px 0 0;
+                display: none;
+    
+                strong {
+                    color: var(--black-color) !important;
+                }
+                p {
+                    a {
+                        color: var(--main-color);
+            
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                ul, ol {
+                    li {
+                        color: var(--body-color);
+                        margin-bottom: 12px;
+            
+                        a {
+                            color: var(--main-color);
+                
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                &.open {
+                    display: block;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+
+    .faq-accordion {
+        max-width: 100%;
+
+        .accordion {
+            .accordion-section {
+				margin-bottom: 18px;
+    
+                .accordion-header {
+					font-size: 15px;
+					padding-right: 15px;
+
+					&::before {
+						font-size: 15px;
+					}
+                }
+                .accordion-content {
+                    padding: 12px 0 0;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .faq-accordion {
+        max-width: 100%;
+        
+        .accordion {
+            .accordion-section {
+                margin-bottom: 20px;
+
+                .accordion-header {
+					font-size: 17px;
+                }
+            }
+        }
+    }
+
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .faq-accordion {
+        max-width: 800px;
+    }
+
+}
+
+/* Min width 1200px to Max width 1399px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+/* Min width 1600px */
+@media only screen and (min-width: 1600px) {}

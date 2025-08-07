@@ -1,0 +1,51 @@
+
+
+    <div class="container">
+        <h2 class="text-center mt-4">Governing Board Members</h2>
+
+        <!-- Form to Add / Edit Member -->
+        <div class="form-container">
+            <input
+                type="text"
+                placeholder="Name"
+                [(ngModel)]="newMember.name"
+                required
+            />
+            <input
+                type="text"
+                placeholder="Position"
+                [(ngModel)]="newMember.position"
+                required
+            />
+            <input type="file" (change)="onFileSelected($event)" />
+            <button (click)="addOrUpdateMember()" class="btn">
+                {{ isEditing ? "Update" : "Add" }} Member
+            </button>
+            <button
+                *ngIf="isEditing"
+                (click)="resetForm()"
+                class="btn btn-cancel"
+            >
+                Cancel
+            </button>
+        </div>
+
+        <!-- Member Cards -->
+        <div class="row">
+            <div class="card" *ngFor="let member of members">
+                <img
+                    [src]="member.imageUrl || defaultImage"
+                    alt="Member Image"
+                />
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.position }}</p>
+                <button (click)="editMember(member)" title="Edit Member">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button *ngIf="member._id" (click)="deleteMember(member._id!)" title="Delete Member">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,221 @@
+.events-area {
+    &.events-area-style-two {
+      .events-content p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+  
+      .event-img-wrapper {
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        margin: 0 auto 25px auto;
+  
+        .event-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+  
+      .events-timer {
+        background-color: var(--main-color);
+        margin-left: 0;
+        margin-right: 15px;
+  
+        .default-btn {
+          background-color: var(--white-color);
+          color: var(--heading-color);
+          display: block;
+  
+          &:hover {
+            color: var(--white-color);
+          }
+        }
+      }
+    }
+  }
+  
+  .events-content {
+    padding-right: 15px;
+  
+    .sub-title {
+      color: var(--main-color);
+      margin-bottom: 10px;
+      font-weight: 700;
+      display: block;
+    }
+  
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+  
+    .events-list {
+      padding-left: 0;
+      list-style-type: none;
+      margin-top: 50px;
+      margin-bottom: 0;
+  
+      li {
+        position: relative;
+        padding-left: 135px;
+        margin-bottom: 30px;
+  
+        .events-date {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 30px;
+          text-align: center;
+          background-color: var(--optional-color);
+          transition: var(--transition);
+  
+          span {
+            color: var(--white-color);
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+  
+        span {
+          color: var(--main-color);
+          font-weight: 500;
+          display: block;
+          margin-bottom: 15px;
+        }
+  
+        h3 {
+          font-size: 1.5rem;
+          margin-bottom: 12px;
+  
+          a {
+            transition: color 0.3s;
+          }
+        }
+  
+        &:hover {
+          .events-date {
+            background-color: var(--main-color);
+          }
+  
+          h3 a {
+            color: var(--main-color);
+          }
+        }
+  
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+  
+      &.style-two {
+        margin-top: 35px;
+  
+        li {
+          padding: 25px 25px 25px 140px;
+          background-color: #f3f3f4;
+  
+          .events-date {
+            padding: 20px;
+            left: 30px;
+            top: 28px;
+          }
+        }
+      }
+    }
+  }
+  
+  .events-timer {
+    padding: 40px;
+    margin-left: 15px;
+    text-align: center;
+    background-color: var(--optional-color);
+  
+    .event-img-wrapper {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      margin: 0 auto 25px auto;
+  
+      .event-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  
+    span {
+      color: var(--white-color);
+      margin-bottom: 25px;
+      font-size: 18px;
+      display: block;
+    }
+  
+    .timer {
+      .countdown {
+        text-align: center;
+      }
+    }
+  
+    .default-btn {
+      margin-top: 30px;
+    }
+  }
+  
+  .d-none.d-block {
+    display: block !important;
+  }
+  
+
+@media only screen and (max-width: 767px) {
+  .events-timer .timer div {
+    width: 56px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .events-timer .timer div {
+    width: 42px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 6px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .events-timer .timer div {
+    width: 36px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 14px;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .events-timer .timer div {
+    width: 64px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 22px;
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}
